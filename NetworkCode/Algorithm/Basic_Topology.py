@@ -11,7 +11,7 @@ def power_law(x, a, b):
 def read_data():
     # Read the data
     path_to_data = 'C:/Users/Rong/Downloads/ca-GrQc/ca-GrQc.mtx'
-    data = pd.read_csv(path_to_data, delim_whitespace=True, skiprows=2, header=None)
+    data = pd.read_csv(path_to_data, sep='\\s+', skiprows=2, header=None)
     data = data.astype(int)
 
     # Add edges
@@ -184,13 +184,15 @@ def draw_betweenness_centrality_cumulative_distribution(g1, g2):
 
     BC_values_not_repeat = []
     BC_values_cumulative_distribution = []
-    calculate_BC_values_cumulative_distribution(g1)
-    plt.scatter(BC_values_not_repeat, BC_values_cumulative_distribution, c='darkblue', label='Nodes', s=5)
+    calculate_BC_values_cumulative_distribution(g2)
+    plt.scatter(BC_values_not_repeat, BC_values_cumulative_distribution, c='gray', label='Random', s=5)
 
     BC_values_not_repeat = []
     BC_values_cumulative_distribution = []
-    calculate_BC_values_cumulative_distribution(g2)
-    plt.scatter(BC_values_not_repeat, BC_values_cumulative_distribution, c='gray', label='Random', s=5)
+    calculate_BC_values_cumulative_distribution(g1)
+    plt.scatter(BC_values_not_repeat, BC_values_cumulative_distribution, c='darkblue', label='Nodes', s=5)
+
+
 
     plt.yscale("log")
     plt.xlabel("BC")
@@ -211,58 +213,69 @@ def zero_model(g):
     g1 = nx.Graph(g1)
     g1.remove_edges_from(nx.selfloop_edges(g1))
     return g1
-
-
-G = read_data()
-# G = nx.karate_club_graph()
-N = G.number_of_nodes()
-# density = nx.density(G)
-# degree_nodes = dict(G.degree())
-# R = nx.degree_assortativity_coefficient(G)
-
-
 def draw_closeness_centrality_cumulative_distribution(g1,g2):
-    def obtain_CC_values_not_repeat(cc_values):
-        cc_values_not_repeat = list(set(cc_values))
-        cc_values_not_repeat.sort()
-        return cc_values_not_repeat
-    def obtain_CC_values_cumulative_distribution(cc_values_not_repeat):
-        bc_values_cumulative_distribution = []
-        for i in cc_values_not_repeat:
-            bc_values_cumulative_distribution.append(len([x for x in CC_values if x > i]) / len(CC_values))
-        return bc_values_cumulative_distribution
-    # 先算原本的图
-    CC = nx.closeness_centrality(g1)
-    CC_values = list(CC.values())
-    CC_values.sort()
+    CC = list(nx.closeness_centrality(g1).values())
+    CC.sort()
+    P_value = [(len(CC) - x) / len(CC) for x in range(len(CC))]
 
-    CC_values_not_repeat = obtain_CC_values_not_repeat(CC_values)
-    CC_values_cumulative_distribution = obtain_CC_values_cumulative_distribution(CC_values_not_repeat)
-    # print(CC_values_not_repeat)
-    # print(CC_values_cumulative_distribution)
+    CC_zero = list(nx.closeness_centrality(g2).values())
+    CC_zero.sort()
+    P_zero_value = [(len(CC_zero) - x) / len(CC_zero) for x in range(len(CC_zero))]
 
-    plt.scatter(CC_values_not_repeat, CC_values_cumulative_distribution, c='darkblue', label='Nodes', s=5)
-
-    # 再算零模型的图
-    CC_zero = nx.closeness_centrality(g2)
-    CC_values_zero = list(CC_zero.values())
-    CC_values_zero.sort()
-
-    CC_values_not_repeat_zero = obtain_CC_values_not_repeat(CC_values_zero)
-    CC_values_cumulative_distribution_zero = obtain_CC_values_cumulative_distribution(CC_values_not_repeat_zero)
-    # print(CC_values_not_repeat_zero)
-    # print(CC_values_cumulative_distribution_zero)
-
-    plt.scatter(CC_values_not_repeat_zero, CC_values_cumulative_distribution_zero, c='gray', label='Random', s=5)
+    plt.scatter(CC, P_value, c='darkblue', label='Nodes', s=5)
+    plt.scatter(CC_zero, P_zero_value, c='gray', label='Random', s=5)
     plt.yscale("log")
     plt.xlabel("CC")
     plt.ylabel("P(CC>cc)")
     plt.legend()
     plt.show()
+def draw_participation_coefficient(g,communities):
+    '''
+    画出 图的P值 图
+    :param g: 要计算的图
+    :param communities: 图的社团划分
+    :return:
+    '''
+    # 给节点添加 社团ID属性
+    com_ID = 0  # 社团ID
+    for com in communities:
+        for node in com:
+            g.nodes[node]['comID'] = com_ID
+        com_ID += 1
+
+    # 存放每个节点的 P值
+    P_dict = dict.fromkeys(g.nodes(), 0)
+    for com in communities:
+        for node in com:
+            temp = [0] * 8
+            for neighbor in g.neighbors(node):
+                temp[g.nodes[neighbor]['comID']] += 1
+
+            P = 1
+            # 这里是P值的公式 其实就是 熵的概念
+            for i in temp:
+                P -= (i / g.degree[node]) ** 2
+            P_dict[node] = P
+
+    P_value = list(P_dict.values())
+    P_value.sort(reverse=True)
+    plt.scatter(range(len(P_value)), P_value, s=2, c='darkblue')
+    plt.ylabel("P")
+    plt.show()
+
+# G = read_data()
+# # G = nx.karate_club_graph()
+# N = G.number_of_nodes()
+# density = nx.density(G)
+# degree_nodes = dict(G.degree())
+# R = nx.degree_assortativity_coefficient(G)
 
 
 
-G1 = zero_model(G)
+
+
+
+# G1 = zero_model(G)
 
 # draw_length_frequency_distribution(G)
 # draw_closeness_centrality_cumulative_distribution(G,G1)
