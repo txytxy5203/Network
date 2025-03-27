@@ -5,6 +5,8 @@ import networkx as nx
 import sys
 sys.path.append('..')
 import Algorithm.Basic_Topology
+import difflib
+from mpl_toolkits.basemap import Basemap
 
 data_path = 'E:/GLSN/Source Data-Fig. 1d.csv'
 
@@ -31,79 +33,93 @@ Communities = nx.community.louvain_communities(G,seed=123)
 # #     print(len(i),i)
 # # print("Q:",Q)
 
-# # 创建dict 存放每个节点的 Z值和B值 默认值为0
-# inside_module_degree = dict.fromkeys(G.nodes(),0)
-# outside_module_degree = dict.fromkeys(G.nodes(),0)
-#
-# # 遍历社团
-# for com in Communities:
-#     # 遍历节点
-#     for node in com:
-#         # 遍历节点的邻居
-#         for neighbor in G.neighbors(node):
-#             # 邻居在社团内就inside＋1   不在就outside＋1
-#             if neighbor in com:
-#                 inside_module_degree[node] += 1
-#             else:
-#                 outside_module_degree[node] += 1
-#
-# # 减去平均值 再除以标准差
-# inside_module_degree_mean = np.mean(list(inside_module_degree.values()))
-# inside_module_degree_std_dev = np.std(list(inside_module_degree.values()))
-# Z = inside_module_degree.copy()
-# Z = {key : (value- inside_module_degree_mean) / inside_module_degree_std_dev for key,value in Z.items()}
-#
-# outside_module_degree_mean = np.mean(list(outside_module_degree.values()))
-# outside_module_degree_std_dev = np.std(list(outside_module_degree.values()))
-# P = outside_module_degree.copy()
-# P = {key : (value- outside_module_degree_mean) / outside_module_degree_std_dev for key,value in P.items()}
-#
-# P_values = list(P.values())
-# P_values.sort(reverse=True)
-# plt.scatter(range(len(P_values)), P_values, s=2, c='darkblue')
-# plt.xticks([])  # 隐藏刻度线
-# plt.ylabel("P")
-# plt.show()
 
 
-# Z_values = list(Z.values())
-# Z_values.sort(reverse=True)
-# plt.scatter(range(len(Z_values)), Z_values, s=2, c='darkblue')
-# plt.xticks([])  # 隐藏刻度线
-# plt.ylabel("Z")
-# plt.show()
+Latitude = {}
+Longitude = {}
 
-def draw_participation_coefficient(g,communities):
-    '''
-    画出 图的P值 图
-    :param g: 要计算的图
-    :param communities: 图的社团划分
-    :return:
-    '''
-    # 给节点添加 社团ID属性
-    com_ID = 0  # 社团ID
-    for com in communities:
-        for node in com:
-            g.nodes[node]['comID'] = com_ID
-        com_ID += 1
+# 逐行读取txt文档 记录经纬度 有一些点有问题就不读取了
+with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+for line in lines:
+    try:
+        # 去掉行尾的换行符号
+        line = line.strip()
+        # 切分
+        parts = line.split(":")
 
-    # 存放每个节点的 P值
-    P_dict = dict.fromkeys(g.nodes(), 0)
-    for com in communities:
-        for node in com:
-            temp = [0] * 8
-            for neighbor in g.neighbors(node):
-                temp[g.nodes[neighbor]['comID']] += 1
+        # 切分后第一段是港口 第二段是经纬度信息
+        Port = parts[0].strip()
+        coordinates = parts[1].strip()
 
-            P = 1
-            # 这里是P值的公式 其实就是 熵的概念
-            for i in temp:
-                P -= (i / g.degree[node]) ** 2
-            P_dict[node] = P
+        # 因为有一些是泛指 没有经纬度坐标
+        if len(coordinates.split(",")) != 2:
+            raise ValueError("没有具体经纬度坐标")
 
-    P_value = list(P_dict.values())
-    P_value.sort(reverse=True)
-    plt.scatter(range(len(P_value)), P_value, s=2, c='darkblue')
-    plt.ylabel("P")
-    plt.show()
+        latitude = coordinates.split(",")[0].strip()
+        longitude = coordinates.split(",")[1].strip()
 
+        Port = Port[2:]
+
+        sign = latitude[-1]     # 记录latitude最后一个字符是 N还是S
+
+        latitude = latitude[:-2]
+        longitude = longitude[:-2]
+
+        # 如果是 N 则为 ＋  是 S 则为 -
+        latitude = float(latitude) if sign == 'N' else -float(latitude)
+        longitude = float(longitude)
+
+        Latitude[Port] = latitude
+        Longitude[Port] = longitude
+        # print(f"Port: {Port}")
+        # print(f"Latitude: {latitude}")
+        # print(f"Longitude: {longitude}")
+    except ValueError as e:
+        print("没有经纬度坐标")
+
+Latitude_list = []
+Longitude_list = []
+
+Port = []
+
+# 模糊匹配
+for port in G.nodes():
+    matches = difflib.get_close_matches(port, Latitude.keys(), n=1, cutoff=0.5)
+    if matches:
+        matched_port = matches[0]
+        Port.append(port)
+        Latitude_list.append(Latitude[matched_port])
+        Longitude_list.append(Longitude[matched_port])
+
+# print(Port)
+print(len(Port))
+# print(Latitude_list)
+# print(Longitude_list)
+
+Port_Colors = {}    # 存放每个港口的颜色
+Colors = ['red', 'green', 'blue', 'yellow', 'purple', 'orange', 'black', 'gray']
+# 为每个港口 根据社团划分 添加颜色
+for i,com in enumerate(Communities):
+    for port in com:
+        # 这里加一行判断 因为原始数据中有 1386个港口 但是处理后只有 1210个港口有经纬度坐标可以使用
+        # if port in Latitude.keys():
+        Port_Colors[port] = Colors[i]
+print("Port_Colors",Port_Colors)
+print(len(Port_Colors))
+
+
+# 按照画图时港口的顺序 生成一个 Draw_Color list
+Draw_Color = []
+for port in Port:
+    Draw_Color.append(Port_Colors[port])
+
+
+world_map = Basemap()
+world_map.drawcoastlines()
+world_map.drawcounties(color='grey', linewidth=2)
+
+
+x,y = world_map(Longitude_list,Latitude_list)
+world_map.scatter(x, y, marker='o', color=Draw_Color, s=15, zorder=10)
+plt.show()

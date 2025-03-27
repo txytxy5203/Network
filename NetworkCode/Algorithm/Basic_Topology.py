@@ -25,6 +25,7 @@ def draw_degree_frequency_distribution(g):
     :param g: 传入一个图graph
     :画出 度分布图
     '''
+    N = g.number_of_nodes()
 
     degree_frequency_numbers = nx.degree_histogram(g)       # 度的频数
     # [0, 675, 789, 676, 428, 258, 205, 153, 140, 99, 92, 65, 45, 57, 38, 48, 25, 44, 20, 18, 28, 16, 12, ...]
@@ -53,6 +54,8 @@ def draw_degree_frequency_distribution(g):
     plt.legend()
     plt.show()
 def draw_degree_frequency_cumulative_distribution(g):
+
+    N = g.number_of_nodes()
     degree_frequency_numbers = nx.degree_histogram(g)  # 度的频数
     # [0, 675, 789, 676, 428, 258, 205, 153, 140, 99, 92, 65, 45, 57, 38, 48, 25, 44, 20, 18, 28, 16, 12, ...]
     # print(len(nx.degree_histogram(G)))  # 82
@@ -72,7 +75,8 @@ def draw_degree_frequency_cumulative_distribution(g):
     for i in degree_frequency[1:]:
         cumulative_degree_frequency.append(cumulative_degree_frequency[-1] - i)
 
-    plt.scatter(x_degree, cumulative_degree_frequency, c='darkblue', label='Nodes')
+    # 这里画图时 两个list的最后一个元素不要  最后一个累积的频率为0了 画图会出问题
+    plt.scatter(x_degree[:-2], cumulative_degree_frequency[:-2], c='darkblue', label='Nodes')
     plt.xscale("log")
     plt.yscale("log")
     plt.legend()
@@ -222,8 +226,10 @@ def draw_closeness_centrality_cumulative_distribution(g1,g2):
     CC_zero.sort()
     P_zero_value = [(len(CC_zero) - x) / len(CC_zero) for x in range(len(CC_zero))]
 
-    plt.scatter(CC, P_value, c='darkblue', label='Nodes', s=5)
-    plt.scatter(CC_zero, P_zero_value, c='gray', label='Random', s=5)
+    # 从第 2 个开始算起
+    plt.scatter(CC_zero[2:], P_zero_value[2:], c='gray', label='Random', s=5)
+    plt.scatter(CC[2:], P_value[2:], c='darkblue', label='Nodes', s=5)
+
     plt.yscale("log")
     plt.xlabel("CC")
     plt.ylabel("P(CC>cc)")
@@ -261,6 +267,57 @@ def draw_participation_coefficient(g,communities):
     P_value.sort(reverse=True)
     plt.scatter(range(len(P_value)), P_value, s=2, c='darkblue')
     plt.ylabel("P")
+    plt.show()
+def draw_inside_outside_degree(g,communities):
+    '''
+    画出 inside outside degree 的分布图
+    标准化之后的
+    :param g:
+    :return:
+    '''
+    # 创建dict 存放每个节点的 Z值和B值 默认值为0
+    inside_module_degree = dict.fromkeys(g.nodes(), 0)
+    outside_module_degree = dict.fromkeys(g.nodes(), 0)
+
+    # 遍历社团
+    for com in communities:
+        # 遍历节点
+        for node in com:
+            # 遍历节点的邻居
+            for neighbor in g.neighbors(node):
+                # 邻居在社团内就inside＋1   不在就outside＋1
+                if neighbor in com:
+                    inside_module_degree[node] += 1
+                else:
+                    outside_module_degree[node] += 1
+
+    # 减去平均值 再除以标准差
+    inside_module_degree_mean = np.mean(list(inside_module_degree.values()))
+    inside_module_degree_std_dev = np.std(list(inside_module_degree.values()))
+    Z = inside_module_degree.copy()
+    Z = {key: (value - inside_module_degree_mean) / inside_module_degree_std_dev for key, value in Z.items()}
+
+    outside_module_degree_mean = np.mean(list(outside_module_degree.values()))
+    outside_module_degree_std_dev = np.std(list(outside_module_degree.values()))
+    B = outside_module_degree.copy()
+    B = {key: (value - outside_module_degree_mean) / outside_module_degree_std_dev for key, value in B.items()}
+
+    B_values = list(B.values())
+    B_values.sort(reverse=True)
+
+    plt.figure()
+    plt.scatter(range(len(B_values)), B_values, s=2, c='darkblue')
+    plt.xticks([])  # 隐藏刻度线
+    plt.ylabel("B")
+    plt.show()
+
+    Z_values = list(Z.values())
+    Z_values.sort(reverse=True)
+
+    plt.figure()
+    plt.scatter(range(len(Z_values)), Z_values, s=2, c='darkblue')
+    plt.xticks([])  # 隐藏刻度线
+    plt.ylabel("Z")
     plt.show()
 
 # G = read_data()
