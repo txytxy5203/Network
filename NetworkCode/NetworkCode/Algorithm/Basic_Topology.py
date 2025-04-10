@@ -362,7 +362,23 @@ def draw_degree_strength(g):
     plt.yscale('log')
     plt.xscale('log')
     plt.show()
+def draw_strength_frequency_distribution(g):
+    N = g.number_of_nodes()
+    # 计算每个节点的强度
+    port_strengths = {node: val for (node, val) in g.degree(weight='weight')}
 
+    strengths = port_strengths.values()
+    # 统计每个强度出现的次数
+    strengths_counts = Counter(strengths)
+    sorted_strengths_counts = sorted(strengths_counts.items(), key=lambda item: item[0])
+    strengths_counts_frequency = {key: value / N for key, value in strengths_counts.items()}
+
+    plt.scatter(list(strengths_counts_frequency.keys()), list(strengths_counts_frequency.values()), s=2, c='darkblue')
+    plt.xscale("log")
+    plt.yscale("log")
+    plt.xlabel("strength")
+    plt.ylabel("P(K=k)")
+    plt.show()
 
 # G = read_data()
 # # G = nx.karate_club_graph()
@@ -370,10 +386,6 @@ def draw_degree_strength(g):
 # density = nx.density(G)
 # degree_nodes = dict(G.degree())
 # R = nx.degree_assortativity_coefficient(G)
-
-
-
-
 
 
 # G1 = zero_model(G)

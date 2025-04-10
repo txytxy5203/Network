@@ -6,9 +6,6 @@ import networkx as nx
 import sys
 from collections import Counter
 from mpl_toolkits.basemap import Basemap
-
-from Algorithm.K_Shell import degree
-
 sys.path.append('..')
 import Algorithm.Basic_Topology
 import Algorithm.Map
@@ -74,12 +71,6 @@ def output_nodes():
 
 
 
-# Algorithm.Basic_Topology.basic_topology_metrics(G_2019)
-# Algorithm.Map.draw_world_ports_degree_heat_map(G_2019)
-# communities = nx.community.louvain_communities(G_2019, seed=123)
-# Algorithm.Map.draw_world_ports_communities_map(G_2019, communities)
-# print(nx.community.modularity(G_2019, communities))
-
 
 # 读取csv文件 并 保存成 edgelist 格式的图文件
 # ReadDataAndSave()
@@ -88,114 +79,120 @@ def output_nodes():
 # 加权网络的读取
 G = nx.read_weighted_edgelist("graph_weighted.edgelist",nodetype=str, delimiter=':')
 # G_null = nx.double_edge_swap(G.copy(), nswap=10000, max_tries=50000, seed=1)
+# community = nx.community.louvain_communities(G, seed=123)
+# Algorithm.Map.draw_world_ports_communities_map(G, community)
+# print(nx.community.modularity(G, community))
 
-#
-#
-# N = G_weighted.number_of_nodes()
-# # 计算每个节点的强度
-# port_strengths = {node: val for (node, val) in G_weighted.degree(weight='weight')}
-#
-# strengths = port_strengths.values()
-#
-# strengths_counts = Counter(strengths)
-# print(strengths_counts)
-#
-# # sorted_strengths_counts = sorted(strengths_counts.items(), key=lambda item: item[0])
-# # print(sorted_strengths_counts)
-# # print(sum(strengths_counts.values()))
-#
-# # strengths_counts_frequency = {key : value / N for key,value in strengths_counts.items()}
-# # print(strengths_counts_frequency)
-# #
-# # plt.scatter(list(strengths_counts_frequency.keys()), list(strengths_counts_frequency.values()), s=2, c='darkblue')
-# # plt.xscale("log")
-# # plt.yscale("log")
-# # plt.xlabel("strength")
-# # plt.ylabel("P(K=k)")
-# # plt.show()
-#
-# BC = nx.betweenness_centrality(G_weighted)
-# print(BC)
-# BC_weighted = nx.betweenness_centrality(G_weighted, weight='weight')
-# print(BC_weighted)
+# nx.write_edgelist(G, "gephi.edges", data=False, delimiter=';')
+
+# 绘制大圆航线
+# map.drawgreatcircle(lon1, lat1, lon2, lat2, linewidth=2, color='b')
+
+
+Latitude = {}
+Longitude = {}
+
+# 逐行读取txt文档 记录经纬度 有一些Ports有问题就不读取了
+with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+for line in lines:
+    try:
+        # 去掉行尾的换行符号
+        line = line.strip()
+        # 切分
+        parts = line.split(":")
+
+        # 切分后第一段是港口 第二段是经纬度信息
+        Port = parts[0].strip()
+        coordinates = parts[1].strip()
+
+        # 因为有一些是泛指 没有经纬度坐标
+        if len(coordinates.split(",")) != 2:
+            raise ValueError("没有具体经纬度坐标")
+
+        latitude = coordinates.split(",")[0].strip()
+        longitude = coordinates.split(",")[1].strip()
+
+        Port = Port[2:]
+
+        sign = latitude[-1]  # 记录latitude最后一个字符是 N还是S
+
+        latitude = latitude[:-2]
+        longitude = longitude[:-2]
+
+        # 如果是 N 则为 ＋  是 S 则为 -
+        latitude = float(latitude) if sign == 'N' else -float(latitude)
+        longitude = float(longitude)
+
+        Latitude[Port] = latitude
+        Longitude[Port] = longitude
+        # print(f"Port: {Port}")
+        # print(f"Latitude: {latitude}")
+        # print(f"Longitude: {longitude}")
+    except ValueError as e:
+        pass  # 异常后什么都不执行
+# Panama_port = []
+# 这里先暂时这样直接给出  后续还是要仔细地洗一边数据
+
+
+world_map = Basemap()
+
+# try:
+#     for node in G.nodes():
+#         for neighbor in G.neighbors(node):
+#             world_map.drawgreatcircle(Longitude[node], Latitude[node], Longitude[neighbor], Latitude[neighbor],
+#                               linewidth=0.5, color='blue')
+# except KeyError as k:
+#     pass
+
+
+
+for node in G.nodes():
+    for neighbor in G.neighbors(node):
+        # 确保节点和邻居的经纬度信息都存在
+        if node in Longitude and neighbor in Longitude and node in Latitude and neighbor in Latitude:
+            x1, y1 = world_map(Longitude[node], Latitude[node])
+            x2, y2 = world_map(Longitude[neighbor], Latitude[neighbor])
+            # world_map.drawgreatcircle(x1, y1, x2, y2, linewidth=0.5, color='blue')
+            world_map.plot([x1,x2],[y1,y2], linewidth=0.1, color='b')
+
+
+
+# 绘制地图边界，并设置背景颜色为灰色（海洋颜色）
+world_map.drawmapboundary(fill_color='#D0CFD4')
+world_map.fillcontinents(color='#EFEFEF', lake_color='#D0CFD4')
+world_map.drawcoastlines()
+
+# 画 Panama_port
+Latitude_nodes = [Latitude.get(port, None) for port in G.nodes()]
+Longitude_nodes = [Longitude.get(port, None) for port in G.nodes()]
+x, y = world_map(Longitude_nodes, Latitude_nodes)
+world_map.scatter(x, y, marker='o', s=5, zorder=10, color='darkblue')
+
+
+plt.show()
+# plt.savefig("../Figure/Panama.svg", dpi=300, format='svg')
+
+
+
+
+
+
+
+
+
+
 # # endTime = time.time()
 # # print("usedTime:",endTime-startTime)
 
-degree = dict(G.degree())
-sorted_degree = dict(sorted(degree.items(), key=lambda item: item[1], reverse=True))
-print(sorted_degree)
 
-# #
+# degree = dict(G.degree())
+# sorted_degree = dict(sorted(degree.items(), key=lambda item: item[1], reverse=True))
+# print(sorted_degree)
+
 # BC = nx.betweenness_centrality(G)
 # sorted_BC = dict(sorted(BC.items(), key=lambda item: item[1], reverse=True))
 # print(sorted_BC)
-
-
-
-# CC = nx.closeness_centrality(G)
-# sorted_CC = dict(sorted(CC.items(), key=lambda item: item[1], reverse=True))
-# print(sorted_CC)
-Algorithm.Map.draw_world_ports_degree_heat_map(G,degree)
-
-
-# Latitude = {}
-# Longitude = {}
-#
-# # 逐行读取txt文档 记录经纬度 有一些Ports有问题就不读取了
-# with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
-#     lines = file.readlines()
-# for line in lines:
-#     try:
-#         # 去掉行尾的换行符号
-#         line = line.strip()
-#         # 切分
-#         parts = line.split(":")
-#
-#         # 切分后第一段是港口 第二段是经纬度信息
-#         Port = parts[0].strip()
-#         coordinates = parts[1].strip()
-#
-#         # 因为有一些是泛指 没有经纬度坐标
-#         if len(coordinates.split(",")) != 2:
-#             raise ValueError("没有具体经纬度坐标")
-#
-#         latitude = coordinates.split(",")[0].strip()
-#         longitude = coordinates.split(",")[1].strip()
-#
-#         Port = Port[2:]
-#
-#         sign = latitude[-1]  # 记录latitude最后一个字符是 N还是S
-#
-#         latitude = latitude[:-2]
-#         longitude = longitude[:-2]
-#
-#         # 如果是 N 则为 ＋  是 S 则为 -
-#         latitude = float(latitude) if sign == 'N' else -float(latitude)
-#         longitude = float(longitude)
-#
-#         Latitude[Port] = latitude
-#         Longitude[Port] = longitude
-#         # print(f"Port: {Port}")
-#         # print(f"Latitude: {latitude}")
-#         # print(f"Longitude: {longitude}")
-#     except ValueError as e:
-#         pass  # 异常后什么都不执行
-#
-# world_map = Basemap()
-# # 绘制地图边界，并设置背景颜色为灰色（海洋颜色）
-# world_map.drawmapboundary(fill_color='#D0CFD4')
-# world_map.fillcontinents(color='#EFEFEF', lake_color='#D0CFD4')
-# world_map.drawcoastlines()
-#
-# # 在经纬度字典查找 G.nodes()
-# Latitude_nodes = [Latitude.get(port, None) for port in g.nodes()]
-# Longitude_nodes = [Longitude.get(port, None) for port in g.nodes()]
-#
-# x, y = world_map(Longitude_nodes, Latitude_nodes)
-# scatter = world_map.scatter(x, y, marker='o', s=3, zorder=10, color='darkblue')
-#
-#
-# plt.show()
 
 # CC = nx.closeness_centrality(G)
 # sorted_CC = dict(sorted(CC.items(), key=lambda item: item[1], reverse=True))

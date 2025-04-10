@@ -59,8 +59,9 @@ def draw_world_ports_communities_map(g, communities):
             pass  # 异常后什么都不执行
 
     Port_Colors = {}  # 存放每个港口的颜色
-    Colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'black']
-    # Colors = ['white', 'white','white', 'white','white', 'red','white']
+    # Colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'black']
+    Colors = ['#670096', '#d78306', '#f205c1', '#3ba91e', '#0068d7', '#e64a03', '#020202', '#CCCCCC']
+    # Colors = ['white', 'white', 'white', 'white', 'white', 'white', 'white', '#CCCCCC']
 
     for i, com in enumerate(communities):
         for port in com:
@@ -172,3 +173,146 @@ def draw_world_ports_degree_heat_map(g, centrality):
     colorbar = plt.colorbar(scatter, orientation='vertical', pad=0.05, shrink=0.7)
     colorbar.set_label('Node Degree (log-scaled)')
     plt.show()
+def draw_world_ports_map(g):
+    Latitude = {}
+    Longitude = {}
+
+    # 逐行读取txt文档 记录经纬度 有一些Ports有问题就不读取了
+    with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    for line in lines:
+        try:
+            # 去掉行尾的换行符号
+            line = line.strip()
+            # 切分
+            parts = line.split(":")
+
+            # 切分后第一段是港口 第二段是经纬度信息
+            Port = parts[0].strip()
+            coordinates = parts[1].strip()
+
+            # 因为有一些是泛指 没有经纬度坐标
+            if len(coordinates.split(",")) != 2:
+                raise ValueError("没有具体经纬度坐标")
+
+            latitude = coordinates.split(",")[0].strip()
+            longitude = coordinates.split(",")[1].strip()
+
+            Port = Port[2:]
+
+            sign = latitude[-1]  # 记录latitude最后一个字符是 N还是S
+
+            latitude = latitude[:-2]
+            longitude = longitude[:-2]
+
+            # 如果是 N 则为 ＋  是 S 则为 -
+            latitude = float(latitude) if sign == 'N' else -float(latitude)
+            longitude = float(longitude)
+
+            Latitude[Port] = latitude
+            Longitude[Port] = longitude
+            # print(f"Port: {Port}")
+            # print(f"Latitude: {latitude}")
+            # print(f"Longitude: {longitude}")
+        except ValueError as e:
+            pass  # 异常后什么都不执行
+
+    world_map = Basemap()
+    # 绘制地图边界，并设置背景颜色为灰色（海洋颜色）
+    world_map.drawmapboundary(fill_color='#D0CFD4')
+    world_map.fillcontinents(color='#EFEFEF', lake_color='#D0CFD4')
+    world_map.drawcoastlines()
+
+    # 在经纬度字典查找 G.nodes()
+    Latitude_nodes = [Latitude.get(port, None) for port in g.nodes()]
+    Longitude_nodes = [Longitude.get(port, None) for port in g.nodes()]
+
+    x, y = world_map(Longitude_nodes, Latitude_nodes)
+    scatter = world_map.scatter(x, y, marker='o', s=3, zorder=10, color='darkblue')
+    plt.show()
+def draw_Panama_map(g):
+
+    Latitude = {}
+    Longitude = {}
+
+    # 逐行读取txt文档 记录经纬度 有一些Ports有问题就不读取了
+    with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    for line in lines:
+        try:
+            # 去掉行尾的换行符号
+            line = line.strip()
+            # 切分
+            parts = line.split(":")
+
+            # 切分后第一段是港口 第二段是经纬度信息
+            Port = parts[0].strip()
+            coordinates = parts[1].strip()
+
+            # 因为有一些是泛指 没有经纬度坐标
+            if len(coordinates.split(",")) != 2:
+                raise ValueError("没有具体经纬度坐标")
+
+            latitude = coordinates.split(",")[0].strip()
+            longitude = coordinates.split(",")[1].strip()
+
+            Port = Port[2:]
+
+            sign = latitude[-1]  # 记录latitude最后一个字符是 N还是S
+
+            latitude = latitude[:-2]
+            longitude = longitude[:-2]
+
+            # 如果是 N 则为 ＋  是 S 则为 -
+            latitude = float(latitude) if sign == 'N' else -float(latitude)
+            longitude = float(longitude)
+
+            Latitude[Port] = latitude
+            Longitude[Port] = longitude
+            # print(f"Port: {Port}")
+            # print(f"Latitude: {latitude}")
+            # print(f"Longitude: {longitude}")
+        except ValueError as e:
+            pass  # 异常后什么都不执行
+    # Panama_port = []
+    # 这里先暂时这样直接给出  后续还是要仔细地洗一边数据
+    Panama_port = ['Cristobal, Panama', 'Manzanillo, Panama', 'Balboa, Panama', 'Armuelles, Panama',
+                   'Panama Canal Caribbean, Panama', 'Panama Canal  Pacific, Panama',
+                   'Chiriqui Grande Terminal, Panama', 'Bahia De Las Minas, Panama', 'Aguadulce, Panama',
+                   'Coco Solo, Panama']
+    Panama_color = []
+    Neighbor_port = []
+    Neighbor_color = []
+
+    world_map = Basemap(llcrnrlon=-170, llcrnrlat=0,
+                        urcrnrlon=-55, urcrnrlat=55)
+
+    for node in Panama_port:
+        Panama_color.append('darkblue')
+        for neighbor in g.neighbors(node):
+            if neighbor != 'nan':
+                world_map.drawgreatcircle(Longitude[node], Latitude[node], Longitude[neighbor], Latitude[neighbor],
+                                          linewidth=0.5, color='blue')
+                Neighbor_port.append(neighbor)
+                Neighbor_color.append('red')
+
+    # # world_map = Basemap()
+    # 绘制地图边界，并设置背景颜色为灰色（海洋颜色）
+    world_map.drawmapboundary(fill_color='#D0CFD4')
+    world_map.fillcontinents(color='#EFEFEF', lake_color='#D0CFD4')
+    world_map.drawcoastlines()
+
+    # 画 Panama_port
+    Latitude_nodes = [Latitude.get(port, None) for port in Panama_port]
+    Longitude_nodes = [Longitude.get(port, None) for port in Panama_port]
+    x, y = world_map(Longitude_nodes, Latitude_nodes)
+    world_map.scatter(x, y, marker='o', s=5, zorder=10, color=Panama_color)
+
+    # 画 Panama_neighbor_port
+    Latitude_nodes = [Latitude.get(port, None) for port in Neighbor_port]
+    Longitude_nodes = [Longitude.get(port, None) for port in Neighbor_port]
+    x, y = world_map(Longitude_nodes, Latitude_nodes)
+    world_map.scatter(x, y, marker='o', s=5, zorder=10, color=Neighbor_color)
+
+    plt.show()
+    # plt.savefig("../Figure/Panama.svg", dpi=300, format='svg')
