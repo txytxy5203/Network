@@ -1,5 +1,5 @@
 - Busan, South Korea: 35.18°N, 129.0752°E
-- Port of Long Beach, Long Beach, California: 33.7563°N, 118.2176°W
+- Port of Long Beach, Long Beach, California: 33.7563°N, -118.2176°W
 - New York/Newark Area, Newark, New Jersey: 40.7357°N, -74.1724°W
 - Jacksonville, Florida: 30.3322°N, -81.6556°W
 - The Port of Charleston, Charleston, South Carolina: 32.7764°N, -79.9311°W

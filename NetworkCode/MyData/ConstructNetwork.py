@@ -1,8 +1,9 @@
 import pandas as pd
 import networkx as nx
 from mpl_toolkits.basemap import Basemap
-import MyData.Main
 import matplotlib.pyplot as plt
+
+# !!! 这里的USImport数据并没有全部导出 而且这里的数据不是2019年的
 
 data_path = 'E:/panjivaUSImport.csv'
 
@@ -52,8 +53,13 @@ G.remove_node('Portland International Airport, Portland, Washington')
 G.remove_node('Gateway Freight Services Inc., Los Angeles, California')
 
 Communities = nx.community.louvain_communities(G, seed=123, resolution=1.1)
+print(nx.community.modularity(G, Communities))
 
 print(len(Communities))
+G_1 = nx.double_edge_swap(G.copy(), nswap=30000, max_tries=100000, seed=1)
+G_2 = nx.double_edge_swap(G.copy(), nswap=30000, max_tries=100000, seed=2)
+
+
 
 Latitude = {}
 Longitude = {}
@@ -140,22 +146,3 @@ world_map.drawcoastlines()
 x,y = world_map(Longitude_nodes,Latitude_nodes)
 world_map.scatter(x, y, marker='o', color=Draw_Color, s=10, zorder=10)
 plt.show()
-
-
-
-
-
-
-
-
-N = G.number_of_nodes()
-M = G.number_of_edges()
-R = nx.degree_assortativity_coefficient(G)
-C = nx.average_clustering(G)
-# L = nx.average_shortest_path_length(G)
-L = MyData.Main.average_shortest_path_length_largest_component(G)
-print("N:",N)
-print("M:",M)
-print("<Knn>:",R)
-print("<C>:",C)
-print("<L>",L)

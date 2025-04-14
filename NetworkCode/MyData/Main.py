@@ -1,19 +1,25 @@
+import matplotlib.pyplot as plt
 import pandas as pd
 import csv
 import time
 import networkx as nx
 import sys
+from collections import Counter
+from mpl_toolkits.basemap import Basemap
 sys.path.append('..')
 import Algorithm.Basic_Topology
+import Algorithm.Map
 
 # startTime = time.time()
 
 def ReadDataAndSave():
-    data_path = 'E:/panjivaUSImport2019.csv'
+    data_path = 'E:/panjivaUSImport2019vessels.csv'
     # 原文件列名有点问题 不对应
     # df = pd.read_csv(data_path, usecols=['shpmtDestinationRegion', 'portOfUnladingRegion'])
     df = pd.read_csv(data_path, header=None)
 
+    # 删除包含null值的行
+    df.dropna(inplace=True)
     # item = df.memory_usage(deep=True)
     # print(item.sum() / (1024 ** 2))  # 查看内存占用
     # print(df.head())
@@ -23,7 +29,7 @@ def ReadDataAndSave():
     # Add edges
     G = nx.Graph()
     for index, row in df.iterrows():
-        start, end = row[1], row[0]
+        start, end = row[1], row[2]
         if G.has_edge(start, end):
             G[start][end]['weight'] += 1
         else:
@@ -31,16 +37,7 @@ def ReadDataAndSave():
     # print(G.nodes())
     #
     # 保存成边列表文件  这里没有保存权重
-    nx.write_edgelist(G, "graph.edgelist", data=False,delimiter=':')
-def average_shortest_path_length_largest_component(g):
-    '''
-
-    :param g: 传入图
-    :return:  最大连通分量的平均最短路径
-    '''
-    largest_component = max(nx.connected_components(g), key=len)  # 提取最大连通分量
-    largest_subgraph = g.subgraph(largest_component)
-    return nx.average_shortest_path_length(largest_subgraph)
+    nx.write_weighted_edgelist(G, "../Data/USExport2019/USImport2019.edgelist", comments='#', delimiter=':', encoding='utf-8')
 def output_nodes():
     '''
     输出 一个csv文件  包含所有节点的名称
@@ -59,30 +56,144 @@ def output_nodes():
 
     print(f"数据已成功写入 {output_file}")
 
+
+# G_Export = nx.read_weighted_edgelist("../Data/USExport2019/USExport2019.edgelist", nodetype=str, delimiter=':')
+# G_Import = nx.read_edgelist("graph.edgelist", nodetype=str, delimiter=':')
+
+
+
+# G_2019 = nx.Graph()
+# G_2019.add_nodes_from(G_Import.nodes())
+# G_2019.add_edges_from(G_Import.edges())
+# G_2019.add_nodes_from(G_Export.nodes())
+# G_2019.add_edges_from(G_Export.edges())
+
+
+
+
+
 # 读取csv文件 并 保存成 edgelist 格式的图文件
 # ReadDataAndSave()
+# # G1 = Algorithm.Basic_Topology.zero_model(G)       # 生成一个零模型
 
-# G = nx.read_edgelist("graph.edgelist",nodetype=str, delimiter=':')
-# G1 = Algorithm.Basic_Topology.zero_model(G)       # 生成一个零模型
+# 加权网络的读取
+G = nx.read_weighted_edgelist("graph_weighted.edgelist",nodetype=str, delimiter=':')
+# G_null = nx.double_edge_swap(G.copy(), nswap=10000, max_tries=50000, seed=1)
+# community = nx.community.louvain_communities(G, seed=123)
+# Algorithm.Map.draw_world_ports_communities_map(G, community)
+# print(nx.community.modularity(G, community))
 
+# nx.write_edgelist(G, "gephi.edges", data=False, delimiter=';')
 
-# N = G.number_of_nodes()
-# M = G.number_of_edges()
-# R = nx.degree_assortativity_coefficient(G)
-# C = nx.average_clustering(G)
-# # L = nx.average_shortest_path_length(G)
-# L = average_shortest_path_length_largest_component(G)  # 最大连通分支的平均最短路径
-# print("N:",N)
-# print("M:",M)
-# print("<Knn>:",R)
-# print("<C>:",C)
-# print("<L>",L)
+# 绘制大圆航线
+# map.drawgreatcircle(lon1, lat1, lon2, lat2, linewidth=2, color='b')
 
 
+Latitude = {}
+Longitude = {}
+
+# 逐行读取txt文档 记录经纬度 有一些Ports有问题就不读取了
+with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
+    lines = file.readlines()
+for line in lines:
+    try:
+        # 去掉行尾的换行符号
+        line = line.strip()
+        # 切分
+        parts = line.split(":")
+
+        # 切分后第一段是港口 第二段是经纬度信息
+        Port = parts[0].strip()
+        coordinates = parts[1].strip()
+
+        # 因为有一些是泛指 没有经纬度坐标
+        if len(coordinates.split(",")) != 2:
+            raise ValueError("没有具体经纬度坐标")
+
+        latitude = coordinates.split(",")[0].strip()
+        longitude = coordinates.split(",")[1].strip()
+
+        Port = Port[2:]
+
+        sign = latitude[-1]  # 记录latitude最后一个字符是 N还是S
+
+        latitude = latitude[:-2]
+        longitude = longitude[:-2]
+
+        # 如果是 N 则为 ＋  是 S 则为 -
+        latitude = float(latitude) if sign == 'N' else -float(latitude)
+        longitude = float(longitude)
+
+        Latitude[Port] = latitude
+        Longitude[Port] = longitude
+        # print(f"Port: {Port}")
+        # print(f"Latitude: {latitude}")
+        # print(f"Longitude: {longitude}")
+    except ValueError as e:
+        pass  # 异常后什么都不执行
+# Panama_port = []
+# 这里先暂时这样直接给出  后续还是要仔细地洗一边数据
+
+
+world_map = Basemap()
+
+# try:
+#     for node in G.nodes():
+#         for neighbor in G.neighbors(node):
+#             world_map.drawgreatcircle(Longitude[node], Latitude[node], Longitude[neighbor], Latitude[neighbor],
+#                               linewidth=0.5, color='blue')
+# except KeyError as k:
+#     pass
+
+
+
+for node in G.nodes():
+    for neighbor in G.neighbors(node):
+        # 确保节点和邻居的经纬度信息都存在
+        if node in Longitude and neighbor in Longitude and node in Latitude and neighbor in Latitude:
+            x1, y1 = world_map(Longitude[node], Latitude[node])
+            x2, y2 = world_map(Longitude[neighbor], Latitude[neighbor])
+            # world_map.drawgreatcircle(x1, y1, x2, y2, linewidth=0.5, color='blue')
+            world_map.plot([x1,x2],[y1,y2], linewidth=0.1, color='b')
+
+
+
+# 绘制地图边界，并设置背景颜色为灰色（海洋颜色）
+world_map.drawmapboundary(fill_color='#D0CFD4')
+world_map.fillcontinents(color='#EFEFEF', lake_color='#D0CFD4')
+world_map.drawcoastlines()
+
+# 画 Panama_port
+Latitude_nodes = [Latitude.get(port, None) for port in G.nodes()]
+Longitude_nodes = [Longitude.get(port, None) for port in G.nodes()]
+x, y = world_map(Longitude_nodes, Latitude_nodes)
+world_map.scatter(x, y, marker='o', s=5, zorder=10, color='darkblue')
+
+
+plt.show()
+# plt.savefig("../Figure/Panama.svg", dpi=300, format='svg')
 
 
 
 
 
-# endTime = time.time()
-# print("usedTime:",endTime-startTime)
+
+
+
+
+
+# # endTime = time.time()
+# # print("usedTime:",endTime-startTime)
+
+
+# degree = dict(G.degree())
+# sorted_degree = dict(sorted(degree.items(), key=lambda item: item[1], reverse=True))
+# print(sorted_degree)
+
+# BC = nx.betweenness_centrality(G)
+# sorted_BC = dict(sorted(BC.items(), key=lambda item: item[1], reverse=True))
+# print(sorted_BC)
+
+# CC = nx.closeness_centrality(G)
+# sorted_CC = dict(sorted(CC.items(), key=lambda item: item[1], reverse=True))
+# print(sorted_CC)

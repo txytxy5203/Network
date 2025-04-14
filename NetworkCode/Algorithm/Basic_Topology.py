@@ -79,6 +79,8 @@ def draw_degree_frequency_cumulative_distribution(g):
     plt.scatter(x_degree[:-2], cumulative_degree_frequency[:-2], c='darkblue', label='Nodes')
     plt.xscale("log")
     plt.yscale("log")
+    plt.xlabel("K")
+    plt.ylabel("P(K>k)")
     plt.legend()
     plt.show()
 def draw_length_frequency_distribution(g):
@@ -319,6 +321,64 @@ def draw_inside_outside_degree(g,communities):
     plt.xticks([])  # 隐藏刻度线
     plt.ylabel("Z")
     plt.show()
+def basic_topology_metrics(g):
+    '''
+    网络的基础拓扑指标
+    :param g:
+    :return:
+    '''
+    N = g.number_of_nodes()
+    M = g.number_of_edges()
+    R = nx.degree_assortativity_coefficient(g)
+    C = nx.average_clustering(g)
+    # L = nx.average_shortest_path_length(G)
+    L = average_shortest_path_length_largest_component(g)  # 最大连通分支的平均最短路径
+    print("N:", N)
+    print("M:", M)
+    print("<Knn>:", R)
+    print("<C>:", C)
+    print("<L>", L)
+def average_shortest_path_length_largest_component(g):
+    '''
+
+    :param g: 传入图
+    :return:  最大连通分量的平均最短路径
+    '''
+    largest_component = max(nx.connected_components(g), key=len)  # 提取最大连通分量
+    largest_subgraph = g.subgraph(largest_component)
+    return nx.average_shortest_path_length(largest_subgraph)
+def draw_degree_strength(g):
+    '''
+    得到度值和强度的关系图
+    :param g: 传入一个有权图
+    :return:
+    '''
+    degree = dict(g.degree())
+    strength = dict(g.degree(weight='weight'))
+
+    plt.scatter(list(degree.values()), list(strength.values()), s=2, color='darkblue')
+    plt.xlabel('Degree')
+    plt.ylabel('Strength')
+    plt.yscale('log')
+    plt.xscale('log')
+    plt.show()
+def draw_strength_frequency_distribution(g):
+    N = g.number_of_nodes()
+    # 计算每个节点的强度
+    port_strengths = {node: val for (node, val) in g.degree(weight='weight')}
+
+    strengths = port_strengths.values()
+    # 统计每个强度出现的次数
+    strengths_counts = Counter(strengths)
+    sorted_strengths_counts = sorted(strengths_counts.items(), key=lambda item: item[0])
+    strengths_counts_frequency = {key: value / N for key, value in strengths_counts.items()}
+
+    plt.scatter(list(strengths_counts_frequency.keys()), list(strengths_counts_frequency.values()), s=2, c='darkblue')
+    plt.xscale("log")
+    plt.yscale("log")
+    plt.xlabel("strength")
+    plt.ylabel("P(K=k)")
+    plt.show()
 
 # G = read_data()
 # # G = nx.karate_club_graph()
@@ -326,10 +386,6 @@ def draw_inside_outside_degree(g,communities):
 # density = nx.density(G)
 # degree_nodes = dict(G.degree())
 # R = nx.degree_assortativity_coefficient(G)
-
-
-
-
 
 
 # G1 = zero_model(G)
