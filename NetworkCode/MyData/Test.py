@@ -6,7 +6,9 @@ import sys
 
 sys.path.append('..')
 import Algorithm.Basic_Topology
+import Algorithm.Draw
 from mpl_toolkits.basemap import Basemap
+
 
 def Read_and_save_port_region():
     data_path = 'E:/panjivaUSImport.csv'
@@ -84,81 +86,10 @@ for line in lines:
     except ValueError as e:
         pass  # 异常后什么都不执行
 
-# 读取port位置区域
-port_Region = {}
-with open('../Data/port_Region.csv', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-for line in lines:
-    # 去掉行尾的换行符号
-    line = line.strip()
-    # 切分
-    parts = line.split(";")
 
-    # 切分后第一段是港口 第二段是区域信息
-    Port = parts[0].strip()
-    Region = parts[1].strip()
-    port_Region[Port] = Region
-del port_Region['portOfLading']
+Algorithm.Draw.draw_The_proportion_of_the_number_of_transactions_on_each_continent()
 
 
-# G = nx.read_weighted_edgelist("graph_weighted.edgelist",nodetype=str, delimiter=':')
-
-data_path = 'E:/panjivaUSImport2019.csv'
-# 原文件列名有点问题 不对应
-# df = pd.read_csv(data_path, usecols=['shpmtDestinationRegion', 'portOfUnladingRegion'])
-# df = pd.read_csv(data_path, usecols=['orderId','shpmtDestinationRegion', 'portOfUnladingRegion'])     #
-df = pd.read_csv(data_path)     # 2019年的数据用这个
-df.columns = ['portOfUnlading', 'portOfLading']
-
-
-# 删除包含null值的行
-df.dropna(inplace=True)
-# # 删除完全相同的行 注意这里 别用错了
-# df = df.drop_duplicates()
-
-region_trade_counts = {}
-
-for row in df.itertuples():
-    try:
-        if port_Region[row.portOfLading] not in region_trade_counts:
-            region_trade_counts[port_Region[row.portOfLading]] = 1
-        else:
-            region_trade_counts[port_Region[row.portOfLading]] += 1
-    except KeyError as k:
-        # print(k)
-        pass
-
-print(sum(region_trade_counts.values()))
-print(region_trade_counts)
-
-# 计算占比
-region_trade_portion = {key : value / sum(region_trade_counts.values())
-                        for key, value in region_trade_counts.items()}
-print(region_trade_portion)
-
-
-
-# 提取标签和值
-labels = list(region_trade_portion.keys())
-values = list(region_trade_portion.values())
-
-# 创建柱状图
-plt.figure(figsize=(10, 6))
-plt.bar(labels, values, color='skyblue')
-plt.title('Proportion of Departure Ports by Continent')
-plt.xlabel('Continent')
-plt.ylabel('Proportion')
-plt.xticks(rotation=45)
-plt.grid(axis='y', linestyle='--', alpha=0.7)
-
-# 显示图表
-plt.show()
-
-
-
-# strength = dict(G.degree(weight="weight"))
-# sorted_strength = dict(sorted(strength.items(), key=lambda item: item[1], reverse=True))
-# print(sorted_strength)
 
 
 

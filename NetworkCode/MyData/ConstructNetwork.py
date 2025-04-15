@@ -3,12 +3,12 @@ import networkx as nx
 from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 
-# !!! 这里的USImport数据并没有全部导出 而且这里的数据不是2019年的
 
-data_path = 'E:/panjivaUSImport.csv'
 
-df = pd.read_csv(data_path, nrows=10000000, usecols=['shpmtDestinationRegion','portOfUnladingRegion','transportMethod'])
-df.columns = ['portOfUnlading','portOfLading','vessel']
+data_path = 'E:/panjivaUSImport2019vessels.csv'
+
+df = pd.read_csv(data_path, header=None)
+df.columns = ['arrivalDate','portOfUnlading','portOfLading','vessel']
 # 剔除重复数据
 df_unique = df.drop_duplicates()
 
@@ -47,20 +47,22 @@ for index, row in df_unique.iterrows():
         continue
     else:
         G.add_edge(start, end)
-G.remove_node('Columbia Metropolitan Airport., Columbia, South Carolina')
-G.remove_node('Will Rogers World Airport, Oklahoma City, Oklahoma')
-G.remove_node('Portland International Airport, Portland, Washington')
-G.remove_node('Gateway Freight Services Inc., Los Angeles, California')
+# G.remove_node('Columbia Metropolitan Airport., Columbia, South Carolina')
+# G.remove_node('Will Rogers World Airport, Oklahoma City, Oklahoma')
+# G.remove_node('Portland International Airport, Portland, Washington')
+# G.remove_node('Gateway Freight Services Inc., Los Angeles, California')
 
-Communities = nx.community.louvain_communities(G, seed=123, resolution=1.1)
+Communities = nx.community.louvain_communities(G, seed=123, resolution=0.9)
 print(nx.community.modularity(G, Communities))
 
 print(len(Communities))
-G_1 = nx.double_edge_swap(G.copy(), nswap=30000, max_tries=100000, seed=1)
-G_2 = nx.double_edge_swap(G.copy(), nswap=30000, max_tries=100000, seed=2)
-
-
-
+for com in Communities:
+    print(len(com))
+# G_1 = nx.double_edge_swap(G.copy(), nswap=30000, max_tries=100000, seed=1)
+# G_2 = nx.double_edge_swap(G.copy(), nswap=30000, max_tries=100000, seed=2)
+#
+#
+#
 Latitude = {}
 Longitude = {}
 
@@ -107,7 +109,7 @@ for line in lines:
 
 
 Port_Colors = {}    # 存放每个港口的颜色
-Colors = ['red','blue' ,'green' , 'yellow', 'purple', 'orange', 'black', 'cyan']
+Colors = ['red','blue' ,'green' , 'yellow', 'purple', 'orange', 'black', 'cyan', 'white']
 
 
 for i,com in enumerate(Communities):
