@@ -192,14 +192,16 @@ def draw_betweenness_centrality_cumulative_distribution(g1, g2):
     BC_values_cumulative_distribution = []
     calculate_BC_values_cumulative_distribution(g2)
     plt.scatter(BC_values_not_repeat, BC_values_cumulative_distribution, c='gray', label='Random', s=5)
+    # print(BC_values_not_repeat)
 
     BC_values_not_repeat = []
     BC_values_cumulative_distribution = []
     calculate_BC_values_cumulative_distribution(g1)
     plt.scatter(BC_values_not_repeat, BC_values_cumulative_distribution, c='darkblue', label='Nodes', s=5)
+    # print(BC_values_not_repeat)
 
-
-
+    # 设置横坐标的范围
+    plt.xlim(0, 0.06)
     plt.yscale("log")
     plt.xlabel("BC")
     plt.ylabel("P(BC>bc)")
