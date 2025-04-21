@@ -63,8 +63,11 @@ def draw_world_ports_communities_map(g, communities):
     Colors = ['#670096', '#d78306', '#f205c1', '#3ba91e', '#0068d7', '#e64a03', '#020202', '#CCCCCC']
     # Colors = ['white', 'white', 'white', 'white', 'white', 'white', 'white', '#CCCCCC']
 
+
     for i, com in enumerate(communities):
+        print(len(com))
         for port in com:
+
             # 这里加一行判断 因为原始数据中有 1386个港口 但是处理后只有 1210个港口有经纬度坐标可以使用
             # if port in Latitude.keys():
             Port_Colors[port] = Colors[i]

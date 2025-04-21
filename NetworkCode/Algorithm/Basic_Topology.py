@@ -351,6 +351,7 @@ def average_shortest_path_length_largest_component(g):
     return nx.average_shortest_path_length(largest_subgraph)
 def draw_degree_strength(g):
     '''
+    注意传入的图一定得是 加权的图 !!!
     得到度值和强度的关系图
     :param g: 传入一个有权图
     :return:
