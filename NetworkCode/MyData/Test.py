@@ -87,7 +87,7 @@ for line in lines:
         pass  # 异常后什么都不执行
 
 
-Algorithm.Draw.draw_The_proportion_of_the_number_of_transactions_on_each_continent()
+# Algorithm.Draw.draw_The_proportion_of_the_number_of_transactions_on_each_continent()
 
 
 

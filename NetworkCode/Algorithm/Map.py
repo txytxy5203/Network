@@ -4,6 +4,7 @@ from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 import networkx as nx
 import  matplotlib.cm as cm
+import pandas as pd
 
 
 
@@ -335,6 +336,49 @@ def draw_except_US_port_strength_map():
     # 删除包含null值的行
     df.dropna(inplace=True)
 
+    Latitude = {}
+    Longitude = {}
+
+    # 逐行读取txt文档 记录经纬度 有一些Ports有问题就不读取了
+    with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    for line in lines:
+        try:
+            # 去掉行尾的换行符号
+            line = line.strip()
+            # 切分
+            parts = line.split(":")
+
+            # 切分后第一段是港口 第二段是经纬度信息
+            Port = parts[0].strip()
+            coordinates = parts[1].strip()
+
+            # 因为有一些是泛指 没有经纬度坐标
+            if len(coordinates.split(",")) != 2:
+                raise ValueError("没有具体经纬度坐标")
+
+            latitude = coordinates.split(",")[0].strip()
+            longitude = coordinates.split(",")[1].strip()
+
+            Port = Port[2:]
+
+            sign = latitude[-1]  # 记录latitude最后一个字符是 N还是S
+
+            latitude = latitude[:-2]
+            longitude = longitude[:-2]
+
+            # 如果是 N 则为 ＋  是 S 则为 -
+            latitude = float(latitude) if sign == 'N' else -float(latitude)
+            longitude = float(longitude)
+
+            Latitude[Port] = latitude
+            Longitude[Port] = longitude
+            # print(f"Port: {Port}")
+            # print(f"Latitude: {latitude}")
+            # print(f"Longitude: {longitude}")
+        except ValueError as e:
+            pass  # 异常后什么都不执行
+
     port_trade_counts = {}
 
     for row in df.itertuples():
@@ -346,6 +390,9 @@ def draw_except_US_port_strength_map():
         except KeyError as k:
             print(k)
 
+    # 按值降序排序字典
+    port_trade_counts_sorted = dict(sorted(port_trade_counts.items(), key=lambda item: item[1], reverse=True))
+    print(port_trade_counts_sorted)
     base_size = 0.0001
     node_sizes = [base_size * strength for strength in port_trade_counts.values()]
 

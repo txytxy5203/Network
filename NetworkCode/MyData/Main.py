@@ -1,5 +1,6 @@
 import csv
 import time
+
 import numpy as np
 import pandas as pd
 import powerlaw
@@ -207,8 +208,14 @@ def output_nodes():
 G = nx.read_weighted_edgelist("graph_weighted.edgelist", nodetype=str, delimiter=':')
 N = nx.number_of_nodes(G)
 
-community = nx.community.louvain_communities(G, seed=1)
-Algorithm.Map.draw_world_ports_communities_map(G, community)
+
+
+Algorithm.Map.draw_except_US_port_strength_map()
+
+
+
+# community = nx.community.louvain_communities(G, seed=1)
+# Algorithm.Map.draw_world_ports_communities_map(G, community)
 
 # degree_frequency_numbers = nx.degree_histogram(G)  # 度的频数
 # # [0, 675, 789, 676, 428, 258, 205, 153, 140, 99, 92, 65, 45, 57, 38, 48, 25, 44, 20, 18, 28, 16, 12, ...]

@@ -359,11 +359,22 @@ def draw_degree_strength(g):
     degree = dict(g.degree())
     strength = dict(g.degree(weight='weight'))
 
-    plt.scatter(list(degree.values()), list(strength.values()), s=2, color='darkblue')
+    degree_list = np.array(list(degree.values()))
+    strength_list = np.array(list(strength.values()))
+
+    correlation = np.corrcoef([degree_list, strength_list])
+
+    # 获取两个列表之间的相关系数
+    correlation_value = correlation[0, 1]
+    # 打印相关系数
+    print(f"degree 和 strength 之间的相关系数：{correlation_value}")
+
+    plt.scatter(list(degree.values()), list(strength.values()), s=2, color='darkblue', label=f'correlation={correlation_value:.3f}')
     plt.xlabel('Degree')
     plt.ylabel('Strength')
     plt.yscale('log')
     plt.xscale('log')
+    plt.legend()
     plt.show()
 def draw_strength_frequency_distribution(g):
     N = g.number_of_nodes()
