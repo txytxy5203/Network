@@ -5,7 +5,11 @@ import matplotlib.pyplot as plt
 
 
 
-def network_USImport2019():
+def network_USImport2019_Improve():
+    '''
+
+    :return: 返回USImport2019 改进网络
+    '''
     data_path = 'E:/panjivaUSImport2019vessels.csv'
 
     df = pd.read_csv(data_path, header=None)
@@ -41,7 +45,7 @@ def network_USImport2019():
                 previous_port = port
 
     for index, row in df.iterrows():
-        start, end = row[1], row[0]
+        start, end = row['portOfLading'], row['portOfUnlading']
         if g.has_edge(start, end):
             continue
         else:
@@ -49,14 +53,32 @@ def network_USImport2019():
 
     return g
 
+def network_USImport2019():
+    data_path = 'E:/panjivaUSImport2019vessels.csv'
 
+    df = pd.read_csv(data_path, header=None)
+    df.columns = ['arrivalDate', 'portOfUnlading', 'portOfLading', 'vessel']
+    # # 剔除重复数据
+    df = df.drop_duplicates()
+
+    g = nx.Graph()
+    for index, row in df.iterrows():
+        start, end = row['portOfLading'], row['portOfUnlading']
+        if g.has_edge(start, end):
+            continue
+        else:
+            g.add_edge(start, end)
+
+    return g
 # G.remove_node('Columbia Metropolitan Airport., Columbia, South Carolina')
 # G.remove_node('Will Rogers World Airport, Oklahoma City, Oklahoma')
 # G.remove_node('Portland International Airport, Portland, Washington')
 # G.remove_node('Gateway Freight Services Inc., Los Angeles, California')
 
 
-# G = network_USImport2019()
+
+
+
 # Communities = nx.community.louvain_communities(G, seed=123, resolution=1.4)
 # print(nx.community.modularity(G, Communities))
 #
@@ -72,7 +94,7 @@ def network_USImport2019():
 # Longitude = {}
 #
 # # 逐行读取txt文档 记录经纬度 有一些点有问题就不读取了
-# with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
+# with open('../Data/PortCoordinateInfo.txt', 'r', encoding='utf-8') as file:
 #     lines = file.readlines()
 # for line in lines:
 #     try:

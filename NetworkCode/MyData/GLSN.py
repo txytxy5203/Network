@@ -41,7 +41,7 @@ Algorithm.Basic_Topology.draw_degree_cluster(G)
 # Longitude = {}
 #
 # # 逐行读取txt文档 记录经纬度 有一些点有问题就不读取了
-# with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
+# with open('../Data/PortCoordinateInfo.txt', 'r', encoding='utf-8') as file:
 #     lines = file.readlines()
 # for line in lines:
 #     try:

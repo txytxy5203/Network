@@ -1,0 +1,1390 @@
+- Busan, South Korea: 35.18°N, 129.0752°E
+- Port of Long Beach, Long Beach, California: 33.7563°N, -118.2176°W
+- New York/Newark Area, Newark, New Jersey: 40.7357°N, -74.1724°W
+- Jacksonville, Florida: 30.3322°N, -81.6556°W
+- The Port of Charleston, Charleston, South Carolina: 32.7764°N, -79.9311°W
+- Georgia Ports Authority, Savannah, Georgia: 32.0833°N, -81.0833°W
+- Port Of Entry-Miami Seaport, Miami, Florida: 25.7889°N, -80.1936°W
+- Port of Vancouver USA, Vancouver, Washington: 45.6335°N, -122.6575°W
+- Port Of Boston, Boston, Massachusetts: 42.3584°N, -71.0636°W
+- Port of Tacoma, Tacoma, Washington: 47.2529°N, -122.4443°W
+- Service Port-Honolulu, Honolulu, Hawaii: 21.3069°N, -157.8583°W
+- Port of Everett, Everett, Washington: 47.9678°N, -122.2072°W
+- Port of New Orleans, New Orleans, Louisiana: 29.9511°N, -90.0715°W
+- Detroit/Wayne County Port Authority, Detroit, Michigan: 42.3314°N, -83.0458°W
+- San Juan, San Juan, Puerto Rico: 18.4663°N, -66.1057°W
+- Service Port-Atlanta, Atlanta, Georgia: 33.7490°N, -84.3880°W
+- Tampa, Florida: 27.9478°N, -82.4584°W
+- Philadelphia Regional Port Authority, Philadelphia, Pennsylvania: 39.9524°N, -75.1652°W
+- Freeport, Freeport, Texas: 29.1272°N, -95.3534°W
+- Port of San Diego, San Diego, California: 32.7157°N, -117.1611°W
+- Illinois International Port District, Chicago, Illinois: 41.8781°N, -87.6298°W
+- Port of Virginia, Norfolk, Virginia: 36.8509°N, -76.2876°W
+- Port of Seattle, Seattle, Washington: 47.6062°N, -122.3321°W
+- Wilmington, Wilmington, North Carolina: 34.2236°N, -77.9446°W
+- Baltimore, Maryland: 39.2904°N, -76.6122°W
+- New York, New York: 40.7128°N, -74.0060°W
+- Alabama State Port Authority, Mobile, Alabama: 30.6984°N, -88.0384°W
+- The Port of Los Angeles, Los Angeles, California: 33.7490°N, -118.3275°W
+- Port of Oakland, Oakland, California: 37.8044°N, -122.2712°W
+- Houston, Houston, Texas: 29.7604°N, -95.3698°W
+- Port Hueneme, California: 34.1583°N, -119.2083°W
+- Anchorage, Alaska: 61.2180°N, -149.9003°W
+- The International Port of Memphis, Memphis, Tennessee: 35.1356°N, -90.0577°W
+- Port Of Entry-Port Everglades/Fort Lauderdale, Port Everglades, Florida: 26.1228°N, -80.1336°W
+- Port Of Entry-Chattanooga, Chattanooga, Tennessee: 35.0456°N, -85.1831°W
+- Port Of Cleveland, Cleveland, Ohio: 41.4995°N, -81.6944°W
+- Port of Brunswick, Brunswick, Georgia: 31.5786°N, -81.4264°W
+- Port Columbus International Airport, Columbus, Ohio: 39.9984°N, -82.9785°W
+- DHL Courier, Cincinnati, Ohio: 39.1031°N, -84.5120°W
+- Port Of Entry-Kodiak, Kodiak, Alaska: 57.7989°N, -152.4047°W
+- Laredo, Texas: 27.5161°N, -99.4892°W
+- Port of Kalama, Kalama, Washington: 45.8286°N, -122.5886°W
+- International Falls/Rainer, Minnesota: 48.7000°N, -93.3833°W
+- Carquinez Strait, California: 38.0333°N, -122.1833°W
+- Port of Stockton, Stockton, California: 37.9589°N, -121.2994°W
+- Port of Bellingham, Bellingham, Washington: 48.7336°N, -122.5000°W
+- Albuquerque International Sunport, Albuquerque, New Mexico: 35.0403°N, -106.6089°W
+- Minneapolis St.Paul International Airport, Minneapolis‑St. Paul, Minnesota: 44.8875°N, -93.2226°W
+- Houston Intercontinental Airport, Houston, Texas: 29.9864°N, -95.3414°W
+- Service Port-San Francisco, San Francisco, California: 37.7749°N, -122.4194°W
+- UPS, Newark, New Jersey: 40.7357°N, -74.1724°W
+- Service Port-Charlotte, Charlotte, North Carolina: 35.2271°N, -80.8431°W
+- Port of Beaumont, Beaumont, Texas: 30.0672°N, -94.0762°W
+- Port Of Entry-Louisville, Louisville, Kentucky: 38.2527°N, -85.7585°W
+- South Jersey Port Corporation, Camden, New Jersey: 39.9314°N, -75.1153°W
+- Nighthawk, Washington: 47.7511°N, -120.7401°W
+- Indianapolis International Airport, Indianapolis, Indiana: 39.7195°N, -86.2866°W
+- Kwangyang, South Korea: 35.0167°N, 127.7167°E
+- Shanghai, China: 31.2304°N, 121.4737°E
+- Ningbo, China: 29.8678°N, 121.5583°E
+- Tsingtao, China: 36.0647°N, 120.3358°E
+- Dagu/Tanggu, China: 39.0286°N, 117.7500°E
+- Naples, Italy: 40.8532°N, 14.2681°E
+- Livorno, Italy: 43.5528°N, 10.3078°E
+- Valencia, Spain: 39.4701°N, -0.3774°W
+- Genoa, Italy: 44.4075°N, 8.9469°E
+- Hong Kong, Hong Kong: 22.3964°N, 114.1095°E
+- Yantian, China: 22.5583°N, 114.2083°E
+- Dairen, China: 38.9147°N, 121.6033°E
+- Rotterdam, Netherlands: 51.9244°N, 4.4777°E
+- Southhampton, United Kingdom: 50.8977°N, -1.4046°W
+- Sao Paulo, Brazil: 23.5505°S, -46.6333°W
+- La Spezia, Italy: 44.1333°N, 9.8167°E
+- Lianyungang, China: 34.5500°N, 119.1500°E
+- Navegantes, Brazil: 26.8333°S, -48.6500°W
+- Le Havre, France: 49.4943°N, 0.1079°E
+- Rio De Janeiro, Brazil: 22.9068°S, -43.1729°W
+- Izmir, Turkey: 38.4200°N, 27.1400°E
+- Victoria, Brazil: 20.3194°S, -40.3378°W
+- Porto De Sines, Portugal: 37.7267°N, -8.6833°W
+- Cristobal, Panama: 9.0667°N, -79.5500°W
+- Lido, Italy: 45.4286°N, 12.3333°E
+- All Other Turkey Mediterranean Region Ports, Turkey: （泛指，无法提供具体经纬度）
+- Gioia Tauro, Italy: 38.3833°N, 15.8833°E
+- Civitavecchia, Italy: 42.1000°N, 12.2333°E
+- Algeciras, Spain: 36.1333°N, -5.3833°W
+- Barao De Teffe, Brazil: 2.9167°S, -60.6833°W
+- Haifa, Israel: 32.8183°N, 34.9890°E
+- Hai Phong, Vietnam: 20.8667°N, 106.6833°E
+- Xiamen, China: 24.4789°N, 118.0884°E
+- Zhongshan, China: 22.5200°N, 113.3900°E
+- Chefoo, China: 37.5233°N, 121.4100°E
+- Barcelona, Spain: 41.3851°N, 2.1734°E
+- Manzanillo, Mexico: 19.0667°N, -104.2333°W
+- Fos, France: 43.3000°N, 5.5667°E
+- Puerto Quetzal, Guatemala: 14.4667°N, -90.9167°W
+- Cartagena, Colombia: 10.4000°N, -75.5333°W
+- Cagliari, Italy: 39.2167°N, 9.1167°E
+- Kaohsiung, Taiwan: 22.6068°N, 120.3155°E
+- All Other Viet Nam Ports, Vietnam: （泛指，无法提供具体经纬度）
+- Kowloon, Hong Kong: 22.3197°N, 114.1694°E
+- Vung Tau, Vietnam: 10.4167°N, 107.0833°E
+- Ho Chi Minh City, Vietnam: 10.7628°N, 106.6602°E
+- Jawaharlal Nehru, India: 19.0667°N, 72.8500°E
+- Colombo, Sri Lanka: 6.9271°N, 79.8612°E
+- Tianjin, China: 39.1333°N, 117.2000°E
+- Acajutla, El Salvador: 13.6833°N, -89.2167°W
+- Nantong, China: 32.0000°N, 120.8500°E
+- Yang Shan, China: 30.6333°N, 122.5833°E
+- Soerabaja, Indonesia: 7.2489°S, 112.7511°E
+- All Other Panama West Coast Region Ports, Panama: （泛指，无法提供具体经纬度）
+- Rio Grande, Brazil: 32.0667°S, -52.4167°W
+- Bremerhaven, Germany: 53.0793°N, 8.7667°E
+- Beirut, Lebanon: 33.8938°N, 35.5018°E
+- Guayaquil, Ecuador: 2.2036°S, -79.9326°W
+- Bari, Italy: 41.1128°N, 16.8735°E
+- Leningrad, Russia: 59.9388°N, 30.3159°E
+- Manzanillo, Panama: 9.0667°N, -79.5500°W
+- Melbourne, Australia: 37.8136°S, 144.9631°E
+- Ras At Tannurah, Saudi Arabia: 26.6500°N, 49.5667°E
+- Yokohama, Japan: 35.4480°N, 139.6407°E
+- Hitachi, Japan: 36.4167°N, 140.6833°E
+- Nagoya, Japan: 35.1804°N, 136.9064°E
+- Masan, South Korea: 35.2333°N, 128.5833°E
+- Kobe, Japan: 34.6578°N, 135.1814°E
+- Salvador, Brazil: 12.9711°S, -38.5108°W
+- All Other Guatemala Caribbean Region Ports, Guatemala: （泛指，无法提供具体经纬度）
+- Manila, Philippines: 14.5995°N, 120.9842°E
+- Wuhan, China: 30.5828°N, 114.2985°E
+- All Other Japan Ports, Japan: （泛指，无法提供具体经纬度）
+- Singapore, Singapore: 1.3521°N, 103.8198°E
+- Paita, Peru: 5.3333°S, -80.6333°W
+- Cebu, Philippines: 10.2992°N, 123.8997°E
+- Shimizu, Japan: 34.9833°N, 138.7333°E
+- Sydney, Australia: 33.8688°S, 151.2093°E
+- Taoranga, New Zealand: 35.1667°S, 174.0833°E
+- Antwerp, Belgium: 51.2194°N, 4.4025°E
+- San Antonio, Chile: 33.3667°S, -71.3500°W
+- All Other Chile Ports, Chile: （泛指，无法提供具体经纬度）
+- All Ports In Cambodia, Cambodia: （泛指，无法提供具体经纬度）
+- New Tuticorin, India: 8.7167°N, 78.1500°E
+- Salerno, Italy: 40.6833°N, 14.7667°E
+- Fredericia, Denmark: 55.5667°N, 9.6167°E
+- Chennai, India: 13.0827°N, 80.2707°E
+- High Seas: （公海，无法提供具体经纬度）
+- Corinto, Nicaragua: 12.2500°N, -86.0667°W
+- Tokyo, Japan: 35.6895°N, 139.6917°E
+- Hamburg, Germany: 53.5511°N, 9.9937°E
+- Esmeraldas, Ecuador: 0.8333°S, -79.9500°W
+- Zhuhai, China: 22.2667°N, 113.5500°E
+- Salonika, Greece: 40.6403°N, 22.9444°E
+- Inchon, South Korea: 37.4500°N, 126.6667°E
+- Mundra, India: 23.0167°N, 69.6500°E
+- Nansha, China: 22.7833°N, 113.7833°E
+- Huangpu, China: 23.0667°N, 113.3333°E
+- Johore, Malaysia: 1.5500°N, 103.6333°E
+- Belawan, Indonesia: 3.5333°N, 98.6667°E
+- Adelaide, Australia: 34.9285°S, 138.6007°E
+- Brisbane, Australia: 27.4698°S, 153.0281°E
+- Pecem, Brazil: 3.9500°S, -39.3000°W
+- Vancouver, BC, Canada: 49.2827°N, -123.1207°W
+- Olongapo, Philippines: 14.8833°N, 120.3500°E
+- Laem Chabang, Thailand: 13.0833°N, 100.8833°E
+- Bangkok, Thailand: 13.7563°N, 100.5018°E
+- Kajang, Malaysia: 3.0500°N, 101.7333°E
+- Da Nang, Vietnam: 16.0728°N, 108.3715°E
+- Cochin, India: 9.9806°N, 76.2673°E
+- All Other Thailand Ports, Thailand: （泛指，无法提供具体经纬度）
+- Buenaventura, Colombia: 3.7333°N, -77.0667°W
+- Lazaro Cardenas, Mexico: 18.0833°N, -102.4167°W
+- Balboa, Panama: 8.9667°N, -79.5500°W
+- Penang, Malaysia: 5.4167°N, 100.3333°E
+- Djakarta, Indonesia: 6.1751°S, 106.8272°E
+- Bur Said, Egypt: 31.2833°N, 32.3000°E
+- Semarang, Indonesia: 7.0000°S, 110.4167°E
+- Gamagori, Japan: 34.7667°N, 137.2833°E
+- Osaka, Japan: 34.6937°N, 135.5022°E
+- Kopar, Slovenia: 45.5833°N, 14.5000°E
+- Chittagong, Bangladesh: 23.2333°N, 91.8167°E
+- Fiume, Croatia: 45.3333°N, 14.4167°E
+- All Other Canada Pacific Region Ports, Canada: （泛指，无法提供具体经纬度）
+- Casablanca, Morocco: 33.5899°N, -7.5898°W
+- Callao, Peru: 12.0436°S, -77.1259°W
+- Panjang, Indonesia: 5.4667°N, 105.3167°E
+- Tanjung Pelepas, Malaysia: 1.8833°N, 104.0667°E
+- Auckland, New Zealand: 36.8485°S, 174.7633°E
+- All Colombia Amazon Region Ports, Colombia: （泛指，无法提供具体经纬度）
+- London, United Kingdom: 51.5074°N, -0.1278°W
+- Guangzhou, China: 23.1291°N, 113.2644°E
+- Apia, Samoa (Independent): 13.8333°S, -171.7667°W
+- Pago Pago Harbor, American Samoa: 14.2711°S, -170.7042°W
+- Okinawa Island, Japan: 26.2128°N, 127.6811°E
+- Guam Island, Guam: 13.4443°N, 144.7937°E
+- San T Ou, China: 23.3710°N, 116.7085°E
+- Ashdod, Israel: 31.7833°N, 34.6500°E
+- Gdynia, Poland: 54.5264°N, 18.5514°E
+- Sendai, Japan: 38.2389°N, 140.8722°E
+- All Other South Korea Ports, South Korea: （泛指，无法提供具体经纬度）
+- Freeport, Grand Bahama I, Bahamas: 26.5500°N, -78.5833°W
+- Dublin, Ireland: 53.3498°N, -6.2603°W
+- All Other Oman Ports, Oman: （泛指，无法提供具体经纬度）
+- Bilbao, Spain: 43.2627°N, -2.9333°W
+- All Other Singapore Ports, Singapore: （泛指，无法提供具体经纬度）
+- Barcarena, Brazil: 1.1833°S, -48.3333°W
+- Palermo, Italy: 38.1156°N, 13.3619°E
+- Shellhaven, United Kingdom: 51.4500°N, 0.1667°E
+- Felixstowe, United Kingdom: 51.9667°N, 1.2667°E
+- Papeete, Tahiti, French Polynesia: 17.5333°S, -149.5667°W
+- All Other India West Coast Ports, India: （泛指，无法提供具体经纬度）
+- Haina, Dominican Republic: 18.4833°N, -69.4167°W
+- Zeebrugge, Belgium: 51.3478°N, 3.1986°E
+- High Seas, South Pacific: （公海，无法提供具体经纬度）
+- All Other Saudi Arabia Ports, Saudi Arabia: （泛指，无法提供具体经纬度）
+- La Pampilla, Peru: 12.0667°S, -77.1167°W
+- Bei Jao, China: 22.9281°N, 113.2104°E
+- Tamsui, Taiwan: 25.1947°N, 121.4794°E
+- Salina Cruz, Mexico: 16.1333°N, -94.7667°W
+- Military Port Kelang, Malaysia: 3.0000°N, 101.2400°E
+- Visakhapatnam, India: 17.6833°N, 83.3167°E
+- All Other India East Coast Ports, India: （泛指，无法提供具体经纬度）
+- Pulau Sebarok, Singapore: 1.2500°N, 103.8333°E
+- Shekou, China: 22.4994°N, 113.8931°E
+- Alexandria, Egypt: 31.2156°N, 29.9553°E
+- All Other Ghana Ports, Ghana: （泛指，无法提供具体经纬度）
+- All Other Equatorial Guinea Ports, Equatorial Guinea: （泛指，无法提供具体经纬度）
+- Fuzhou, China: 26.0753°N, 119.2965°E
+- Lisbon, Portugal: 38.7223°N, -9.1393°W
+- All Other Brazil Ports South Of Recife, Brazil: （泛指，无法提供具体经纬度）
+- Adana, Turkey: 36.9869°N, 35.3200°E
+- Izmit, Turkey: 40.7497°N, 29.7847°E
+- Gemlik, Turkey: 40.3333°N, 27.7500°E
+- Tan Cang, Vietnam: 10.7667°N, 106.6833°E
+- San Marcos Island, Mexico: 27.2183°N, -112.0740°E
+- Montreal, Que, Canada: 45.5017°N, -73.5673°W
+- Kristiansand N, Norway: 58.1500°N, 8.2667°E
+- East London, South Africa: 32.9833°S, 27.8500°E
+- Davao, Philippines: 7.0667°N, 125.6000°E
+- Caldera, Costa Rica: 9.8500°N, -84.8833°W
+- High Seas, North Pacific: （公海，无法提供具体经纬度）
+- Nanjing, China: 32.0583°N, 118.7964°E
+- Rangoon, Myanmar: 16.7998°N, 96.1512°E
+- Piraeus, Greece: 37.9560°N, 23.6867°E
+- Pyongtaek, South Korea: 36.9250°N, 127.0833°E
+- Nelson, New Zealand: 41.2783°S, 173.2806°E
+- Al Juaymah, Saudi Arabia: 26.4500°N, 49.7500°E
+- Westernport, Australia: 38.1667°S, 145.1667°E
+- Port Kembla, Australia: 34.4583°S, 150.9167°E
+- Da Chan Bay, China: 22.5333°N, 114.0500°E
+- All Other Colombian Caribbean Region Ports, Colombia: （泛指，无法提供具体经纬度）
+- Armuelles, Panama: 8.9833°N, -78.1500°W
+- Durban, South Africa: 29.8578°S, 31.0295°E
+- Pipavav, India: 21.6833°N, 72.1833°E
+- Lyttelton, New Zealand: 43.6250°S, 172.6667°E
+- Istanbul, Turkey: 41.0082°N, 28.9784°E
+- Liverpool, United Kingdom: 53.4106°N, -2.9779°W
+- Arica, Chile: 18.4833°S, -70.3167°W
+- Riga, Latvia: 56.9496°N, 24.1052°E
+- Port Muhammad Bin Qasim, Pakistan: 24.7333°N, 67.0500°E
+- Panama Canal Caribbean, Panama: 9.1500°N, -79.7500°W
+- Mazatlan, Mexico: 23.1333°N, -106.3833°W
+- Shimonoseki, Japan: 34.0833°N, 131.0333°E
+- Kita Kyushu, Japan: 33.8833°N, 130.8833°E
+- Jiangyin, China: 31.9083°N, 120.2667°E
+- Fuqing, China: 25.7167°N, 119.3833°E
+- Acapulco, Mexico: 16.8500°N, -99.9000°W
+- Zhanjiang, China: 21.2733°N, 110.3567°E
+- Bei Hai, China: 21.4914°N, 109.1204°E
+- Montevideo, Uruguay: 34.8828°S, -56.1624°W
+- Keelung, Taiwan: 25.1458°N, 121.7369°E
+- Jebel Ali, United Arab Emirates: 24.9667°N, 55.0500°E
+- Taichung, Taiwan: 24.1397°N, 120.6838°E
+- All Other Fiji Islands Ports, Fiji: （泛指，无法提供具体经纬度）
+- Al Basrah, Iraq: 30.5333°N, 47.8167°E
+- Tallinn, Estonia: 59.4369°N, 24.7536°E
+- Buenos Aires, Argentina: 34.6037°S, -58.3816°W
+- All Other Cuba Ports, Cuba: （泛指，无法提供具体经纬度）
+- Leixoes, Portugal: 41.1706°N, -8.6425°W
+- Vigo, Spain: 42.2333°N, -8.7167°W
+- All Other Sicily Ports, Italy: （泛指，无法提供具体经纬度）
+- Gebze, Turkey: 40.8333°N, 29.8333°E
+- Prince Rupert, Bc, Canada: 54.3333°N, -130.2833°W
+- Catania, Italy: 37.5028°N, 15.0873°E
+- All Other Uruguay Ports, Uruguay: （泛指，无法提供具体经纬度）
+- Karachi, Pakistan: 24.8607°N, 67.0011°E
+- Covenas, Colombia: 4.0000°N, -75.8500°W
+- Progreso, Mexico: 21.0500°N, -90.9667°W
+- All Other Turkey Black Sea and Sea of Marmara Port, Turkey: （泛指，无法提供具体经纬度）
+- Constanta, Romania: 44.1833°N, 28.6333°E
+- High Seas, Gulf Of Mexico: （公海，无法提供具体经纬度）
+- Antofagasta, Chile: 23.2667°S, -70.3500°W
+- All Other China (Taiwan) Ports, Taiwan: （泛指，无法提供具体经纬度）
+- Calcutta, India: 22.5726°N, 88.3639°E
+- All Other Bangladesh Ports, Bangladesh: （泛指，无法提供具体经纬度）
+- Chen Huang Tao, China: 39.7167°N, 119.7333°E
+- All Other Italy East Coast Ports, Italy: （泛指，无法提供具体经纬度）
+- Varna, Bulgaria: 43.2167°N, 27.9167°E
+- Damietta, Egypt: 31.4400°N, 31.9800°E
+- All Other Panama Caribbean Region Ports, Panama: （泛指，无法提供具体经纬度）
+- Panama Canal  Pacific, Panama: 9.0000°N, -79.5000°W
+- Djibouti, Djibouti: 11.5833°N, 43.1667°E
+- Robert's Bank, Bc, Canada: 49.1667°N, -123.2500°W
+- Ancona, Italy: 43.6167°N, 13.5167°E
+- Kingston, Jamaica: 17.9833°N, -76.7833°W
+- San Vicente, Chile: 37.8333°S, -73.0500°W
+- Gunsan, South Korea: 35.9833°N, 126.7667°E
+- Al Kuwayt, Kuwait: 29.3728°N, 47.9782°E
+- All Other Kuwait Ports, Kuwait: （泛指，无法提供具体经纬度）
+- All Other Brazil Ports North Of Recife, Brazil: （泛指，无法提供具体经纬度）
+- Copenhagen, Denmark: 55.6761°N, 12.5683°E
+- Hakata, Japan: 33.5833°N, 130.4167°E
+- Alert Bay, Bc, Canada: 50.3667°N, -127.2667°W
+- All Other Republic Of South Africa Ports, South Africa: （泛指，无法提供具体经纬度）
+- Nassau, New Providence I, Bahamas: 25.0667°N, -77.3667°W
+- All Other Australia Ports, Australia: （泛指，无法提供具体经纬度）
+- Al Fuhayhil, Kuwait: 29.3167°N, 48.1167°E
+- Fremantle, Australia: 31.9505°S, 115.8575°E
+- All Other Dominican Republic Ports, Dominican Republic: （泛指，无法提供具体经纬度）
+- Guaymas, Mexico: 27.5333°N, -110.9833°W
+- Kashima, Japan: 35.9500°N, 140.7667°E
+- All Other Argentina Ports, Argentina: （泛指，无法提供具体经纬度）
+- All Other England South And East Coast Ports, United Kingdom: （泛指，无法提供具体经纬度）
+- All Other Southern Asia, N.E.C. Ports: （泛指，无法提供具体经纬度）
+- Yingkou, China: 40.6500°N, 122.2333°E
+- Mina Raysut, Oman: 17.0167°N, 56.1000°E
+- Cape Town, South Africa: 33.9258°S, 18.4232°E
+- Halsingborg, Sweden: 56.3286°N, 12.8536°E
+- Alexandretta, Turkey: 36.2000°N, 36.1667°E
+- Yokkaiti, Japan: 34.5700°N, 136.3800°E
+- Taipei, Taiwan: 25.0330°N, 121.5654°E
+- Napier, New Zealand: 39.4783°S, 176.9214°E
+- Aarhus, Denmark: 56.1559°N, 10.2025°E
+- Lirquen, Chile: 36.7667°S, -73.0333°W
+- Mogi, Japan: 33.9167°N, 130.9667°E
+- Songkhla, Thailand: 7.2000°N, 100.6167°E
+- Port Chalmers, New Zealand: 45.9667°S, 170.5000°E
+- Liverpool, Ns, Canada: 44.6167°N, -64.2667°W
+- All Corsica Ports, France: （泛指，无法提供具体经纬度）
+- Aliaga, Turkey: 39.2667°N, 27.0833°E
+- Trieste, Italy: 45.6498°N, 13.7794°E
+- Victoria, Pei, Canada: 46.2389°N, -63.1247°W
+- Cerros Island, Mexico: 28.1828°N,−115.2178°W
+- Altamira, Mexico: 21.8833°N, -97.2500°W
+- Adalia, Turkey: 36.8869°N, 30.7167°E
+- Kasim, Indonesia: 25.3176°N, 82.9739°E
+- All Other Jordan Ports, Jordan: （泛指，无法提供具体经纬度）
+- Ad Dammam, Saudi Arabia: 26.4233°N, 49.8983°E
+- Cartagena, Spain: 39.9833°N, -0.9833°W
+- Fraser River, BC, Canada: （泛指，无法提供具体经纬度）
+- Caucedo, Dominican Republic: 18.4500°N, -69.9167°W
+- Military Yokohama, Japan: 35.4500°N, 139.6667°E
+- Las Salinas, Chile: 27.0833°S, -70.5667°W
+- Caleta Cordova, Argentina: 41.2833°S, -68.5333°W
+- Military Quingdao, China: 36.0667°N, 120.3333°E
+- Santa Rosalia, Mexico: 27.5333°N, -112.7667°W
+- Aioi, Japan: 34.9667°N, 135.7833°E
+- All Other Venezuela Ports, Venezuela: （泛指，无法提供具体经纬度）
+- Monfalcone, Italy: 45.8167°N, 13.4667°E
+- Port Itapoa, Brazil: 26.2833°S, -48.5167°W
+- Larvik, Norway: 59.4500°N, 10.3000°E
+- All Other Mexico East Coast Region Ports, Mexico: （泛指，无法提供具体经纬度）
+- All Other New Zealand Ports, New Zealand: （泛指，无法提供具体经纬度）
+- All Other Angola Ports, Angola: （泛指，无法提供具体经纬度）
+- Puerto Cortes, Honduras: 15.7833°N, -87.9500°W
+- Port Elizabeth, South Africa: 33.9786°S, 25.6167°E
+- All Other Nigeria Ports, Nigeria: （泛指，无法提供具体经纬度）
+- Beilun, China: 29.8667°N, 121.8167°E
+- Norrkoping, Sweden: 58.5900°N, 16.1800°E
+- Bahia De Moin, Costa Rica: 9.6833°N, -83.9167°W
+- Mumbai, India: 19.0760°N, 72.8777°E
+- Comodoro Rivadavia, Argentina: 45.8833°S, -67.5333°W
+- Warri, Nigeria: 5.5333°N, 5.8500°E
+- All Other Indonesia Ports, Indonesia: （泛指，无法提供具体经纬度）
+- Buayan, Philippines: 7.9500°N, 124.3833°E
+- San Nicolas, Peru: 12.0000°S, -77.1333°W
+- Aberdeen, United Kingdom: 57.1497°N, -2.0943°W
+- All Other Senegal Ports, Senegal: （泛指，无法提供具体经纬度）
+- All Other Malaysia Ports, Malaysia: （泛指，无法提供具体经纬度）
+- All Falkland Islands Ports, Falkland Islands: （泛指，无法提供具体经纬度）
+- Point Tupper, Cbi, Canada: 46.1667°N, -60.4167°W
+- All Other Russia Black Sea Region Ports, Russia: （泛指，无法提供具体经纬度）
+- Santa Panagia, Italy: 37.1000°N, 15.2667°E
+- Angra Dos Reis, Brazil: 23.0167°S, -44.2833°W
+- Samil, South Korea: 34.7333°N, 127.7500°E
+- Ensenada, Mexico: 31.8333°N, -116.6000°W
+- Setubal, Portugal: 38.7000°N, -8.8833°W
+- All Other Italy West Coast Ports, Italy: （泛指，无法提供具体经纬度）
+- Punta Arenas, Chile: 53.1500°S, -70.9167°W
+- Kwa Ibo Terminal, Nigeria: 4.5333°N, 7.9667°E
+- Onsan, South Korea: 35.3833°N, 129.1167°E
+- All Other Portugal Ports, Portugal: （泛指，无法提供具体经纬度）
+- Sint Eustatius, Netherlands Antilles: 17.5625°N, -63.0278°W
+- All Other French Guiana Ports, French Guiana: （泛指，无法提供具体经纬度）
+- Mangalore, India: 12.9167°N, 74.8500°E
+- Cobh, Ireland: 51.8333°N, -8.2833°W
+- Esbjerg, Denmark: 55.4667°N, 8.4333°E
+- Moerdjik, Netherlands: 51.7017°N, 4.6264°E
+- Manchester, United Kingdom: 53.4808°N, -2.2426°W
+- Wilhelmshaven, Germany: 53.5333°N, 8.5833°E
+- Kitimat, Bc, Canada: 54.3500°N, -128.3833°W
+- All Other Russia Eastern Region Ports, Russia: （泛指，无法提供具体经纬度）
+- Sakai, Japan: 34.6333°N, 135.5333°E
+- All Other Germany Atlantic Region Ports, Germany: （泛指，无法提供具体经纬度）
+- All Other Papua New Guinea Ports, Papua New Guinea: （泛指，无法提供具体经纬度）
+- Hobart, Australia: 42.8828°S, 147.3275°E
+- Bourgas, Bulgaria: 42.4333°N, 27.4333°E
+- Forcados, Nigeria: 5.0167°N, 5.6833°E
+- Rosarito, Mexico: 32.5000°N, -117.0833°W
+- Antan Terminal, Nigeria: 4.2167°N, 8.3333°E
+- Sombrero Island, Anguilla: 18.2500°N, -63.0500°W
+- All Other Caicos Islands, Turks and Caicos Islands: （泛指，无法提供具体经纬度）
+- Cul De Sac, Saint Lucia: 13.8667°N, -60.9500°W
+- All Other Israel Mediterranean Area Ports, Israel: （泛指，无法提供具体经纬度）
+- Zhenjiang, China: 32.2167°N, 119.4500°E
+- Asuncion, Paraguay: 25.2636°S, -57.6636°W
+- All Other El Salvador Ports, El Salvador: （泛指，无法提供具体经纬度）
+- Naoetsu, Japan: 37.2167°N, 139.3833°E
+- Balao, Ecuador: 1.7833°S, -80.8167°W
+- Port Au Prince, Haiti: 18.5333°N, -72.3333°W
+- Higashi Harima, Japan: 34.7500°N, 134.9500°E
+- Barranquilla, Colombia: 10.9667°N, -74.7833°W
+- Fujairah, United Arab Emirates: 25.1167°N, 56.3667°E
+- General San Martin, Peru: 12.5500°S, -77.1000°W
+- Suape, Brazil: 8.3667°S, -34.9667°W
+- Manzanillo, Dominican Republic: 19.1333°N, -70.4167°W
+- Kimitsu, Japan: 35.4167°N, 140.3667°E
+- Danzig, Poland: 54.3500°N, 18.6167°E
+- Dadiangas, Philippines: 6.1167°N, 125.1667°E
+- Christmas Island, Kiribati: 1.6667°S, 157.4167°E
+- Amsterdam, Netherlands: 52.3702°N, 4.8952°E
+- Abu Zabi, United Arab Emirates: 24.4539°N, 54.3773°E
+- Bedi, India: 22.5014°N, 70.0436°E
+- Pulau Sambu, Indonesia: 1.1598°N, 103.8997°E
+- Malaga, Spain: 36.7214°N, -4.4214°W
+- Marina Di Carrara, Italy: 44.0667°N, 10.1833°E
+- All Other Turks Islands Ports, Turks and Caicos Islands: （泛指，无法提供具体经纬度）
+- Belfast, United Kingdom: 54.5973°N, -5.9301°W
+- Wellington, New Zealand: 41.2865°S, 174.7762°E
+- Bluff Harbor, New Zealand: 46.7250°S, 168.3667°E
+- Sydney, Ns, Canada: 44.6481°N, -63.5786°W
+- Bonny, Nigeria: 4.7500°N, 7.5833°E
+- Military Tainjin, China: 39.1333°N, 117.2000°E
+- Niigata, Japan: 37.9000°N, 139.0333°E
+- All Other Burma Ports, Myanmar: （泛指，无法提供具体经纬度）
+- Villa Constitucion, Argentina: 31.8833°S, -62.2667°W
+- All Other Sweden Ports, Sweden: （泛指，无法提供具体经纬度）
+- Oita, Japan: 33.2500°N, 131.6167°E
+- Point Lisas, Trinidad and Tobago: 10.7500°N, -61.5667°W
+- Tamatave, Madagascar: 16.9167°S, 49.4167°E
+- Vanino, Russia: 52.7667°N, 137.2667°E
+- Suva, Fiji: 18.1333°S, 178.4333°E
+- Nakhodka, Russia: 42.7500°N, 132.9167°E
+- Rauma, Finland: 61.1667°N, 21.1500°E
+- Daesan, South Korea: 36.6500°N, 126.4500°E
+- Kawasaki, Japan: 35.5833°N, 139.7500°E
+- Vassiliko, Cyprus: 34.7167°N, 33.1833°E
+- Mizushima, Japan: 34.4167°N, 133.6167°E
+- Tunis, Tunisia: 36.8372°N, 10.1814°E
+- Chiwan, China: 22.3500°N, 113.9500°E
+- All Other Guatemala West Coast Region Ports, Guatemala: （泛指，无法提供具体经纬度）
+- Campana, Argentina: 34.4500°S, -59.0833°W
+- The Port of Brownsville, Brownsville, Texas: 25.8833°N, -97.5000°W
+- Port of Portland, Portland, Oregon: 45.5167°N, -122.6333°W
+- Port Of Longview, Longview, Washington: 45.6333°N, -122.9833°W
+- Port Of Entry-Santa Teresa, Santa Teresa, New Mexico: 31.7500°N, -106.5333°W
+- EPPLEY AIRFIELD, Omaha, Nebraska: 41.2995°N, -95.9375°W
+- Aberdeen, Washington: 46.8500°N, -123.7667°W
+- Port of Greater Cincinnati Development Authority, Cincinnati, Ohio: 39.1033°N, -84.5122°W
+- El Paso, Texas: 31.7587°N, -106.4865°W
+- Dallas/Fort Worth International Airport, Dallas/Ft. Worth Airport, Texas: 32.8968°N, -97.0381°W
+- Port of Lake Charles, Lake Charles, Louisiana: 30.1833°N, -93.2167°W
+- Port of Pascagoula, Pascagoula, Mississippi: 30.3667°N, -88.7667°W
+- Honolulu International Airport, Honolulu, Hawaii: 21.3189°N, -157.9214°W
+- Corpus Christi, Corpus Christi, Texas: 27.8005°N, -97.3963°W
+- Los Angeles International Airport, Los Angeles, California: 33.9425°N, -118.4081°W
+- Port Arthur, Texas: 29.9667°N, -93.9833°W
+- Miami International Airport, Miami, Florida: 25.7933°N, -80.2906°W
+- Salt Lake City, Utah: 40.7608°N, -111.8911°W
+- Newport, Rhode Island: 41.4900°N, -71.3128°W
+- Port of Galveston, Galveston, Texas: 29.3000°N, -94.7667°W
+- ProvPort, Providence, Rhode Island: 41.8236°N, -71.4129°W
+- Fort Worth Alliance Airport, Fort Worth, Texas: 32.9386°N, -97.4597°W
+- Port Manatee, Florida: 27.7500°N, -82.6833°W
+- Federal Express Hub, Indianapolis, Indiana: 39.7611°N, -86.2967°W
+- Port of Charleston, Charleston, West Virginia: 38.3500°N, -81.6333°W
+- Addison Airport, Addison, Texas: 32.9500°N, -96.8000°W
+- Port of Wilmington, Wilmington, Delaware: 39.7500°N, -75.5667°W
+- Port Panama City, Panama City, Florida: 30.1833°N, -85.6833°W
+- Service Port-Denver, Denver, Colorado: 39.7392°N, -104.9903°W
+- Port of New Haven, New Haven, Connecticut: 41.3083°N, -72.9375°W
+- Port of Gramercy, Gramercy, Louisiana: 30.0333°N, -90.4167°W
+- Service Port-St. Louis, St. Louis, Missouri: 38.6270°N, -90.1994°W
+- Port of Portland, Portland, Maine: 43.6597°N, -70.2625°W
+- Annapolis, Maryland: 38.9783°N, -76.4922°W
+- Port of Chester, Chester, Pennsylvania: 39.8667°N, -75.4167°W
+- Logan Airport, East Boston, Massachusetts: 42.3643°N, -71.0053°W
+- All Other Belgium Ports, Belgium: （泛指，无法提供具体经纬度）
+- Adabiya, Egypt: 30.4333°N, 32.2667°E
+- Goteborg, Sweden: 57.7072°N, 11.9667°E
+- Halifax, Ns, Canada: 44.6481°N, -63.5786°W
+- Saint John, Nb, Canada: 45.3236°N, -66.0814°W
+- Timaru, New Zealand: 44.2833°S, 171.2667°E
+- Bremen, Germany: 53.0793°N, 8.8017°E
+- All Other Norway Ports, Norway: （泛指，无法提供具体经纬度）
+- Haldia, India: 22.4000°N, 88.2667°E
+- Sao Francisco Do Sul, Brazil: 25.9333°S, -48.6833°W
+- Stettin, Poland: 53.4250°N, 14.9500°E
+- All Other Egypt Mediterranean Region Ports, Egypt: （泛指，无法提供具体经纬度）
+- Ceara, Brazil: 3.7167°S, -39.3167°W
+- Helsingfors, Finland: 60.1708°N, 24.9375°E
+- High Seas, North Atlantic: （公海，无法提供具体经纬度）
+- Jeddeh, Saudi Arabia: 21.5428°N, 39.1722°E
+- Dubai, United Arab Emirates: 25.1972°N, 55.2741°E
+- All Other Pakistan Ports, Pakistan: （泛指，无法提供具体经纬度）
+- Itajai, Brazil: 27.2500°S, -48.5833°W
+- Juzhny, Ukraine: 46.9500°N, 32.0833°E
+- Praia Mole, Brazil: 27.2833°S, -48.5500°W
+- Grangemouth, United Kingdom: 56.0000°N, -3.8167°W
+- Montoir, France: 47.3333°N, -1.7667°W
+- Limon, Costa Rica: 9.9667°N, -83.3833°W
+- Stockholm, Sweden: 59.3294°N, 18.0686°E
+- Jose, Venezuela: 10.0000°N, -64.8833°W
+- All Other France Atlantic Region Ports, France: （泛指，无法提供具体经纬度）
+- Aratu, Brazil: 12.9667°S, -38.4667°W
+- Tanger, Morocco: 35.7833°N, -5.8167°W
+- Come By Chance, Nfld, Canada: 47.5833°N, -53.2667°W
+- Noumea, New Caledonia: 22.2833°S, 166.4500°E
+- Londonderry, United Kingdom: 55.0000°N, -7.3167°W
+- Borg Hbr., Norway: 60.0000°N, 5.0000°E
+- Escravos, Nigeria: 5.0333°N, 5.8833°E
+- Sao Sebastio, Brazil: 23.7667°S, -45.4500°W
+- Bordeaux, France: 44.8333°N, -0.5667°W
+- Maaloy, Norway: 69.8167°N, 18.5667°E
+- Kristiansand S, Norway: 58.1333°N, 8.2500°E
+- Emden, Germany: 53.3833°N, 7.2167°E
+- Bebington, United Kingdom: 53.3000°N, -3.0500°W
+- Itaqui, Brazil: 26.2833°S, -48.5500°W
+- Gafle, Sweden: 60.6833°N, 17.1333°E
+- Tilbury, United Kingdom: 51.4833°N, 0.2667°E
+- Harburg, Germany: 53.5667°N, 9.9833°E
+- All Other Spain Atlantic Region Ports North Of Por, Spain: （泛指，无法提供具体经纬度）
+- Dhuba, Saudi Arabia: 22.0000°N, 41.0000°E
+- Ash Shuaiba, Kuwait: 29.3167°N, 48.1167°E
+- Puerto Matias De Galves, Guatemala: 14.6000°N, -91.0333°W
+- La Pallice, France: 46.1500°N, -1.3667°W
+- Al Aqabah, Jordan: 29.5500°N, 35.0000°E
+- Asnaes, Denmark: 55.4167°N, 10.4667°E
+- Quebec, Que, Canada: 46.8167°N, -71.2167°W
+- Kandla, India: 23.2833°N, 70.1167°E
+- Falmouth, United Kingdom: 50.1500°N, -5.0500°W
+- Aalesund, Norway: 62.4833°N, 6.1500°E
+- Hiroshima, Japan: 34.4000°N, 132.4500°E
+- Glasgow, United Kingdom: 55.8609°N, -4.2518°W
+- San Ciprian, Spain: 42.7667°N, -7.7500°W
+- Pembroke, United Kingdom: 51.5833°N, -4.0333°W
+- Mamonal, Colombia: 10.3833°N, -75.5167°W
+- Klaipeda, Lithuania: 55.7167°N, 21.1167°E
+- Auld's Cove, Ns, Canada: 44.5667°N, -63.5167°W
+- All Other Syria Ports, Syria: （泛指，无法提供具体经纬度）
+- Rostock, Germany: 54.0924°N, 12.1108°E
+- Mombasa, Kenya: 4.0417°S, 39.6753°E
+- Al Jubail, Saudi Arabia: 26.8250°N, 49.7833°E
+- Madryn, Argentina: 43.0000°S, -65.2667°W
+- Saint Nazaire, France: 47.2764°N, -2.1567°W
+- Porto Empedocle, Italy: 37.0167°N, 13.6000°E
+- Arzew, Algeria: 36.7667°N, 2.7167°E
+- Uddevalla, Sweden: 58.3833°N, 11.9167°E
+- All Other Spain Mediterranean Region Ports, Spain: （泛指，无法提供具体经纬度）
+- Kotka, Finland: 60.4500°N, 26.7167°E
+- All Other Peru Ports, Peru: （泛指，无法提供具体经纬度）
+- Dumai, Indonesia: 0.8167°N, 101.4500°E
+- Military Mannheim, Germany: 49.4893°N, 8.4673°E
+- All Other Russia Baltic Region Ports, Russia: （泛指，无法提供具体经纬度）
+- Veracruz, Mexico: 19.1833°N, -96.1333°W
+- Bogen, Norway: 68.5265°N, 16.9928°E
+- Thamesport, United Kingdom: 51.4833°N, 0.2667°E
+- Imbituba, Brazil: 28.4167°S, -48.5500°W
+- All Other Bermuda Ports, Bermuda: （泛指，无法提供具体经纬度）
+- Alger, Algeria: 36.7738°N, 3.0578°E
+- Marsa Al Brega, Libya: 32.0000°N, 16.0000°E
+- All Other Newfoundland Ports, Canada: （泛指，无法提供具体经纬度）
+- Puerto Barrios, Guatemala: 15.7667°N, -88.9500°W
+- Beira, Mozambique: 19.8667°S, 34.8667°E
+- Aalborg, Denmark: 57.0500°N, 9.8167°E
+- Puerto Cabello, Venezuela: 11.0500°N, -69.9167°W
+- All Other Georgia Ports, Georgia: （泛指，无法提供具体经纬度）
+- Oslo, Norway: 59.9139°N, 10.7522°E
+- Pontianak, Indonesia: 0.0000°N, 109.3667°E
+- Manaus, Brazil: 3.1167°S, -60.0333°W
+- All Other Greenland, Greenland: （泛指，无法提供具体经纬度）
+- Fredrikshamn, Finland: 59.7667°N, 21.8667°E
+- Gijon, Spain: 43.5000°N, -5.5333°W
+- All Other Philippines Ports, Philippines: （泛指，无法提供具体经纬度）
+- All Other Qatar Ports, Qatar: （泛指，无法提供具体经纬度）
+- Alicante, Spain: 38.3478°N, -0.4815°W
+- Legaspi, Philippines: 13.2500°N, 123.7167°E
+- Poti, Georgia: 42.1333°N, 41.7667°E
+- Augusta, Italy: 37.3000°N, 14.7667°E
+- Aomori, Japan: 40.8333°N, 140.7167°E
+- Kingston, Ont, Canada: 44.2333°N, -76.5667°W
+- All Other Bahrain Ports, Bahrain: （泛指，无法提供具体经纬度）
+- Mongstad, Norway: 60.3667°N, 5.2167°E
+- All Other Mexico West Coast Region Ports, Mexico: （泛指，无法提供具体经纬度）
+- All Other Ukraine Ports, Ukraine: （泛指，无法提供具体经纬度）
+- Isdemir, Turkey: 39.7833°N, 37.0333°E
+- Guantanamo Bay, Cuba: 19.9250°N, -75.1667°W
+- Port of Texas City, Texas City, Texas: 29.4333°N, -94.8500°W
+- Haikou, China: 20.0167°N, 110.3500°E
+- Kanda, Japan: 35.6947°N, 139.7647°E
+- Huelva, Spain: 37.4667°N, -6.9833°W
+- Fawley, United Kingdom: 50.9333°N, -1.4167°W
+- Ahus, Sweden: 58.6167°N, 16.1167°E
+- Fort De France, Martinique: 14.6167°N, -61.0333°W
+- All Other United Arab Emirates Ports, United Arab Emirates: （泛指，无法提供具体经纬度）
+- Oporto, Portugal: 41.1579°N, -8.6291°W
+- Coco Cay, Bahamas: 25.5833°N, -77.3667°W
+- Port Of Spain, Trinidad and Tobago: 10.6667°N, -61.5167°W
+- Elefsis, Greece: 38.0167°N, 23.6667°E
+- Bridgetown, Barbados: 13.1000°N, -59.6167°W
+- Port Jerome, France: 49.7000°N, -0.9167°W
+- All Other France Mediterranean Region Ports, France: （泛指，无法提供具体经纬度）
+- Dunkerque, France: 50.9500°N, 2.3500°E
+- Welshpool, Nb, Canada: 46.5167°N, -67.6833°W
+- Hamilton, Bermuda: 32.2833°N, -64.7833°W
+- Novorossiysk, Russia: 44.8917°N, 37.4583°E
+- All Other Canada Atlantic Region Ports, Canada: （泛指，无法提供具体经纬度）
+- Whiffen Head, Nfld, Canada: 47.5667°N, -53.0500°W
+- Sorel, Que, Canada: 46.1667°N, -72.5167°W
+- Soyo Oil Terminal, Angola: 6.4167°S, 12.3500°E
+- Richard's Bay, South Africa: 29.1667°S, 32.0833°E
+- Amuay Bay, Venezuela: 11.9000°N, -71.5333°W
+- Savona, Italy: 44.2833°N, 8.4667°E
+- Brest, France: 48.4000°N, -4.4833°W
+- Nha Trang, Vietnam: 12.2
+- Talara, Peru: 5.0833°S, -80.5167°W
+- Agadir, Morocco: 30.4167°N, -9.5833°W
+- Caleta Patillos, Chile: 22.7833°S, -70.6667°W
+- Port Louis, Mauritius: 20.1667°S, 57.4833°E
+- Basseterre, St. Kitts, Saint Kitts and Nevis: 17.3000°N, -62.7333°W
+- Castries, Saint Lucia: 14.0000°N, -60.9833°W
+- Teluk Bayur, Indonesia: 0.8833°N, 100.3833°E
+- As Sidr, Libya: 29.5833°N, 21.5000°E
+- Marsaxlokk, Malta: 35.8333°N, 14.5333°E
+- Skikda, Algeria: 36.8833°N, 6.4167°E
+- All Other Sri Lanka Ports, Sri Lanka: （泛指，无法提供具体经纬度）
+- Mar Del Plata, Argentina: 38.0167°S, -57.5833°W
+- Sluiskil, Netherlands: 51.4667°N, 3.7500°E
+- Skoldvik, Finland: 60.4167°N, 22.4333°E
+- All Other Estonia Ports, Estonia: （泛指，无法提供具体经纬度）
+- All Other Madagascar Ports, Madagascar: （泛指，无法提供具体经纬度）
+- All Other Colombia West Coast Region Ports, Colombia: （泛指，无法提供具体经纬度）
+- Derince, Turkey: 40.7333°N, 29.9833°E
+- Sete, France: 43.6333°N, 3.8500°E
+- Banjarmasin, Indonesia: 3.3333°S, 114.5833°E
+- Sandakan, Malaysia: 5.8833°N, 118.0833°E
+- Dongguan, China: 23.0333°N, 113.7500°E
+- Puerto Drummond, Colombia: 10.6333°N, -73.9667°W
+- North Sydney, Ns, Canada: 46.1000°N, -60.1833°W
+- Ventspils, Latvia: 57.4500°N, 21.8667°E
+- Christchurch, New Zealand: 43.5333°S, 172.6333°E
+- Tracy, Que, Canada: 45.5667°N, -73.2167°W
+- Victoria, Malaysia: 5.35°N, 115.2167°E
+- Sfax, Tunisia: 34.7833°N, 10.2833°E
+- All Other Ireland Ports, Ireland: （泛指，无法提供具体经纬度）
+- Pointe Des Galets, Reunion: 21.0833°S, 55.6333°E
+- Macao, Macau: 22.1967°N, 113.5433°E
+- El Palito, Venezuela: 10.2500°N, -69.6833°W
+- Safaga, Egypt: 27.3667°N, 33.9833°E
+- Saint Jean, Que, Canada: 46.8167°N, -73.2167°W
+- Galisbay, Netherlands Antilles: 18.0721°N, -63.0819°W
+- Butterworth, Malaysia: 5.3667°N, 100.4500°E
+- Khor Al Zubair, Iraq: 30.4333°N, 47.5333°E
+- Braefoot Bay, United Kingdom: 56.0349°N, -3.3159°W
+- Kuala Selangor, Malaysia: 3.4000°N, 101.3333°E
+- All Other Sumatra Ports, Indonesia: （泛指，无法提供具体经纬度）
+- Aigion, Greece: 38.2667°N, 21.9500°E
+- Bullen Baai, Netherlands Antilles: 12.2000°N, -69.0167°W
+- Sarroch Oil Terminal, Italy: 39.3333°N, 9.2500°E
+- Inga, Finland: 60.5167°N, 22.3833°E
+- All Other Romania Ports, Romania: （泛指，无法提供具体经纬度）
+- Saint John's, Nfld, Canada: 47.5667°N, -52.7000°W
+- Mollendo, Peru: 16.7833°S, -71.3667°W
+- Amagasaki, Japan: 34.6833°N, 135.4833°E
+- Tel Aviv Yafo, Israel: 32.0833°N, 34.7833°E
+- All Other Netherlands Ports, Netherlands: （泛指，无法提供具体经纬度）
+- Halmstad, Sweden: 56.6700°N, 12.8500°E
+- Marseille, France: 43.2965°N, 5.3698°E
+- Kuantan, Malaysia: 3.8167°N, 103.2500°E
+- All Other Russia Siberia Region Ports, Russia: （泛指，无法提供具体经纬度）
+- All Other Bahamas Ports, Bahamas: （泛指，无法提供具体经纬度）
+- Stavanger, Norway: 58.9700°N, 5.7300°E
+- All Other Ports In Bulgaria, Bulgaria: （泛指，无法提供具体经纬度）
+- Zamboanga, Philippines: 6.0500°N, 122.0667°E
+- Bintulu, Malaysia: 3.1833°N, 113.9333°E
+- Puerto Colombia, Colombia: 10.7833°N, -75.2667°W
+- El Ismailiya, Egypt: 30.5833°N, 32.2833°E
+- Seaforth, United Kingdom: 53.4654°N, -3.0137°W
+- Abidjan, Cote d'Ivoire: 5.3333°N, -4.0333°W
+- Brussels, Belgium: 50.8503°N, 4.3517°E
+- San Jose, Guatemala: 14.6333°N, -90.5833°W
+- Terneuzen, Netherlands: 51.3500°N, 3.9500°E
+- Labadee, Haiti: 19.5833°N, -72.3167°W
+- All Other Egypt Red Sea Region Ports, Egypt: （泛指，无法提供具体经纬度）
+- Charlotte Amalie, St. Th, Virgin Islands (U.S.): 18.3333°N, -64.9333°W
+- Hull, United Kingdom: 53.7464°N, -0.3300°W
+- Tarragona, Spain: 41.1167°N, 1.2500°E
+- Walvis Bay, Namibia: 23.0833°S, 14.5167°E
+- All Solomon Islands Ports, Solomon Islands: （泛指，无法提供具体经纬度）
+- Europoort, Netherlands: 51.9667°N, 4.0500°E
+- Aagotnes, Norway: 60.3833°N, 5.3500°E
+- Greenock, United Kingdom: 55.9500°N, -4.7167°W
+- Milford Haven, United Kingdom: 51.7500°N, -5.0667°W
+- Gand, Belgium: 51.0500°N, 3.7167°E
+- Gibraltar, Gibraltar: 36.1377°N, -5.3456°W
+- Road Harbour, Tortola, Virgin Islands (British): 18.3833°N, -64.8167°W
+- Golfo De Palmas, Italy: 39.1260°N, 8.6830°W
+- Porto Corsini, Italy: 44.1667°N, 12.1500°E
+- Cap  Limboh, Cameroon: 4.0167°N, 9.7333°E
+- All Other Guadeloupe Ports, Guadeloupe: （泛指，无法提供具体经纬度）
+- Bassens, France: 44.8667°N, -0.5833°W
+- Philipsborough, Netherlands Antilles: 18.0278°N, -63.0547°W
+- Sarnia, Ont, Canada: 42.9667°N, -82.3833°W
+- Fang Cheng, China: 21.7833°N, 108.3667°E
+- Cadiz, Spain: 36.5667°N, -6.2833°W
+- Military Guangzhou, China: 23.2069°N, 113.2649°E
+- Limassol, Cyprus: 34.6833°N, 33.0500°E
+- All Other England West Coast Ports, United Kingdom: （泛指，无法提供具体经纬度）
+- Mogpo, South Korea: 37.2833°N, 126.4667°E
+- Jebel Dhanna, United Arab Emirates: 24.0333°N, 54.1500°E
+- Port Sudan, Sudan: 19.5167°N, 37.2000°E
+- Arjuna Terminal, Indonesia: 7.26077°S, 112.7272°E
+- Lome, Togo: 6.1333°N, 1.2333°E
+- Durazzo, Albania: 41.2833°N, 19.4833°E
+- Maputo, Mozambique: 25.9667°S, 32.5833°E
+- Dar Es Salaam, Tanzania: 6.7833°S, 39.2167°E
+- El Alamein, Egypt: 31.1667°N, 29.9667°E
+- Taicang, China: 31.4833°N, 121.1333°E
+- Rada Di Vado, Italy: 44.3500°N, 9.1333°E
+- Tema, Ghana: 5.5667°N, -0.1500°W
+- Bitung, Indonesia: 1.3500°N, 124.8833°E
+- North Tees, United Kingdom: 54.5667°N, -1.2167°W
+- Tomakomai, Japan: 42.4167°N, 141.4667°E
+- All Other Wales Ports, United Kingdom: （泛指，无法提供具体经纬度）
+- All Other Denmark Ports, Denmark: （泛指，无法提供具体经纬度）
+- All Other Costa Rica Caribbean Region Ports, Costa Rica: （泛指，无法提供具体经纬度）
+- Caracas, Venezuela: 10.4833°N, -66.8833°W
+- All Other Guyana Ports, Guyana: （泛指，无法提供具体经纬度）
+- Santo Domingo, Dominican Republic: 18.4667°N, -69.9333°W
+- Charlottetown, Pei, Canada: 46.2333°N, -63.1333°W
+- Gresik, Indonesia: 7.1833°S, 112.7333°E
+- Baie Comeau, Que, Canada: 49.1333°N, -68.2667°W
+- Simotu, Japan: 33.5333°N, 130.5333°E
+- Port Dickson, Malaysia: 2.5833°N, 101.9167°E
+- Le Verdon, France: 45.4333°N, -1.1833°W
+- Immingham, United Kingdom: 53.6500°N, -0.1167°W
+- Kardeljevo, Croatia: 45.3500°N, 16.0333°E
+- Flushing, Netherlands: 51.4833°N, 4.1833°E
+- Levis, Que, Canada: 46.8167°N, -71.2167°W
+- All Other Malta Ports, Malta: （泛指，无法提供具体经纬度）
+- Nanticoke, ONT, Canada: 43.2500°N, -80.2500°W
+- Lagos, Nigeria: 6.5500°N, 3.3833°E
+- Rosario, Argentina: 32.9833°S, -60.6167°W
+- San Pedro De Macoris, Dominican Republic: 18.4667°N, -69.0500°W
+- Ras Laffan, Qatar: 25.8667°N, 51.5333°E
+- Lahad Datu, Malaysia: 4.5500°N, 118.7500°E
+- Quintero, Chile: 32.9500°S, -71.5500°W
+- Turbo, Colombia: 7.7833°N, -76.9167°W
+- Cozumel Island, Mexico: 20.5000°N, -86.9333°W
+- All Other Netherlands Antilles Ports, Netherlands Antilles: （泛指，无法提供具体经纬度）
+- Dos Bocas, Mexico: 19.8833°N, -92.2833°W
+- Avonmouth, United Kingdom: 51.4833°N, -2.6333°W
+- Gaspe, Que, Canada: 48.6833°N, -64.5167°W
+- Parham Harbour, Antigua, Antigua And Barbuda: 17.0500°N, -61.7500°W
+- Santiago, Chile: 33.4500°S, -70.6667°W
+- Santa Clara, Brazil: 22.2833°S, -47.3667°W
+- Reykjavik, Iceland: 64.1265°N, -21.8174°W
+- All Other Costa Rica West Coast Region Ports, Costa Rica: （泛指，无法提供具体经纬度）
+- Cotonou, Benin: 6.3667°N, 2.3833°E
+- Castellon, Spain: 39.9833°N, -0.1167°W
+- Ceuta, Spain: 35.8833°N, -5.3167°W
+- Orangestad, Aruba: 12.5208°N, -70.0247°W
+- Dakar, Senegal: 14.6937°N, -17.4444°W
+- Iwakuni, Japan: 34.2833°N, 132.4667°E
+- Iquique, Chile: 20.1833°S, -70.1667°W
+- Milazzo, Italy: 38.0667°N, 15.0500°E
+- All Other St. Croix Virgin Islands, Virgin Islands (U.S.): （泛指，无法提供具体经纬度）
+- Toronto, Ont, Canada: 43.6532°N, -79.3832°W
+- Georgetown, Guyana: 6.8000°N, -58.1500°W
+- Bahia Blanca, Argentina: 38.7167°S, -62.2833°W
+- Quebec, Canada: 46.8167°N, -71.2167°W
+- Castaway Cay, Bahamas: 24.5167°N, -77.5500°W
+- Sept Iles, QUE, Canada: 50.0833°N, -66.1500°W
+- Pointe Noire, Congo: 4.7833°S, 11.7167°E
+- Port of Green Bay, Green Bay, Wisconsin: 44.5333°N, -88.0500°W
+- Martinez, California: 38.0000°N, -122.1000°W
+- Selby, California: 38.0000°N, -122.1000°W
+- Port of Richmond, Richmond, California: 37.9833°N, -122.3667°W
+- Baton Rouge (BTR) Airport, Baton Rouge, Louisiana: 30.5528°N, -91.1417°W
+- Baltimore-Washington International Airport, Baltimore, Maryland: 39.1756°N, -76.6681°W
+- Paulsboro, Pennsylvania: 39.8333°N, -75.1500°W
+- Campbell River, Bc, Canada: 50.0167°N, -125.2500°W
+- Tokuyama, Japan: 34.3333°N, 132.3333°E
+- New Westminster, Bc, Canada: 49.2167°N, -122.9167°W
+- Beale Cove, Bc, Canada: 49.70643°N, -124.56895°W
+- Victoria, Bc, Canada: 48.4284°N, -123.3657°W
+- Van Anda, Bc, Canada: 49.6333°N, -124.8167°W
+- Goa, India: 15.2993°N, 73.8258°E
+- Nanaimo, Bc, Canada: 49.1667°N, -123.9667°W
+- All Marshall Island Ports, Marshall Islands: （泛指，无法提供具体经纬度）
+- Port Moody, Bc, Canada: 49.2833°N, -122.8667°W
+- Bell Bay, Australia: 41.5667°S, 147.4500°E
+- Puerto Vallarta, Mexico: 20.6500°N, -105.2333°W
+- Victoria Harbor, Ont, Canada: 44.7500°N, -79.7667°W
+- Sur, Oman: 22.1333°N, 59.4500°E
+- Delta Bc, Canada: 49.1667°N, -123.0167°W
+- Crofton, Bc, Canada: 48.9833°N, -123.6833°W
+- Djambi, Indonesia: 1.6167°S, 103.3833°E
+- Port Victoria, Seychelles: 4.6333°S, 55.4833°E
+- Palembang, Indonesia: 2.9667°S, 104.7333°E
+- Townsville, Australia: 19.2667°S, 146.8167°E
+- Texada, Bc, Canada: 49.7500°N, -124.4167°W
+- All Other Tasmania Ports, Australia: （泛指，无法提供具体经纬度）
+- Cumana, Venezuela: 10.4333°N, -64.1833°W
+- Bukpyung, South Korea: 37.3833°N, 129.1833°E
+- Matsunaga, Japan: 34.6500°N, 135.5167°E
+- Port Of Entry-Ketchikan, Ketchikan, Alaska: 55.3667°N, -131.6500°W
+- Port Of Entry-Kansas City, Kansas City, Missouri: 39.1167°N, -94.5833°W
+- Maida, Maida, North Dakota: 48.9986°N, -98.3648°W
+- Port Of Entry-West Palm Beach, West Palm Beach, Florida: 26.7333°N, -80.0500°W
+- Cape Vincent, New York: 44.4000°N, -75.9833°W
+- Saginaw-Bay City-Flint, Saginaw/Bay City, Michigan: 43.5000°N, -83.6667°W
+- Detour City, Michigan: 45.9944°N, -83.9028°W
+- Point Fortin, Trinidad and Tobago: 10.5000°N, -61.5667°W
+- All Other Kalimantan Ports, Indonesia: （泛指，无法提供具体经纬度）
+- Aveiro, Portugal: 40.6333°N, -8.6500°W
+- Maceio, Brazil: 9.6667°S, -35.7167°W
+- Barahona, Dominican Republic: 18.2333°N, -71.3833°W
+- Aviles, Spain: 43.5833°N, -5.8167°W
+- Linden, Guyana: 6.8167°N, -58.1833°W
+- Yawata, Japan: 35.0500°N, 135.7833°E
+- Salaverry, Peru: 8.4500°S, -78.9500°W
+- Nystad, Finland: 59.8167°N, 22.2833°E
+- Coatzacoalcos, Mexico: 16.9833°N, -94.4667°W
+- Savanna La Mar, Jamaica: 18.2167°N, -78.0667°W
+- Pohang, South Korea: 35.9833°N, 129.3667°E
+- Heroen, Norway: 58.1167°N, 5.7500°E
+- Greenhite, United Kingdom: 54.5333°N, -3.4333°W
+- All Other Honduras Caribbean Region Ports, Honduras: （泛指，无法提供具体经纬度）
+- Talcahuano, Chile: 36.8833°S, -73.2500°W
+- Puerto Castilla, Honduras: 15.9333°N, -86.7833°W
+- Ocho Rios, Jamaica: 18.417°N, -77.117°W
+- New Amsterdam, Guyana: 5.8667°N, -58.8333°W
+- Aabenraa, Denmark: 55.0833°N, 9.4167°E
+- Chiriqui Grande Terminal, Panama: 9.0000°N, -82.2500°W
+- Hon Gai, Vietnam: 21.0667°N, 107.0333°E
+- Tobata, Japan: 33.8833°N, 130.8833°E
+- Hirohata, Japan: 35.4167°N, 139.7500°E
+- Admiralty Bay, Saint Vincent and the Grenadines: 13.2500°N, -61.1833°W
+- Kanokawa, Japan: 34.6833°N, 135.4833°E
+- Punta Morales, Costa Rica: 9.9833°N, -84.1667°W
+- Esquivel, Jamaica: 18.0000°N, -77.4667°W
+- Virgin  Gorda, Virgin Islands (British): 18.3500°N, -64.5833°W
+- Ijmuiden, Netherlands: 52.3833°N, 4.6500°E
+- Kuala Tanjung, Indonesia: 2.1833°N, 99.3500°E
+- Puerto Plata, Dominican Republic: 19.7500°N, -70.7167°W
+- Tarakan, Indonesia: 3.5833°N, 117.6167°E
+- Bjorneborg, Finland: 60.4167°N, 22.4333°E
+- Valleyfield, Que, Canada: 45.2500°N, -73.5500°W
+- Samos, Greece: 37.7667°N, 26.9500°E
+- Macassar, Indonesia: 5.1333°S, 119.4167°E
+- Delfzijl, Netherlands: 53.4167°N, 6.7000°E
+- Susaki, Japan: 33.5333°N, 130.5333°E
+- Santander, Spain: 43.4667°N, -3.8167°W
+- Eemshaven, Netherlands: 53.4167°N, 6.8833°E
+- Tuxpan, Mexico: 20.1667°N, -97.6333°W
+- All Other Spain Atlantic Region Ports Southeast Of, Spain: （泛指，无法提供具体经纬度）
+- Mab Ta Pud, Thailand: 12.9500°N, 100.9667°E
+- Almeria, Spain: 36.8667°N, -2.4500°W
+- Brindisi, Italy: 40.6333°N, 17.9333°E
+- Zarate, Argentina: 34.1833°S, -58.9500°W
+- Ronnsker, Sweden: 60.5167°N, 22.3833°E
+- All Other Finland Ports, Finland: （泛指，无法提供具体经纬度）
+- Bar, Serbia: 42.3667°N, 19.0000°E
+- Puerto Bolivar, Colombia: 10.6333°N, -73.9667°W
+- La Romana, Dominican Republic: 18.4667°N, -68.9500°W
+- Thule, Greenland: 76.5167°N, -68.7500°W
+- Bimini Island, Bahamas: 25.4667°N, -79.2500°W
+- Ocean Cay, Bahamas: 25.0833°N, -77.3667°W
+- Ash Shariqah, United Arab Emirates: 25.3833°N, 55.4167°E
+- Port Lavaca, Port Lavaca, Texas: 28.7500°N, -96.8167°W
+- Sabine, Texas: 29.8500°N, -93.8667°W
+- Port of Redwood City, Redwood City, California: 37.4833°N, -122.2500°W
+- Mississippi State Port Authority, Gulfport, Mississippi: 30.3667°N, -89.0833°W
+- Port Of NewHampshire, Portsmouth, New Hampshire: 43.0667°N, -70.7500°W
+- All Other Jamaica Ports, Jamaica: （泛指，无法提供具体经纬度）
+- Georgetown, Cayman Islands: 19.3000°N, -81.3833°W
+- Christiansted, St. Croix, Virgin Islands (U.S.): 17.7333°N, -64.9500°W
+- Goto Oil Terminal, Netherlands Antilles: 12.1833°N, -69.0833°W
+- St. George, Grenada: 12.0500°N, -61.7500°W
+- Chub Cay, Bahamas: 25.0833°N, -77.3667°W
+- Great Stirrup Cay, Bahamas: 25.3500°N, -77.7500°W
+- Great Inagua, Bahamas: 21.1500°N, -72.9167°W
+- Cat Island, Bahamas: 24.4333°N, -75.5833°W
+- Clarence Town, Bahamas: 24.5833°N, -75.4167°W
+- Providenciales, Turks and Caicos Islands: 21.7833°N, -71.7833°W
+- All Other Nicaragua Caribbean Region Ports, Nicaragua: （泛指，无法提供具体经纬度）
+- Belize, Belize: 17.2500°N, -88.0667°W
+- Puerto De Morales, Mexico: 20.9500°N, -87.0833°W
+- Governor's Harbour, Bahamas: 24.9833°N, -76.0500°W
+- Andros Island, Bahamas: 24.5833°N, -77.6333°W
+- Spanish Wells, Bahamas: 25.1333°N, -77.2333°W
+- Eleuthera Island, Bahamas: 24.8333°N, -76.2833°W
+- Cat Cay, Bahamas: 25.0833°N, -77.3667°W
+- Cap Haitien, Haiti: 19.7333°N, -72.2333°W
+- Havana, Cuba: 23.1333°N, -82.3833°W
+- Grand Turks, Turks and Caicos Islands: 21.6333°N, -71.1167°W
+- Exuma, Bahamas: 23.9500°N, -75.7000°W
+- Half Moon Cay, Bahamas: 25.0833°N, -77.3667°W
+- Arlen Siu, Nicaragua: 12.1667°N, -86.2333°W
+- Isla San Andres, Colombia: 12.5833°N, -81.8500°W
+- All Other Honduras West Coast Region Ports, Honduras: （泛指，无法提供具体经纬度）
+- Carboneras, Spain: 37.0833°N, -2.4167°W
+- Guanaja, Honduras: 15.7333°N, -85.2667°W
+- Great Harbour Cay, Bahamas: 24.6500°N, -75.7500°W
+- Gonaives, Haiti: 19.5333°N, -72.5833°W
+- Palamos, Spain: 41.7167°N, 2.7833°E
+- Golfito, Costa Rica: 8.6333°N, -83.3667°W
+- West End, Bahamas: 25.0833°N, -77.3667°W
+- Onahama, Japan: 37.3167°N, 140.3833°E
+- El Ferrol, Spain: 43.4667°N, -8.2500°W
+- Port Cartier, Que, Canada: 48.8333°N, -68.2500°W
+- Newcastle, Australia: 32.9281°S, 151.7817°E
+- Majorca, Spain: 39.5728°N, 2.6586°E
+- Walker Cay, Bahamas: 25.0833°N, -77.3667°W
+- Marigot, St. Martin, Guadeloupe: 18.0500°N, -63.0500°W
+- All Other Virgin Islands Ports, Virgin Islands (U.S.): （泛指，无法提供具体经纬度）
+- Cancun, Mexico: 21.1667°N, -86.8500°W
+- Saint Marc, Haiti: 19.5333°N, -72.5833°W
+- Barcadera, Aruba: 12.5333°N, -70.0333°W
+- La Paz, Mexico: 24.4833°N, -110.3167°W
+- All Other Paraguay Ports, Paraguay: （泛指，无法提供具体经纬度）
+- All Other Algeria Ports, Algeria: （泛指，无法提供具体经纬度）
+- Thessalon, Ont, Canada: 44.3833°N, -81.6333°W
+- Pajaritos, Mexico: 19.0833°N, -98.2167°W
+- Montego Bay, Jamaica: 18.4667°N, -77.9167°W
+- Portsmouth, Dominica: 15.3333°N, -61.3833°W
+- Santa Cruz De Tenerife, Spain: 28.4667°N, -16.2500°W
+- San Nicolas Bay, Aruba: 12.5333°N, -70.0333°W
+- Ponta Delgada, Portugal: 37.7333°N, -25.6667°W
+- Funchal, Portugal: 32.6297°N, -16.9426°W
+- Valletta, Malta: 35.8997°N, 14.5147°E
+- Maracaibo, Venezuela: 10.6428°N, -71.6375°W
+- All Other Congo (Kinshasa) Ports, Congo: （泛指，无法提供具体经纬度）
+- Luanda, Angola: 8.8333°S, 13.2333°E
+- Bonaberi, Cameroon: 4.0500°N, 9.2167°E
+- Port Gentil, Gabon: 0.7833°S, 9.4333°E
+- Takoradi, Ghana: 4.9833°N, -1.7667°W
+- Lakeview, Ont, Canada: 44.4333°N, -76.6667°W
+- La Plata, Argentina: 34.9214°S, -57.9547°W
+- Moengo, Suriname: 5.7500°N, -55.1333°W
+- Tramandai, Brazil: 29.7833°S, -49.9667°W
+- Paramaribo, Suriname: 5.8333°N, -55.2000°W
+- Doha, Qatar: 25.2854°N, 51.5310°E
+- Sri Racha, Thailand: 13.0333°N, 100.8833°E
+- Lavera, France: 43.4167°N, 4.0833°E
+- Cayo Arcas, Mexico: 18.1000°N, -92.3333°W
+- Chiba, Japan: 35.6000°N, 140.1167°E
+- Kinuura, Japan: 35.2500°N, 139.5167°E
+- Puerto La Cruz, Venezuela: 10.1667°N, -64.8833°W
+- Khor Fakkan, United Arab Emirates: 25.3833°N, 56.2167°E
+- Marystown, Nfld, Canada: 47.5667°N, -53.4500°W
+- Ilo, Peru: 17.7667°S, -71.2833°W
+- Matarani, Peru: 17.2833°S, -71.4167°W
+- Ensteadvaerket, Denmark: 55.6667°N, 12.5833°E
+- Sepetiba Bay, Brazil: 22.9667°S, -44.0167°W
+- Wakayama, Japan: 34.4167°N, 135.1167°E
+- Priolo, Italy: 37.4667°N, 15.0333°E
+- All Other Trinidad Ports, Trinidad and Tobago: （泛指，无法提供具体经纬度）
+- Puerto De Sagunto, Spain: 39.6500°N, -0.3500°W
+- Fukuyama, Japan: 34.4833°N, 133.4500°E
+- Niihama, Japan: 33.9333°N, 133.2667°E
+- Oran, Algeria: 35.7333°N, 0.6500°W
+- Malabo, Equatorial Guinea: 3.7500°N, 8.7833°E
+- Bahia De Las Minas, Panama: 9.3833°N, -79.7833°W
+- Volos, Greece: 39.3667°N, 22.4500°E
+- All Other Suriname Ports, Suriname: （泛指，无法提供具体经纬度）
+- Saint Georges, Bermuda: 32.3333°N, -64.7667°W
+- Bahia Guanta, Venezuela: 10.5000°N, -64.5167°W
+- Ilheus, Brazil: 14.7500°S, -39.1667°W
+- Pto. General San Martin, Argentina: 32.9333°S, -60.6167°W
+- Muara Port, Brunei Darussalam: 4.8667°N, 114.9500°E
+- Giresun, Turkey: 41.0833°N, 39.2667°E
+- Sunndalsora, Norway: 62.7000°N, 7.6833°E
+- Ko Sichang, Thailand: 13.1667°N, 100.9833°E
+- Kasaoka, Japan: 35.4667°N, 136.6833°E
+- Joao Pessoa, Brazil: 7.1167°S, -34.8667°W
+- Kudamatsu, Japan: 34.2833°N, 133.3333°E
+- Pointe A Pierre, Trinidad and Tobago: 10.5667°N, -61.4833°W
+- Degrad Des Cannes, French Guiana: 5.2833°N, -52.4500°W
+- Taranto, Italy: 40.4833°N, 17.2833°E
+- La Libertad, Ecuador: 1.9833°S, -80.5167°W
+- All Other Southern Pacific Islands: （泛指，无法提供具体经纬度）
+- Dampier, Australia: 20.3500°S, 116.7167°E
+- Hartlepool, United Kingdom: 54.6500°N, -1.2333°W
+- Imari, Japan: 33.2667°N, 130.7667°E
+- Clarence Bay, Ascension Is, St. Helena: 7.9500°S, -14.4167°W
+- Sousee, Tunisia: 36.8333°N, 10.1833°E
+- Mariveles, Philippines: 14.5833°N, 120.5833°E
+- Puerto Henecan, Honduras: 15.9000°N, -86.7833°W
+- Brake, Germany: 53.4500°N, 7.3833°E
+- Pasages, Spain: 43.3500°N, -2.1667°W
+- Alluth Kalimantan, Indonesia: 2.2500°N, 115.0000°E
+- Ilichevsk, Ukraine: 46.4833°N, 31.8167°E
+- Mohammedia, Morocco: 33.6667°N, -7.4667°W
+- All Other Cameroon Ports, Cameroon: （泛指，无法提供具体经纬度）
+- Isla Mujeres, Mexico: 21.2667°N, -86.7833°W
+- Guaranao, Venezuela: 11.67146°N, -70.2145°W
+- Dover, United Kingdom: 51.1333°N, 1.3167°E
+- Okrika, Nigeria: 4.7833°N, 7.0500°E
+- All Other Mauritania Ports, Mauritania: （泛指，无法提供具体经纬度）
+- Motril, Spain: 36.8333°N, -3.6667°W
+- El Jorf Lasfar, Morocco: 33.3333°N, -7.5833°W
+- Sakaide, Japan: 34.2833°N, 133.4833°E
+- Kribi, Cameroon: 3.0167°N, 10.0167°E
+- Eregli, Turkey: 41.2833°N, 29.9667°E
+- Big Creek, Belize: 16.4167°N, -88.2500°W
+- Veraval, India: 20.9833°N, 70.6500°E
+- Nouadhibou, Mauritania: 20.8833°N, -16.5167°W
+- Topolobampo, Mexico: 25.8333°N, -109.2833°W
+- Tamaulipas, Mexico: 24.283°N, -98.567°W
+- Batangas, Philippines: 13.9333°N, 120.9667°E
+- Tuapse, Russia: 44.0333°N, 39.9833°E
+- Madre De Deus, Brazil: 12.9667°S, -38.4000°W
+- Corunna, Spain: 43.3667°N, -8.4000°W
+- Recife, Brazil: 8.0500°S, -34.8667°W
+- All Other Martinique Ports, Martinique: （泛指，无法提供具体经纬度）
+- Pointe A Pitre, Guadeloupe: 16.2667°N, -61.5333°W
+- Morelos, Mexico: 18.8667°N, -99.2167°W
+- Stewart, Bc, Canada: 56.0500°N, -129.9667°W
+- All Other Ecuador Ports, Ecuador: （泛指，无法提供具体经纬度）
+- Eydehamn, Norway: 60.3833°N, 5.3167°E
+- Kings North, United Kingdom: 51.3728°N, -2.3560°W
+- All Other Morocco Mediterranean Ports, Morocco: （泛指，无法提供具体经纬度）
+- Onsong, North Korea: 41.6500°N, 129.7667°E
+- Conchan, Peru: 10.6833°S, -79.2000°W
+- Murmansk, Russia: 68.9667°N, 33.0833°E
+- Fort Williams, Ont, Canada: 44.2167°N, -79.9500°W
+- Dalhousie, Nb, Canada: 47.0833°N, -66.3667°W
+- Mexico, Mexico: 19.4326°N, -99.1332°W
+- Bataan, Philippines: 14.7500°N, 120.4833°E
+- Canneto, Italy: 38.0833°N, 15.0500°E
+- Las Palmas, Spain: 27.9789°N, -15.4181°W
+- Donges, France: 47.3833°N, -1.9333°W
+- Munguba, Brazil: 3.7333°S, -38.4833°W
+- Britt, Ont, Canada: 44.4833°N, -79.6500°W
+- Rocky Point, Jamaica: 18.0000°N, -77.4667°W
+- Ain Sukhna, Egypt: 29.7333°N, 32.7833°E
+- All Other Leeward Islands: （泛指，无法提供具体经纬度）
+- Kerch, Ukraine: 45.3000°N, 36.4167°E
+- All Other Northern Ireland Ports, United Kingdom: （泛指，无法提供具体经纬度）
+- Lobito, Angola: 11.8500°S, 13.7167°E
+- Itacoatiara, Brazil: 3.0833°S, -58.9500°W
+- All Other Iraq Ports, Iraq: （泛指，无法提供具体经纬度）
+- Campeche, Mexico: 19.8167°N, -90.5333°W
+- Muuga, Estonia: 59.4333°N, 24.8667°E
+- Other Belize Ports, Belize: （泛指，无法提供具体经纬度）
+- Port Canaveral, Port Canaveral, Florida: 28.3833°N, -80.6000°W
+- Ponce, Ponce, Puerto Rico: 18.0000°N, -66.6167°W
+- Port Of Entry-Key West, Key West, Florida: 24.5500°N, -81.7833°W
+- El Segundo, California: 33.9400°N, -118.4000°W
+- Port of Richmond, Richmond‑Petersburg, Virginia: 37.5000°N, -77.4333°W
+- The Port of Pensacola, Pensacola, Florida: 30.4333°N, -87.2167°W
+- Port of Morgan City, Morgan City, Louisiana: 29.7167°N, -91.4500°W
+- Fort Pierce, Florida: 27.8000°N, -80.4333°W
+- Port Of Entry-Monterey, Monterey, California: 36.6000°N, -121.9000°W
+- Aden, Yemen: 12.7833°N, 45.0333°E
+- Tanjiajing, China: （可能是拼写错误或不常见的小港口，未找到明确的经纬度信息）
+- All Other Tanzania Ports, Tanzania: （泛指，无法提供具体经纬度）
+- Aguadulce, Panama: 9.0333°N, -79.7667°W
+- Cam Pha, Vietnam: 20.9833°N, 107.0500°E
+- Coquimbo, Chile: 30.1833°S, -71.3500°W
+- San Lucas, Mexico: 23.0000°N, -106.4167°W
+- All Other Society Islands Ports, French Polynesia: （泛指，无法提供具体经纬度）
+- Calamata, Greece: 37.0333°N, 22.0167°E
+- Caldera, Chile: 27.1833°S, -70.7667°W
+- Kuching, Malaysia: 1.5333°N, 110.3667°E
+- Vladivostok, Russia: 43.0833°N, 131.8833°E
+- All Other North Korea Ports, North Korea: （泛指，无法提供具体经纬度）
+- Provideniya, Russia: 64.3000°N, 177.7667°E
+- All Other Canary Islands Ports, Spain: （泛指，无法提供具体经纬度）
+- All Other Java Ports, Indonesia: （泛指，无法提供具体经纬度）
+- Puerto Bolivar, Ecuador: 2.2833°S, -79.0167°W
+- La Fitteau, Haiti: 19.5333°N, -72.3500°W
+- Utila Bay, Honduras: 15.6833°N, -86.9833°W
+- Freetown, Sierra Leone: 8.4833°N, -13.2333°W
+- All Other Haiti Ports, Haiti: （泛指，无法提供具体经纬度）
+- Heraklion, Greece: 35.3333°N, 25.1333°E
+- Chioggia, Italy: 45.3000°N, 12.1833°E
+- Wenzhow, China: 27.9500°N, 120.9333°E
+- Phuket, Thailand: 7.9500°N, 98.3333°E
+- Matanzas, Venezuela: 22.9333°N, -71.3667°W
+- All Other Morocco Atlantic Region Ports, Morocco: （泛指，无法提供具体经纬度）
+- Geraldton, Australia: 28.7833°S, 114.6333°E
+- Bunbury, Australia: 33.3500°S, 115.6333°E
+- Saffi, Morocco: 31.3667°N, -9.3333°W
+- Kamaishi, Japan: 39.3833°N, 141.7833°E
+- Muroran, Japan: 42.3833°N, 141.4167°E
+- Samsun, Turkey: 41.3000°N, 36.2500°E
+- Guayacan, Chile: 39.8333°S, -73.1167°W
+- Nyborg, Denmark: 55.4667°N, 10.4167°E
+- Clifton Pier, Bahamas: 25.0833°N, -77.3667°W
+- Kaliningrad, Russia: 54.7000°N, 20.5167°E
+- Owendo, Gabon: 0.1667°S, 9.4333°E
+- Musayid, Qatar: 25.3833°N, 51.5833°E
+- Kastel Sucurac, Croatia: 43.3667°N, 16.3333°E
+- Nador, Morocco: 35.1167°N, -2.8833°W
+- Mo I Rana, Norway: 66.5333°N, 14.2833°E
+- Alligator Pond, Jamaica: 18.0000°N, -77.4667°W
+- Porsgrunn, Norway: 59.5333°N, 10.3333°E
+- Uno, Japan: 34.4236°N, 133.9167°E
+- Stigsnaes, Denmark: 55.4833°N, 10.4833°E
+- Tocopilla, Chile: 23.1333°S, -70.5833°W
+- Geelong, Australia: 38.1333°S, 144.3500°E
+- All Other Lithuania Ports, Lithuania: （泛指，无法提供具体经纬度）
+- All Other Guinea Ports, Guinea: （泛指，无法提供具体经纬度）
+- Pola, Croatia: 44.8667°N, 13.8500°E
+- All Other Croatia Ports, Croatia: （泛指，无法提供具体经纬度）
+- Zavia, Libya: 32.7833°N, 13.1833°E
+- Palua, Venezuela: 8.3595°N, -62.6912°W
+- All Other Scotland East Coast Ports, United Kingdom: （泛指，无法提供具体经纬度）
+- Lulea, Sweden: 65.5833°N, 22.1667°E
+- Frederikshavn, Denmark: 57.2500°N, 10.4667°E
+- All Other Mozambique Ports, Mozambique: （泛指，无法提供具体经纬度）
+- Puerto Ordaz, Venezuela: 8.2833°N, -67.6500°W
+- Kota Kinabalu, Malaysia: 5.9667°N, 116.0833°E
+- Samarinda, Indonesia: 0.4833°S, 117.1667°E
+- Port Rhoades, Jamaica: 18.4630°N, -77.4055°W
+- Gladstone, Australia: 23.8500°S, 151.2667°E
+- Trombetas, Brazil: 1.7500°N, -57.5500°W
+- Oxelosund, Sweden: 58.6667°N, 17.0333°E
+- All Other Nicaragua West Coast Region Ports, Nicaragua: （泛指，无法提供具体经纬度）
+- Libreville, Gabon: 0.3833°N, 9.4667°E
+- Sauda, Norway: 60.8333°N, 5.4500°E
+- Huasco, Chile: 28.6500°S, -70.8833°W
+- Port Of Entry-Perth Amboy, Perth Amboy, New Jersey: 40.4833°N, -74.2667°W
+- Toledo-Lucas Port Authority, Toledo, Ohio: 41.6500°N, -83.5833°W
+- Fort Lauderdale International Airport, Fort Lauderdale, Florida: 26.0764°N, -80.1528°W
+- Port of Christiansted, Christiansted, Virgin Islands: 17.7333°N, -64.9500°W
+- Port Huron, Port Huron, Michigan: 42.9833°N, -82.4167°W
+- Port Of Entry-New London, New London, Connecticut: 41.3428°N, -72.1014°W
+- Danville, Washington: 46.1333°N, -119.3833°W
+- Mayaguez, Mayaguez, Puerto Rico: 18.2000°N, -67.1333°W
+- Port Of Entry-Fernandina Beach, Fernandina Beach, Florida: 30.6667°N, -81.4500°W
+- Eastport Port Authority, Eastport, Maine: 44.8500°N, -66.8500°W
+- THE PORT OF MILWAUKEE, Milwaukee, Wisconsin: 43.0389°N, -87.9064°W
+- Port Of Entry-Morehead City - Beaufort, Beaufort‑Morehead City, North Carolina: 34.7500°N, -76.7000°W
+- Grand Rapids, Grand Rapids, Michigan: 42.9636°N, -85.6681°W
+- The Port of Pittsburgh Commission, Pittsburgh, Pennsylvania: 40.4398°N, -79.9986°W
+- Buffalo‑Niagara Falls, New York: 42.8864°N, -78.8785°W
+- Albany, New York: 42.6526°N, -73.7562°W
+- Muskegon, Michigan: 43.2167°N, -86.2833°W
+- Duluth Seaway Port Authority, Duluth, Wisconsin: 46.7833°N, -92.0833°W
+- Airborne Express @ Seatac, Seatac, Washington: 47.4489°N, -122.3094°W
+- Fort Wayne Airport, Fort Wayne, Indiana: 41.1333°N, -85.1333°W
+- Bandirma, Turkey: 40.7167°N, 28.1833°E
+- Coco Solo, Panama: 9.3667°N, -79.5833°W
+- Sheet Harbour, Ns, Canada: 44.6500°N, -63.3500°W
+- Caronte, France: 43.4667°N, 5.7167°E
+- Iali, Greece: 37.7333°N, 25.1333°E
+- Mindelo, Cape Verde: 16.9167°N, -24.9833°W
+- All Other Iceland Ports, Iceland: （泛指，无法提供具体经纬度）
+- All Other Germany Baltic Region Ports, Germany: （泛指，无法提供具体经纬度）
+- Brunsbuttel, Germany: 53.8167°N, 9.0167°E
+- Aliver, Greece: 38.4467°N, 23.8283°E
+- Soderhamn, Sweden: 60.8167°N, 16.6333°E
+- Sunderland, United Kingdom: 54.8878°N, -1.3745°W
+- Ouleborg, Finland: 65.0167°N, 25.4833°E
+- Becancour, Que, Canada: 46.1667°N, -72.5167°W
+- Cayuga, Ont, Canada: 43.1667°N, -76.7667°W
+- Algoma, Ont, Canada: 44.6500°N, -81.3833°W
+- Bowmanville, Ont, Canada: 43.9167°N, -78.8500°W
+- Bath, Ont, Canada: 43.7833°N, -78.1500°W
+- Picton, Ont, Canada: 44.3333°N, -76.8167°W
+- Meldrum Bay, Canada: 51.7333°N, -85.6833°W
+- Bruce Mines, Ont, Canada: 46.7500°N, -84.6333°W
+- Goderich, Ont, Canada: 43.8167°N, -81.8500°W
+- Yokosuka, Japan: 35.2833°N, 139.6333°E
+- San Joaquin River, California: 37.5000°N, -121.5000°W
+- Juneau, Juneau, Alaska: 58.3000°N, -134.4167°W
+- Port of Friday Harbor, Friday Harbor, Washington: 48.5333°N, -122.9167°W
+- Port Of Entry-Sitka, Sitka, Alaska: 57.0500°N, -135.3333°W
+- Port Of Entry-Skagway, Skagway, Alaska: 59.4667°N, -135.3333°W
+- Port Of Entry-Dalton Cache, Dalton Cache, Alaska: 59.2333°N, -135.5667°W
+- Port Of Anacortes, Anacortes, Washington: 48.5667°N, -122.6167°W
+- Chicago Rockford International Airport, Rockford, Illinois: 42.2500°N, -89.0833°W
+- Port of Astoria, Astoria, Oregon: 46.1833°N, -123.8333°W
+- Port Of Entry-Hilo, Hilo, Hawaii: 19.7000°N, -155.0833°W
+- Windsor, Ont, Canada: 42.3156°N, -83.0258°W
+- Mariupol, Ukraine: 47.1000°N, 37.5333°E
+- Hamilton, Ont, Canada: 43.2500°N, -79.8667°W
+- Wismar, Germany: 53.8500°N, 12.1000°E
+- Three Rivers, Que, Canada: 46.1667°N, -72.5167°W
+- Baj Baj, India: 22.2833°N, 88.3667°E
+- Howie Sound, Bc, Canada: 49.7000°N, -124.5000°W
+- Powell River, Bc, Canada: 49.8333°N, -124.5167°W
+- Newcastle On Tyne, United Kingdom: 54.9783°N, -1.6178°W
+- Gold River, Bc, Canada: 49.9833°N, -125.3667°W
+- Batumi, Georgia: 41.6431°N, 41.6275°E
+- Cherbourg, France: 49.6567°N, -1.6233°W
+- UPS Courier Hub Facility, Pennsylvania: 40.2975°N, -76.0847°W
+- Port of Fall River, Fall River, Massachusetts: 41.7000°N, -71.1333°W
+- John F. Kennedy Airport, Jamaica, New York: 40.6398°N, -73.7789°W
+- Fort Myers, Florida: 26.6200°N, -81.8800°W
+- Port of New Bedford Business Alliance, New Bedford, Massachusetts: 41.6464°N, -70.9397°W
+- St. John, St. John, North Dakota: （内陆地区，暂时不处理）
+- Searsport, Maine: 44.6500°N, -68.9333°W
+- Port Of Entry-Fajardo, Fajardo, Puerto Rico: 18.4667°N, -65.7833°W
+- Wallhamn, Sweden: 57.7167°N, 12.0167°E
+- San Pedro, Argentina: 29.8333°S, -61.4667°W
+- Nordenham, Germany: 53.5667°N, 8.3167°E
+- Skien, Norway: 59.4333°N, 10.0667°E
+- Abo, Finland: 60.4500°N, 22.2667°E
+- Oskarshamn, Sweden: 57.1833°N, 16.6167°E
+- Waterford, Ireland: 52.2833°N, -7.1167°W
+- Karlshamn, Sweden: 55.7500°N, 14.1667°E
+- Point Ubu, Brazil: 10.4000°S, -61.3000°W
+- Harbour Grace, Nfld, Canada: 47.5667°N, -53.2500°W
+- Kemi, Finland: 65.7667°N, 24.1667°E
+- San Pedro, Cote d'Ivoire: 5.3333°N, -4.0333°W
+- Corner Brook, Nfld, Canada: 48.9667°N, -57.9333°W
+- Burnie, Australia: 41.0167°S, 145.9500°E
+- Iggesund, Sweden: 62.4333°N, 17.5667°E
+- All Other Sulawesi Ports, Indonesia: （泛指，无法提供具体经纬度）
+- Sullom Voe, United Kingdom: 60.4167°N, -1.1667°W
+- Djeno Terminal, Congo: 4.9762°S, 11.9352°E
+- Natal, Brazil: 5.8000°S, -35.2000°W
+- Flotta, United Kingdom: 59.3833°N, -3.1500°W
+- All Other Libya Ports, Libya: （泛指，无法提供具体经纬度）
+- Pennington, Nigeria: 4.6410°N, 5.4590°E
+- Montrose, United Kingdom: 56.6833°N, -3.1833°W
+- Crockett, California: 38.2333°N, -122.2833°W
+- Port Of Entry-Manchester (User Fee Airport), Manchester User Fee Airport, New Hampshire: 42.9208°N, -71.4583°W
+- Bayside, Nb, Canada: 45.9167°N, -66.0500°W
+- Milos Island, Greece: 36.7333°N, 24.4167°E
+- Kamsar, Guinea: 10.4667°N, -13.4167°W
+- Saint Andrews, Nb, Canada: 45.1667°N, -66.0833°W
+- Limhamn, Sweden: 55.6667°N, 13.1667°E
+- Kingsville, Ont, Canada: 42.0667°N, -83.2333°W
+- Gabes, Tunisia: 33.8333°N, 10.0833°E
+- Ridham Dock, United Kingdom: 51.3833°N, 1.2833°E
+- Puntarenas, Costa Rica: 9.8333°N, -84.7667°W
+- Cruz Bay, St. John I., Virgin Islands (U.S.): 18.3333°N, -64.8833°W
+- Anguilla, Anguilla: 18.2167°N, -63.0500°W
+- Frederiksted, St. Croix, Virgin Islands (U.S.): 17.7333°N, -64.9500°W
+- Port Of Entry-Progreso, Progresso, Texas: 26.1333°N, -97.4833°W
+- San Antonio International Airport, San Antonio, Texas: 29.5339°N, -98.4674°W
+- Port Of Entry-Nawiliwili-Port Allen, Nawiliwili‑Port Allen, Hawaii: 21.9833°N, -159.3667°W
+- Port Of Entry-Kahului, Kahului, Hawaii: 20.8833°N, -156.4833°W
+- All Other Latvia Ports, Latvia: （泛指，无法提供具体经纬度）
+- Cabo Rojo, Dominican Republic: 18.2833°N, -71.1833°W
+- Port Of Entry-Nashville, Nashville, Tennessee: 36.1218°N, -86.6782°W
+- Ashtabula/Conneaut, Ohio: 41.7833°N, -80.7167°W
+- Rogers City Harbor, Rogers City, Michigan: 45.2167°N, -82.9833°W
+- All Other Windward Island Ports: （泛指，无法提供具体经纬度）
+- Manta, Ecuador: 1.8333°S, -80.7167°W
+- Sundsvall, Sweden: 62.3833°N, 17.3333°E
+- Harmac, Bc, Canada: 49.7167°N, -124.9167°W
+- Blubber Bay, Bc, Canada: 49.6000°N, -124.8333°W
+- Cyril E King Airport, Charlotte Amalie, Virgin Islands: 18.3333°N, -64.8833°W
+- Port of Port Townsend, Port Townsend, Washington: 48.1333°N, -122.7667°W
+- Duluth International Airport, Duluth, Minnesota: 46.8333°N, -92.1667°W
+- Kwinana, Australia: 32.1333°S, 115.8500°E
+- Galeota Point, Trinidad and Tobago: 10.6500°N, -61.1167°W
+- All Other Scotland West Coast Ports, United Kingdom: （泛指，无法提供具体经纬度）
+- San Nicolas, Argentina: 29.6833°S, -65.4833°W
+- Port Of Entry-Ogdensburg, Ogdensburg, New York: 44.7167°N, -74.9833°W
+- Punta Cardon, Venezuela: 11.5167°N, -69.5833°W
+- Ras Gharib, Egypt: 27.8167°N, 33.8167°E
+- High Seas, South Atlantic: （公海，无法提供具体经纬度）
+- Port Hardy, Bc, Canada: 50.4667°N, -127.3667°W
+- Port Of Entry-Belfast, Belfast, Maine: 44.8667°N, -68.4833°W
+- Bridgeport, Connecticut: 41.1833°N, -73.1833°W
+- Service Port-Phoenix, Phoenix, Arizona: 33.4484°N, -112.0740°W
+- Port Of Entry-Dayton, Dayton, Ohio: 39.7589°N, -84.1916°W
+- Port Of Entry-Sumas, Sumas, Washington: 48.9833°N, -122.2833°W
+- Cutuco, El Salvador: 13.7333°N, -89.2500°W
+- San Pablo Bay, California: 38.0500°N, -122.4500°W
+- Port of Gary, Gary, Indiana: 41.6333°N, -87.3667°W
+- Port of Newport, Newport, Oregon: 44.6333°N, -124.0667°W
+- Military Naha, Japan: 26.2167°N, 127.6833°E
+- Chiapas, Mexico: 16.7833°N, -92.6167°W
+- Hachinohe, Japan: 40.6500°N, 141.8167°E
+- Sidi Kerir, Egypt: 31.2167°N, 31.0333°E
+- Carmen, Mexico: 19.0333°N, -99.2833°W
+- Port Of Entry-Calexico West - Class A, Calexico, California: 32.7500°N, -115.5333°W
+- Gloucester, Massachusetts: 42.4167°N, -70.6333°W
+- Port Of Entry-Bar Harbor, Bar Harbor, Maine: 44.3833°N, -68.2333°W
+- Yarmouth, Ns, Canada: 43.8333°N, -66.0833°W
+- Hualien, Taiwan: 23.9667°N, 121.6167°E
+- All Tonga Islands Ports, Tonga: （泛指，无法提供具体经纬度）
+- Marsa Al Hariga, Libya: 32.7667°N, 22.7500°E
+- Alofi, Niue: 19.0500°S, -169.9167°W
+- All Gilbert Islands Ports, Kiribati: （泛指，无法提供具体经纬度）
+- All United States Outlying Islands, United States Minor Outlying Islands: （泛指，无法提供具体经纬度）
+- Sechelt, Bc, Canada: 49.8167°N, -123.9833°W
+- Kagoshima, Japan: 31.5598°N, 130.5605°E
+- All Other Pacific Islands, N.E.C. Ports: （泛指，无法提供具体经纬度）
+- Kiire, Japan: 31.3923°N, 130.5638°E
+- Koror, Palau: 7.3000°N, 134.4833°E
+- Clarkson, Ont, Canada: 43.1667°N, -79.9167°W
+- Sault Ste. Marie, Sault Ste Marie, Michigan: 46.4833°N, -84.3667°W
+- Argentia, Nfld, Canada: 47.5500°N, -53.9667°W
+- Puerto Nuevo, Ecuador: 1.9500°N, -79.8833°W
+- Greater Orlando Aviation Authority, Orlando, Florida: 28.4295°N, -81.3089°W
+- Port Of Entry-Birmingham, Birmingham, Alabama: 33.5206°N, -86.8025°W
+- Oregon International Port of Coos Bay, Coos Bay, Oregon: 43.3833°N, -124.0333°W
+- Portbury, United Kingdom: 51.4000°N, -2.6833°W
+- Weipa, Australia: 13.8000°S, 141.9833°E
+- Charlestown, Nevis Is., Saint Kitts and Nevis: 17.2667°N, -62.6333°W
+- Rouseau, Dominica: 15.3167°N, -61.3833°W
+- Matane, Que, Canada: 48.5833°N, -68.5167°W
+- Arawak Cay, Bahamas: 24.9500°N, -77.5833°W
+- Tumaco, Colombia: 2.1833°N, -78.6833°W
+- Dordrecht, Netherlands: 51.8000°N, 4.6500°E
+- Chemainus, Bc, Canada: 48.9833°N, -123.7833°W
+- Port Angeles, Washington: 48.1000°N, -123.3667°W
+- Port Alberni, Bc, Canada: 49.4833°N, -124.6333°W
+- Iyo Mishima, Japan: 33.8333°N, 132.8333°E
+- All Other Sardinia Ports, Italy: （泛指，无法提供具体经纬度）
+- Boca Chica, Dominican Republic: 18.4333°N, -69.6333°W
+- Iligan, Philippines: 8.1500°N, 124.2333°E
+- Belledune, Nb, Canada: 47.3833°N, -65.7167°W
+- Patras, Greece: 38.2436°N, 21.7844°E
+- Raahe, Finland: 64.3500°N, 24.1667°E
+- Port Lucaya, Bahamas: 25.0667°N, -77.4500°W
+- Monrovia, Liberia: 6.3000°N, -10.8000°W
+- All Other Cayman Island Ports, Cayman Islands: （泛指，无法提供具体经纬度）
+- Perth, Australia: 31.9505°S, 115.8575°E
+- Ashkelon, Israel: 31.6700°N, 34.5600°E
+- Gros Cacouna, Que, Canada: 47.1667°N, -70.8333°W
+- Alpena, Michigan: 45.0833°N, -83.5833°W
+- Delta County Airport, Escanaba, Michigan: 45.7500°N, -87.1667°W
+- Marinette, Wisconsin: 45.0333°N, -87.7333°W
+- Bontang, Indonesia: 1.2833°S, 117.2000°E
+- Merak, Indonesia: 5.9667°S, 105.9833°E
+- Marquette, Michigan: 46.5250°N, -87.3750°W
+- Contrecoeur, Que, Canada: 45.7167°N, -73.2833°W
+- Port of Oswego, Oswego, New York: 43.4500°N, -76.5167°W
+- Erie-Western Pennsylvania Port Authority, Erie, Pennsylvania: 42.1333°N, -80.0833°W
+- Botlek, Netherlands: 51.9667°N, 4.0833°E
+- Ciudad Bolivar, Venezuela: 8.2833°N, -67.7667°W
+- Calica, Mexico: 20.9500°N, -105.2833°W
+- Grande Anse, Grenada: 12.0833°N, -61.7667°W
+- Plymouth, Massachusetts: 41.9583°N, -70.6667°W
+- Otaru, Japan: 43.1667°N, 141.0833°E
+- Bangor, Maine: 44.8000°N, -68.7833°W
+- Suisun Bay, California: 38.1333°N, -122.1333°W
+- Bajo Grande, Venezuela: 10.4167°N, -68.2833°W
+- Vaasa, Finland: 63.0833°N, 21.6333°E
+- Rouen, France: 49.4433°N, 1.0992°E
+- Chicoutimi, Que, Canada: 48.4333°N, -70.8500°W
+- Stenungsund, Sweden: 57.9333°N, 11.7333°E
+- All Other Congo (Brazzaville) Ports, Congo: （泛指，无法提供具体经纬度）
+- Struer, Denmark: 56.3833°N, 8.4667°E
+- Cruz Bay, Virgin Islands: 18.3333°N, -64.8833°W
+- Petropavlovsk, Russia: 53.0000°N, 158.7333°E
+- Vallvik, Sweden: 58.5167°N, 13.1833°E
+- Dartmouth, Ns, Canada: 44.6333°N, -63.5833°W
+- Pulupandan, Philippines: 10.4167°N, 122.5667°E
+- Mackay, Australia: 21.1333°S, 149.1833°E
+- Gustavia, Guadeloupe: 17.8500°N, -62.8500°W
+- Manitowoc, Wisconsin: 44.0833°N, -87.6500°W
+- Newfoundland, Canada: （泛指，无法提供具体经纬度）
+- Stephenville, Nl, Canada: 48.5667°N, -58.5833°W
+- Campobello, Nb, Canada: 44.8167°N, -66.7833°W
+- Detroit Metropolitan Airport, Detroit Metropolitan Airport, Michigan: 42.2122°N, -83.3531°W
+- Praia, Portugal: 14.9333°N, -23.5167°W
+- Port of Orange, Orange, Texas: 30.0000°N, -93.9000°W
+- Gandia, Spain: 39.0167°N, 0.1833°W
+- Vieux Fort, Saint Lucia: 13.8500°N, -60.9667°W
+- Rochester, New York: 43.1562°N, -77.6088°W
+- Barletta, Italy: 41.2667°N, 16.3833°E
+- Corunna, Ont, Canada: 43.8333°N, -80.9500°W
+- Grand Haven, Michigan: 43.1333°N, -86.2167°W
+- Port of South Louisiana, Destrehan, Louisiana: 30.0167°N, -90.3833°W
+- Battle Creek, Battle Creek, Michigan: 42.3193°N, -85.1824°W
+- Port Of Entry-Worcester, Worcester, Massachusetts: 42.2626°N, -71.8019°W
+- Newark, New Jersey: 40.7357°N, -74.1724°W
+- Newport News, Virginia: 36.9775°N, -76.4298°W
+- Port of Vicksburg, Vicksburg, Mississippi: 32.352646°N, -90.877882°W
+- Kona, Hawaii: 19.6402°N, -155.9991°W

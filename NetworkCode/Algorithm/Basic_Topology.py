@@ -3,6 +3,7 @@ import networkx as nx
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import powerlaw
 from networkx.algorithms.bipartite.centrality import betweenness_centrality, closeness_centrality
 
 # 定义幂律函数
@@ -20,38 +21,48 @@ def read_data():
         g.add_edge(row[0], row[1])
     return g
 def draw_degree_frequency_distribution(g):
-    '''
-    画图后续还要修改 没有图例 美化一下
-    :param g: 传入一个图graph
-    :画出 度分布图
-    '''
-    N = g.number_of_nodes()
 
-    degree_frequency_numbers = nx.degree_histogram(g)       # 度的频数
+    N = g.number_of_nodes()
+    degree_frequency_numbers = nx.degree_histogram(g)  # 度的频数
     # [0, 675, 789, 676, 428, 258, 205, 153, 140, 99, 92, 65, 45, 57, 38, 48, 25, 44, 20, 18, 28, 16, 12, ...]
     # print(len(nx.degree_histogram(G)))  # 82
     x_degree = list(range(len(degree_frequency_numbers)))  # 所有的度数 作为下面画图的x坐标
 
     # 删去 度为0的元素
-    for i in sorted(x_degree, reverse=True):     # 注意这里要反向遍历 不然索引会出问题
+    for i in sorted(x_degree, reverse=True):  # 注意这里要反向遍历 不然索引会出问题
         if degree_frequency_numbers[i] == 0:
             del degree_frequency_numbers[i]
             del x_degree[i]
 
     degree_frequency = [x / N for x in degree_frequency_numbers]  # 度的频率
-    # print(degree_frequency)
 
-    # 线性拟合
-    coeffs = np.polyfit(np.log10(x_degree), np.log10(degree_frequency),1)
-    b_fitted = coeffs[0]
-    a_fitted = np.exp(coeffs[1])
+    # 初始化幂律拟合对象
+    fit = powerlaw.Fit(x_degree, xmin=min(x_degree))
 
-    plt.scatter(x_degree, degree_frequency, c='darkblue', label='Nodes')
-    plt.plot(x_degree, a_fitted * np.power(x_degree,b_fitted), c='red', linestyle='--',
-             label='Fit' +' '+ fr'$k^{{{b_fitted:.3f}}}$')      # 注意这里的label的写法
+    # 获取拟合参数
+    alpha = fit.power_law.alpha
+    x_min = fit.power_law.xmin
+
+    # 绘制原始数据点
+    plt.scatter(x_degree, degree_frequency, color='blue', label='Ports')
+
+    # 绘制拟合得到的幂律分布曲线
+    pdf = fit.power_law.pdf(x_degree)
+    plt.plot(x_degree, pdf, color='red', linestyle='--', label=f'Fit $k^{{{-alpha:.3f}}}$')
+
+    # 设置对数坐标轴
     plt.xscale("log")
     plt.yscale("log")
+
+    # 设置坐标轴范围
+    plt.xlim([min(x_degree) * 0.6, max(x_degree) * 1.7])  # 设置x轴范围为数据的最小值到最大值的1.1倍
+    plt.ylim([min(degree_frequency) * 0.6, max(degree_frequency) * 1.7])  # 设置y轴范围为数据的最小值到最大值的1.1倍
+
+    # 添加图例和标题
     plt.legend()
+    plt.title("Degree Distribution")
+    plt.xlabel("Degree")
+    plt.ylabel("Degree_Frequency")
     plt.show()
 def draw_degree_frequency_cumulative_distribution(g):
 
@@ -209,7 +220,7 @@ def draw_betweenness_centrality_cumulative_distribution(g1, g2):
     plt.show()
 def zero_model(g):
     '''
-
+    已经弃用
     :param g: 传入一个图
     :return:  返回一个零模型随机图  近似拥有相同度分布 因为删去了 平行边 和 自环
     '''
@@ -333,7 +344,7 @@ def basic_topology_metrics(g):
     M = g.number_of_edges()
     R = nx.degree_assortativity_coefficient(g)
     C = nx.average_clustering(g)
-    # L = nx.average_shortest_path_length(G)
+    # L = nx.average_shortest_path_length(g)
     L = average_shortest_path_length_largest_component(g)  # 最大连通分支的平均最短路径
     print("N:", N)
     print("M:", M)
@@ -394,15 +405,3 @@ def draw_strength_frequency_distribution(g):
     plt.ylabel("P(K=k)")
     plt.show()
 
-# G = read_data()
-# # G = nx.karate_club_graph()
-# N = G.number_of_nodes()
-# density = nx.density(G)
-# degree_nodes = dict(G.degree())
-# R = nx.degree_assortativity_coefficient(G)
-
-
-# G1 = zero_model(G)
-
-# draw_length_frequency_distribution(G)
-# draw_closeness_centrality_cumulative_distribution(G,G1)
