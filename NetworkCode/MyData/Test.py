@@ -5,6 +5,7 @@ import networkx as nx
 import sys
 import difflib
 import csv
+import re
 
 sys.path.append('..')
 import Algorithm.Basic_Topology
@@ -105,15 +106,45 @@ def draw_world_region_map(g):
 
 # panjivaUSImport2019.csv
 
-data_path = 'E:/panjivaUSImport2019.csv'
-DataFrame = pd.read_csv(data_path, header=None)
-DataFrame.columns = ['billOfLadingNumber',  'arrivalDate', 'conCountry', 'shpCountry', 'portOfUnlading', 'portOfLading',
-                     'portOfLadingCountry', 'portOfLadingRegion', 'transportMethod', 'vessel', 'volumeTEU', 'weightKg',
-                     'valueOfGoodsUSD']
-# panjivaUSExport.csv
-# data_path = 'E:/panjivaUSExport.csv'
+
+
+
+HSCode = Algorithm.Read.read_USImpHSCode_Origin()
+Algorithm.Read.save_USImpHSCode(HSCode)
+# print(len(HSCode))
+#
+# i = 0
+# for key,value in HSCode.items():
+#     i += 1
+#     print(key +': ' + str(value))
+#     if i > 100:
+#         break
+
+# data_path = 'D:/PortData/USImport2019.csv'
 # DataFrame = pd.read_csv(data_path, header=None)
-# DataFrame.columns = ['arrivalDate', 'portOfUnlading', 'portOfLading', 'vessel']
+# DataFrame.columns = ['panjivaRecordId', 'billOfLadingNumber',  'arrivalDate', 'conCountry', 'shpCountry', 'portOfUnlading', 'portOfLading',
+#                      'portOfLadingCountry', 'portOfLadingRegion', 'transportMethod', 'vessel', 'volumeTEU', 'weightKg',
+#                      'valueOfGoodsUSD']
+# # 剔除重复数据
+# DataFrame = DataFrame.drop_duplicates()
+#
+#
+# # 1 使用均值填充 TEU
+# DataFrame.fillna({'volumeTEU': DataFrame['volumeTEU'].mean()}, inplace=True)
+# # 2 删除 'portOfLadingCountry' 列为空的行
+# DataFrame = DataFrame.dropna(subset=['portOfLadingCountry'])
+# # 3 使用 'fillna()' 方法填充 'conCountry' 列的空值
+# DataFrame.fillna({'conCountry': 'United States'}, inplace=True)
+
+# # 检查 volumeTEU、weightKg、valueOfGoodsUSD 字段中的空值数量
+# null_counts = DataFrame[['volumeTEU', 'conCountry', 'portOfLadingCountry']].isnull().sum()
+# # 打印每个字段的空值数量
+# print(null_counts / len(DataFrame))
+
+# # panjivaUSExport.csv
+# data_path = 'E:/panjivaUSExport2019vessels.csv'
+# DataFrame = pd.read_csv(data_path, header=None)
+# DataFrame.columns = ['shpmtDate', 'portOfUnlading', 'portOfLading', 'vessel']
 
 # port name 映射
 # Port_Name = Algorithm.Read.read_port_name_info()
@@ -127,18 +158,7 @@ DataFrame.columns = ['billOfLadingNumber',  'arrivalDate', 'conCountry', 'shpCou
 #             if item != matched_port:
 #                 print(f"{item}:{matched_port}")
 
-# error_port = set()
-# G = nx.Graph()
-# for index, row in DataFrame.iterrows():
-#     portOfUnlading = row['portOfUnlading']
-#     portOfLading = row['portOfLading']
-#
-#     if portOfUnlading not in Port_Name.keys():
-#         error_port.add(portOfUnlading)
-#     if portOfLading not in Port_Name.keys():
-#         error_port.add(portOfLading)
-# print(error_port)
-# print(len(error_port))
+
 #
 # # 打开一个新的文本文件，准备写入
 # with open('temp.txt', 'w', encoding='utf-8') as file:
@@ -148,33 +168,77 @@ DataFrame.columns = ['billOfLadingNumber',  'arrivalDate', 'conCountry', 'shpCou
 #         file.write(port + '\n')
 
 
-# for item in error_port:
-#     # matches = difflib.get_close_matches(item, Latitude.keys(), n=1, cutoff=0.8)
-#     # if matches:
-#     #     matched_port = matches[0]
-#     #     print(f"{item}:{matched_port}")
-#     # else:
-#     #     print(item)
-#     print(item)
+# Error_Port = set()
+# Port_Name = Algorithm.Read.read_port_name_info()
+# Remove_Port = Algorithm.Read.read_remove_port_info()
+#
+# timer = 0
+# G = nx.Graph()
+# for index, row in DataFrame.iterrows():
+#     timer += 1
+#     if timer / len(DataFrame) > 0.1:
+#         print('当前进度：{:.2%}'.format(index / len(DataFrame)))
+#         timer = 0
+#
+#
+#     # 赋值给 portOfUnlading 和 portOfLading
+#     portOfUnlading = row['portOfUnlading']
+#     portOfLading = row['portOfLading']
+#
+#     # 检查是否在排除名单里
+#     if portOfUnlading in Remove_Port or portOfLading in Remove_Port:
+#         continue
+#
+#     # 查看是否在 Port_Name 中
+#     if portOfUnlading in Port_Name.keys():
+#         portOfUnlading = Port_Name[portOfUnlading]
+#     else:
+#         Error_Port.add(portOfUnlading)
+#
+#     if portOfLading in Port_Name.keys():
+#         portOfLading = Port_Name[portOfLading]
+#     else:
+#         Error_Port.add(portOfLading)
+#
+#     # 创建一个字典来存储边的属性
+#     edge_attrs = {
+#         'volumeTEU': row['volumeTEU']
+#     }
+#     # 给 edge 和 node 添加属性
+#     G.add_edge(portOfLading, portOfUnlading, **edge_attrs)
+#     G.nodes[portOfLading]['Country'] = row['shpCountry']
+#     G.nodes[portOfUnlading]['Country'] = row['conCountry']
+#
+# # 打印节点属性
+# for node, attrs in G.nodes(data=True):
+#     print(f"Node: {node}, Attributes: {attrs}")
+# print(Error_Port)
+# print(len(Error_Port))
+#
+# Algorithm.Basic_Topology.basic_topology_metrics(G)
 
 
-Error_Port = set()
-Port_Name = Algorithm.Read.read_port_name_info()
-G = nx.Graph()
-for index, row in DataFrame.iterrows():
-    portOfUnlading = row['portOfUnlading']
-    portOfLading = row['portOfLading']
+# Error_Port和Port_Name 相似度匹配
+# for item in Error_Port:
+#     # 有一些港口不是 str 类型  需要转换
+#     item = str(item)
+#
+#     matches = difflib.get_close_matches(item, Port_Name.keys(), n=2, cutoff=0.6)
+#     if matches:
+#         for matched_port in matches:
+#             if item != matched_port:
+#                 print(f"{item}:{matched_port}")
 
-    if portOfUnlading in Port_Name.keys():
-        portOfUnlading = Port_Name[portOfUnlading]
-    else:
-        Error_Port.add(portOfUnlading)
 
-    if portOfLading in Port_Name.keys():
-        portOfLading = Port_Name[portOfLading]
-    else:
-        Error_Port.add(portOfLading)
-    G.add_edge(portOfLading,portOfUnlading)
 
-print(Error_Port)
-Algorithm.Map.draw_world_ports_map(G)
+# # 打开一个新的文本文件，准备写入
+# with open('Error_Port.txt', 'a', encoding='utf-8') as file:
+#     # 遍历集合中的每个元素
+#     for port in Error_Port:
+#         # 将每个元素写入文件，每个元素后跟一个换行符
+#         file.write(str(port) + '\n')
+
+# # 检查 volumeTEU、weightKg、valueOfGoodsUSD 字段中的空值数量
+# null_counts = DataFrame[['volumeTEU', 'weightKg', 'valueOfGoodsUSD']].isnull().sum()
+# # 打印每个字段的空值数量
+# print(null_counts / len(DataFrame))

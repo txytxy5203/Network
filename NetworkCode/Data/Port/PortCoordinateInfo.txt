@@ -1217,3 +1217,5 @@
 - Newport News, Virginia: 36.9775°N, -76.4298°W
 - Port of Vicksburg, Vicksburg, Mississippi: 32.352646°N, -90.877882°W
 - Kona, Hawaii: 19.6402°N, -155.9991°W
+- Miri, Malaysia: 4.3995°N, 113.9933°E
+- Yatsushiro, Japan: 32.5086°N, 130.6016°E

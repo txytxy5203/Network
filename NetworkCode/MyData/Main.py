@@ -15,7 +15,7 @@ import Algorithm.Basic_Topology
 import Algorithm.Map
 import Algorithm.ConstructNetwork
 
-# startTime = time.time()
+
 
 def ReadDataAndSave():
     data_path = 'E:/panjivaUSImport2019vessels.csv'
