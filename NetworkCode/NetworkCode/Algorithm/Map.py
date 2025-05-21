@@ -4,6 +4,7 @@ from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 import networkx as nx
 import  matplotlib.cm as cm
+import pandas as pd
 
 
 
@@ -19,7 +20,7 @@ def draw_world_ports_communities_map(g, communities):
     Longitude = {}
 
     # 逐行读取txt文档 记录经纬度 有一些点有问题就不读取了
-    with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
+    with open('../Data/Port/PortCoordinateInfo.txt', 'r', encoding='utf-8') as file:
         lines = file.readlines()
     for line in lines:
         try:
@@ -63,8 +64,11 @@ def draw_world_ports_communities_map(g, communities):
     Colors = ['#670096', '#d78306', '#f205c1', '#3ba91e', '#0068d7', '#e64a03', '#020202', '#CCCCCC']
     # Colors = ['white', 'white', 'white', 'white', 'white', 'white', 'white', '#CCCCCC']
 
+
     for i, com in enumerate(communities):
+        print(len(com))
         for port in com:
+
             # 这里加一行判断 因为原始数据中有 1386个港口 但是处理后只有 1210个港口有经纬度坐标可以使用
             # if port in Latitude.keys():
             Port_Colors[port] = Colors[i]
@@ -114,7 +118,7 @@ def draw_world_ports_degree_heat_map(g, centrality):
     Longitude = {}
 
     # 逐行读取txt文档 记录经纬度 有一些Ports有问题就不读取了
-    with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
+    with open('../Data/Port/PortCoordinateInfo.txt', 'r', encoding='utf-8') as file:
         lines = file.readlines()
     for line in lines:
         try:
@@ -178,7 +182,7 @@ def draw_world_ports_map(g):
     Longitude = {}
 
     # 逐行读取txt文档 记录经纬度 有一些Ports有问题就不读取了
-    with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
+    with open('../Data/Port/PortCoordinateInfo.txt', 'r', encoding='utf-8') as file:
         lines = file.readlines()
     for line in lines:
         try:
@@ -236,7 +240,7 @@ def draw_Panama_map(g):
     Longitude = {}
 
     # 逐行读取txt文档 记录经纬度 有一些Ports有问题就不读取了
-    with open('../Data/PortInfo.txt', 'r', encoding='utf-8') as file:
+    with open('../Data/Port/PortCoordinateInfo.txt', 'r', encoding='utf-8') as file:
         lines = file.readlines()
     for line in lines:
         try:
@@ -316,3 +320,90 @@ def draw_Panama_map(g):
 
     plt.show()
     # plt.savefig("../Figure/Panama.svg", dpi=300, format='svg')
+def draw_except_US_port_strength_map():
+    '''
+    画出与美国港口交易的其他港口的强度值 map
+    如果要画其他的图 记得改动一些参数
+    :return:
+    '''
+    data_path = 'E:/panjivaUSImport2019.csv'
+    # 原文件列名有点问题 不对应
+    # df = pd.read_csv(data_path, usecols=['shpmtDestinationRegion', 'portOfUnladingRegion'])
+    # df = pd.read_csv(data_path, usecols=['orderId','shpmtDestinationRegion', 'portOfUnladingRegion'])
+    df = pd.read_csv(data_path)  # 2019年的数据用这个
+    df.columns = ['portOfUnlading', 'portOfLading']
+
+    # 删除包含null值的行
+    df.dropna(inplace=True)
+
+    Latitude = {}
+    Longitude = {}
+
+    # 逐行读取txt文档 记录经纬度 有一些Ports有问题就不读取了
+    with open('../Data/Port/PortCoordinateInfo.txt', 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    for line in lines:
+        try:
+            # 去掉行尾的换行符号
+            line = line.strip()
+            # 切分
+            parts = line.split(":")
+
+            # 切分后第一段是港口 第二段是经纬度信息
+            Port = parts[0].strip()
+            coordinates = parts[1].strip()
+
+            # 因为有一些是泛指 没有经纬度坐标
+            if len(coordinates.split(",")) != 2:
+                raise ValueError("没有具体经纬度坐标")
+
+            latitude = coordinates.split(",")[0].strip()
+            longitude = coordinates.split(",")[1].strip()
+
+            Port = Port[2:]
+
+            sign = latitude[-1]  # 记录latitude最后一个字符是 N还是S
+
+            latitude = latitude[:-2]
+            longitude = longitude[:-2]
+
+            # 如果是 N 则为 ＋  是 S 则为 -
+            latitude = float(latitude) if sign == 'N' else -float(latitude)
+            longitude = float(longitude)
+
+            Latitude[Port] = latitude
+            Longitude[Port] = longitude
+            # print(f"Port: {Port}")
+            # print(f"Latitude: {latitude}")
+            # print(f"Longitude: {longitude}")
+        except ValueError as e:
+            pass  # 异常后什么都不执行
+
+    port_trade_counts = {}
+
+    for row in df.itertuples():
+        try:
+            if row.portOfLading not in port_trade_counts:
+                port_trade_counts[row.portOfLading] = 1
+            else:
+                port_trade_counts[row.portOfLading] += 1
+        except KeyError as k:
+            print(k)
+
+    # 按值降序排序字典
+    port_trade_counts_sorted = dict(sorted(port_trade_counts.items(), key=lambda item: item[1], reverse=True))
+    print(port_trade_counts_sorted)
+    base_size = 0.0001
+    node_sizes = [base_size * strength for strength in port_trade_counts.values()]
+
+    world_map = Basemap()
+    world_map.drawmapboundary(fill_color='#D0CFD4')
+    world_map.fillcontinents(color='#EFEFEF', lake_color='#D0CFD4')
+    world_map.drawcoastlines()
+
+    Latitude_nodes = [Latitude.get(port, None) for port in port_trade_counts]
+    Longitude_nodes = [Longitude.get(port, None) for port in port_trade_counts]
+    x, y = world_map(Longitude_nodes, Latitude_nodes)
+    world_map.scatter(x, y, marker='o', s=node_sizes, zorder=10, color='#191993')
+
+    plt.show()
