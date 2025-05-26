@@ -1,6 +1,7 @@
 Port;RightPort
 Busan, South Korea;Busan, South Korea
 Port of Long Beach, Long Beach, California;Port of Long Beach, Long Beach, California
+Long Beach (US);Port of Long Beach, Long Beach, California
 New York/Newark Area, Newark, New Jersey;New York, New York
 Jacksonville, Florida;Jacksonville, Florida
 The Port of Charleston, Charleston, South Carolina;The Port of Charleston, Charleston, South Carolina
@@ -16,7 +17,9 @@ Detroit/Wayne County Port Authority, Detroit, Michigan;Detroit/Wayne County Port
 San Juan, San Juan, Puerto Rico;San Juan, San Juan, Puerto Rico
 Service Port-Atlanta, Atlanta, Georgia;Service Port-Atlanta, Atlanta, Georgia
 Tampa, Florida;Tampa, Florida
-Philadelphia Regional Port Authority, Philadelphia, Pennsylvania;Philadelphia Regional Port Authority, Philadelphia, Pennsylvania
+Tampa (US);Tampa, Florida
+Philadelphia Regional Port Authority, Philadelphia, Pennsylvania;Philadelphia, Pennsylvania
+Philadelphia (US);Philadelphia, Pennsylvania
 Freeport, Freeport, Texas;Freeport, Freeport, Texas
 Port of San Diego, San Diego, California;Port of San Diego, San Diego, California
 Illinois International Port District, Chicago, Illinois;Illinois International Port District, Chicago, Illinois
@@ -53,6 +56,7 @@ Port Of Entry-Louisville, Louisville, Kentucky;Port Of Entry-Louisville, Louisvi
 South Jersey Port Corporation, Camden, New Jersey;South Jersey Port Corporation, Camden, New Jersey
 Nighthawk, Washington;Nighthawk, Washington
 Kwangyang, South Korea;Kwangyang, South Korea
+Gwangyang (KR);Kwangyang, South Korea
 Shanghai, China;Shanghai, China
 Ningbo, China;Ningbo, China
 Tsingtao, China;Tsingtao, China
@@ -115,6 +119,7 @@ Ras At Tannurah, Saudi Arabia;Ras At Tannurah, Saudi Arabia
 Yokohama, Japan;Yokohama, Japan
 Hitachi, Japan;Hitachi, Japan
 Nagoya, Japan;Nagoya, Japan
+Nagoya, Aichi (JP);Nagoya, Japan
 Masan, South Korea;Masan, South Korea
 Kobe, Japan;Kobe, Japan
 Salvador, Brazil;Salvador, Brazil
@@ -135,6 +140,7 @@ Chennai, India;Chennai, India
 Corinto, Nicaragua;Corinto, Nicaragua
 Tokyo, Japan;Tokyo, Japan
 Hamburg, Germany;Hamburg, Germany
+Hamburg (DE);Hamburg, Germany
 Esmeraldas, Ecuador;Esmeraldas, Ecuador
 Zhuhai, China;Zhuhai, China
 Salonika, Greece;Salonika, Greece
@@ -144,9 +150,11 @@ Nansha, China;Nansha, China
 Huangpu, China;Huangpu, China
 Johore, Malaysia;Johore, Malaysia
 Belawan, Indonesia;Belawan, Indonesia
+Belawan, Sumatra (ID);Belawan, Indonesia
 Adelaide, Australia;Adelaide, Australia
 Brisbane, Australia;Brisbane, Australia
 Pecem, Brazil;Pecem, Brazil
+Pecém Pt/São Gonçalo do Amarante (BR);Pecem, Brazil
 Vancouver, BC, Canada;Vancouver, BC, Canada
 Olongapo, Philippines;Olongapo, Philippines
 Laem Chabang, Thailand;Laem Chabang, Thailand
@@ -228,6 +236,7 @@ Pipavav, India;Pipavav, India
 Lyttelton, New Zealand;Lyttelton, New Zealand
 Istanbul, Turkey;Istanbul, Turkey
 Liverpool, United Kingdom;Liverpool, United Kingdom
+Liverpool (GB);Liverpool, United Kingdom
 Arica, Chile;Arica, Chile
 Riga, Latvia;Riga, Latvia
 Port Muhammad Bin Qasim, Pakistan;Port Muhammad Bin Qasim, Pakistan
@@ -248,6 +257,7 @@ Al Basrah, Iraq;Al Basrah, Iraq
 Tallinn, Estonia;Tallinn, Estonia
 Buenos Aires, Argentina;Buenos Aires, Argentina
 Leixoes, Portugal;Leixoes, Portugal
+Leixões (PT);Leixoes, Portugal
 Vigo, Spain;Vigo, Spain
 Gebze, Turkey;Gebze, Turkey
 Prince Rupert, Bc, Canada;Prince Rupert, Bc, Canada
@@ -261,6 +271,7 @@ Calcutta, India;Calcutta, India
 Chen Huang Tao, China;Chen Huang Tao, China
 Varna, Bulgaria;Varna, Bulgaria
 Damietta, Egypt;Damietta, Egypt
+Dumyat (Damietta) (EG);Damietta, Egypt
 Panama Canal  Pacific, Panama;Panama Canal  Pacific, Panama
 Djibouti, Djibouti;Djibouti, Djibouti
 Robert's Bank, Bc, Canada;Robert's Bank, Bc, Canada
@@ -271,6 +282,7 @@ Gunsan, South Korea;Gunsan, South Korea
 Al Kuwayt, Kuwait;Al Kuwayt, Kuwait
 Copenhagen, Denmark;Copenhagen, Denmark
 Hakata, Japan;Hakata, Japan
+Hakata/Fukuoka (JP);Hakata, Japan
 Alert Bay, Bc, Canada;Alert Bay, Bc, Canada
 Nassau, New Providence I, Bahamas;Nassau, New Providence I, Bahamas
 Al Fuhayhil, Kuwait;Al Fuhayhil, Kuwait
@@ -316,6 +328,7 @@ Beilun, China;Beilun, China
 Norrkoping, Sweden;Norrkoping, Sweden
 Bahia De Moin, Costa Rica;Bahia De Moin, Costa Rica
 Mumbai, India;Mumbai, India
+Mumbai (ex Bombay) (IN);Mumbai, India
 Comodoro Rivadavia, Argentina;Comodoro Rivadavia, Argentina
 Warri, Nigeria;Warri, Nigeria
 Buayan, Philippines;Buayan, Philippines
@@ -331,6 +344,7 @@ Punta Arenas, Chile;Punta Arenas, Chile
 Kwa Ibo Terminal, Nigeria;Kwa Ibo Terminal, Nigeria
 Onsan, South Korea;Onsan, South Korea
 Sint Eustatius, Netherlands Antilles;Sint Eustatius, Netherlands Antilles
+Sint Eustatius (BQ);Sint Eustatius, Netherlands Antilles
 Mangalore, India;Mangalore, India
 Cobh, Ireland;Cobh, Ireland
 Esbjerg, Denmark;Esbjerg, Denmark
@@ -354,6 +368,7 @@ Port Au Prince, Haiti;Port Au Prince, Haiti
 Higashi Harima, Japan;Higashi Harima, Japan
 Barranquilla, Colombia;Barranquilla, Colombia
 Fujairah, United Arab Emirates;Fujairah, United Arab Emirates
+Al Fujayrah (AE);Fujairah, United Arab Emirates
 General San Martin, Peru;General San Martin, Peru
 Suape, Brazil;Suape, Brazil
 Manzanillo, Dominican Republic;Manzanillo, Dominican Republic
@@ -372,16 +387,19 @@ Wellington, New Zealand;Wellington, New Zealand
 Bluff Harbor, New Zealand;Bluff Harbor, New Zealand
 Sydney, Ns, Canada;Sydney, Ns, Canada
 Bonny, Nigeria;Bonny, Nigeria
+Bonny (NG);Bonny, Nigeria
 Military Tainjin, China;Military Tainjin, China
 Niigata, Japan;Niigata, Japan
 Villa Constitucion, Argentina;Villa Constitucion, Argentina
 Oita, Japan;Oita, Japan
 Point Lisas, Trinidad and Tobago;Point Lisas, Trinidad and Tobago
+Point Lisas (TT);Point Lisas, Trinidad and Tobago
 Tamatave, Madagascar;Tamatave, Madagascar
 Vanino, Russia;Vanino, Russia
 Suva, Fiji;Suva, Fiji
 Nakhodka, Russia;Nakhodka, Russia
 Rauma, Finland;Rauma, Finland
+Raumo (Rauma) (FI);Rauma, Finland
 Daesan, South Korea;Daesan, South Korea
 Kawasaki, Japan;Kawasaki, Japan
 Vassiliko, Cyprus;Vassiliko, Cyprus
@@ -400,6 +418,7 @@ El Paso, Texas;El Paso, Texas
 Port of Lake Charles, Lake Charles, Louisiana;Port of Lake Charles, Lake Charles, Louisiana
 Port of Pascagoula, Pascagoula, Mississippi;Port of Pascagoula, Pascagoula, Mississippi
 Corpus Christi, Corpus Christi, Texas;Corpus Christi, Corpus Christi, Texas
+Corpus Christi (US);Corpus Christi, Corpus Christi, Texas
 Port Arthur, Texas;Port Arthur, Texas
 Salt Lake City, Utah;Salt Lake City, Utah
 Newport, Rhode Island;Newport, Rhode Island
@@ -412,6 +431,7 @@ Port Panama City, Panama City, Florida;Port Panama City, Panama City, Florida
 Service Port-Denver, Denver, Colorado;Service Port-Denver, Denver, Colorado
 Port of New Haven, New Haven, Connecticut;Port of New Haven, New Haven, Connecticut
 Port of Gramercy, Gramercy, Louisiana;Port of Gramercy, Gramercy, Louisiana
+Gramercy (US);Port of Gramercy, Gramercy, Louisiana
 Service Port-St. Louis, St. Louis, Missouri;Service Port-St. Louis, St. Louis, Missouri
 Port of Portland, Portland, Maine;Port of Portland, Portland, Maine
 Annapolis, Maryland;Annapolis, Maryland
@@ -437,6 +457,7 @@ Montoir, France;Montoir, France
 Limon, Costa Rica;Limon, Costa Rica
 Stockholm, Sweden;Stockholm, Sweden
 Jose, Venezuela;Jose, Venezuela
+Jose Terminal (VE);Jose, Venezuela
 Aratu, Brazil;Aratu, Brazil
 Tanger, Morocco;Tanger, Morocco
 Come By Chance, Nfld, Canada;Come By Chance, Nfld, Canada
@@ -453,9 +474,11 @@ Bebington, United Kingdom;Bebington, United Kingdom
 Itaqui, Brazil;Itaqui, Brazil
 Gafle, Sweden;Gafle, Sweden
 Tilbury, United Kingdom;Tilbury, United Kingdom
+Tilbury (GB);Tilbury, United Kingdom
 Harburg, Germany;Hamburg, Germany
 Dhuba, Saudi Arabia;Dhuba, Saudi Arabia
 Ash Shuaiba, Kuwait;Ash Shuaiba, Kuwait
+Shuaiba (KW);Ash Shuaiba, Kuwait
 Puerto Matias De Galves, Guatemala;Puerto Matias De Galves, Guatemala
 La Pallice, France;La Pallice, France
 Al Aqabah, Jordan;Al Aqabah, Jordan
@@ -472,15 +495,20 @@ Mamonal, Colombia;Mamonal, Colombia
 Klaipeda, Lithuania;Klaipeda, Lithuania
 Auld's Cove, Ns, Canada;Auld's Cove, Ns, Canada
 Rostock, Germany;Rostock, Germany
+Rostock (DE);Rostock, Germany
 Mombasa, Kenya;Mombasa, Kenya
 Al Jubail, Saudi Arabia;Al Jubail, Saudi Arabia
+Jubail (SA);Al Jubail, Saudi Arabia
 Madryn, Argentina;Madryn, Argentina
 Saint Nazaire, France;Saint Nazaire, France
 Porto Empedocle, Italy;Porto Empedocle, Italy
 Arzew, Algeria;Arzew, Algeria
+Arzew (DZ);Arzew, Algeria
 Uddevalla, Sweden;Uddevalla, Sweden
 Kotka, Finland;Kotka, Finland
+Kotka (FI);Kotka, Finland
 Dumai, Indonesia;Dumai, Indonesia
+Dumai, Sumatra (ID);Dumai, Indonesia
 Military Mannheim, Germany;Military Mannheim, Germany
 Veracruz, Mexico;Veracruz, Mexico
 Bogen, Norway;Bogen, Norway
@@ -507,12 +535,15 @@ Mongstad, Norway;Mongstad, Norway
 Isdemir, Turkey;Isdemir, Turkey
 Guantanamo Bay, Cuba;Guantanamo Bay, Cuba
 Port of Texas City, Texas City, Texas;Port of Texas City, Texas City, Texas
+Texas City (US);Port of Texas City, Texas City, Texas
 Haikou, China;Haikou, China
 Kanda, Japan;Kanda, Japan
 Huelva, Spain;Huelva, Spain
 Fawley, United Kingdom;Fawley, United Kingdom
+Fawley (GB);Fawley, United Kingdom
 Ahus, Sweden;Ahus, Sweden
 Fort De France, Martinique;Fort De France, Martinique
+Fort-de-France (MQ);Fort De France, Martinique
 Oporto, Portugal;Oporto, Portugal
 Coco Cay, Bahamas;Coco Cay, Bahamas
 Port Of Spain, Trinidad and Tobago;Port Of Spain, Trinidad and Tobago
@@ -526,6 +557,7 @@ Novorossiysk, Russia;Novorossiysk, Russia
 Whiffen Head, Nfld, Canada;Whiffen Head, Nfld, Canada
 Sorel, Que, Canada;Sorel, Que, Canada
 Soyo Oil Terminal, Angola;Soyo Oil Terminal, Angola
+Soyo (AO);Soyo Oil Terminal, Angola
 Richard's Bay, South Africa;Richard's Bay, South Africa
 Amuay Bay, Venezuela;Amuay Bay, Venezuela
 Savona, Italy;Savona, Italy
@@ -541,8 +573,10 @@ Teluk Bayur, Indonesia;Teluk Bayur, Indonesia
 As Sidr, Libya;As Sidr, Libya
 Marsaxlokk, Malta;Marsaxlokk, Malta
 Skikda, Algeria;Skikda, Algeria
+Skikda (ex Philippeville) (DZ);Skikda, Algeria
 Mar Del Plata, Argentina;Mar Del Plata, Argentina
 Sluiskil, Netherlands;Sluiskil, Netherlands
+Sluiskil (NL);Sluiskil, Netherlands
 Skoldvik, Finland;Skoldvik, Finland
 Derince, Turkey;Derince, Turkey
 Sete, France;Sete, France
@@ -577,9 +611,11 @@ Tel Aviv Yafo, Israel;Tel Aviv Yafo, Israel
 Halmstad, Sweden;Halmstad, Sweden
 Marseille, France;Marseille, France
 Kuantan, Malaysia;Kuantan, Malaysia
+Kuantan (Tanjong Gelang) (MY);Kuantan, Malaysia
 Stavanger, Norway;Stavanger, Norway
 Zamboanga, Philippines;Zamboanga, Philippines
 Bintulu, Malaysia;Bintulu, Malaysia
+Bintulu, Sarawak (MY);Bintulu, Malaysia
 Puerto Colombia, Colombia;Puerto Colombia, Colombia
 El Ismailiya, Egypt;El Ismailiya, Egypt
 Seaforth, United Kingdom;Seaforth, United Kingdom
@@ -604,6 +640,7 @@ Porto Corsini, Italy;Porto Corsini, Italy
 Cap  Limboh, Cameroon;Cap  Limboh, Cameroon
 Bassens, France;Bassens, France
 Philipsborough, Netherlands Antilles;Philipsborough, Netherlands Antilles
+Philipsburg (SX);Philipsborough, Netherlands Antilles
 Sarnia, Ont, Canada;Sarnia, Ont, Canada
 Fang Cheng, China;Fang Cheng, China
 Cadiz, Spain;Cadiz, Spain
@@ -622,6 +659,7 @@ Taicang, China;Taicang, China
 Rada Di Vado, Italy;Rada Di Vado, Italy
 Tema, Ghana;Tema, Ghana
 Bitung, Indonesia;Bitung, Indonesia
+Bitung, Sulawesi (ID);Bitung, Indonesia
 North Tees, United Kingdom;North Tees, United Kingdom
 Tomakomai, Japan;Tomakomai, Japan
 Caracas, Venezuela;Caracas, Venezuela
@@ -633,6 +671,7 @@ Simotu, Japan;Simotu, Japan
 Port Dickson, Malaysia;Port Dickson, Malaysia
 Le Verdon, France;Le Verdon, France
 Immingham, United Kingdom;Immingham, United Kingdom
+Immingham (GB);Immingham, United Kingdom
 Kardeljevo, Croatia;Kardeljevo, Croatia
 Flushing, Netherlands;Flushing, Netherlands
 Levis, Que, Canada;Levis, Que, Canada
@@ -654,6 +693,7 @@ Santa Clara, Brazil;Santa Clara, Brazil
 Reykjavik, Iceland;Reykjavik, Iceland
 Cotonou, Benin;Cotonou, Benin
 Castellon, Spain;Castellon, Spain
+Castellón de la Plana (ES);Castellon, Spain
 Ceuta, Spain;Ceuta, Spain
 Orangestad, Aruba;Orangestad, Aruba
 Dakar, Senegal;Dakar, Senegal
@@ -672,6 +712,7 @@ Martinez, California;Martinez, California
 Selby, California;Selby, California
 Port of Richmond, Richmond, California;Port of Richmond, Richmond, California
 Paulsboro, Pennsylvania;Paulsboro, Pennsylvania
+Paulsboro (US);Paulsboro, Pennsylvania
 Campbell River, Bc, Canada;Campbell River, Bc, Canada
 Tokuyama, Japan;Tokuyama, Japan
 New Westminster, Bc, Canada;New Westminster, Bc, Canada
@@ -699,6 +740,7 @@ Port Of Entry-Ketchikan, Ketchikan, Alaska;Port Of Entry-Ketchikan, Ketchikan, A
 Port Of Entry-Kansas City, Kansas City, Missouri;Port Of Entry-Kansas City, Kansas City, Missouri
 Maida, Maida, North Dakota;Maida, Maida, North Dakota
 Port Of Entry-West Palm Beach, West Palm Beach, Florida;Port Of Entry-West Palm Beach, West Palm Beach, Florida
+Palm Beach (US);Port Of Entry-West Palm Beach, West Palm Beach, Florida
 Cape Vincent, New York;Cape Vincent, New York
 Saginaw-Bay City-Flint, Saginaw/Bay City, Michigan;Saginaw-Bay City-Flint, Saginaw/Bay City, Michigan
 Detour City, Michigan;Detour City, Michigan
@@ -709,8 +751,10 @@ Barahona, Dominican Republic;Barahona, Dominican Republic
 Aviles, Spain;Aviles, Spain
 Linden, Guyana;Linden, Guyana
 Yawata, Japan;Yawata, Japan
+Yawata/Kitakyushu (JP);Yawata, Japan
 Salaverry, Peru;Salaverry, Peru
 Nystad, Finland;Nystad, Finland
+Uusikaupunki (Nystad) (FI);Nystad, Finland
 Coatzacoalcos, Mexico;Coatzacoalcos, Mexico
 Savanna La Mar, Jamaica;Savanna La Mar, Jamaica
 Pohang, South Korea;Pohang, South Korea
@@ -729,8 +773,10 @@ Admiralty Bay, Saint Vincent and the Grenadines;Admiralty Bay, Saint Vincent and
 Kanokawa, Japan;Kanokawa, Japan
 Punta Morales, Costa Rica;Punta Morales, Costa Rica
 Esquivel, Jamaica;Esquivel, Jamaica
+Port Esquivel (JM);Esquivel, Jamaica
 Virgin  Gorda, Virgin Islands (British);Virgin  Gorda, Virgin Islands (British)
 Ijmuiden, Netherlands;Ijmuiden, Netherlands
+IJmuiden/Velsen (NL);Ijmuiden, Netherlands
 Kuala Tanjung, Indonesia;Kuala Tanjung, Indonesia
 Puerto Plata, Dominican Republic;Puerto Plata, Dominican Republic
 Tarakan, Indonesia;Tarakan, Indonesia
@@ -834,10 +880,12 @@ Ilo, Peru;Ilo, Peru
 Matarani, Peru;Matarani, Peru
 Ensteadvaerket, Denmark;Ensteadvaerket, Denmark
 Sepetiba Bay, Brazil;Sepetiba Bay, Brazil
+Itaguaí Pt = Sepetiba Pt (BR);Sepetiba Bay, Brazil
 Wakayama, Japan;Wakayama, Japan
 Priolo, Italy;Priolo, Italy
 Puerto De Sagunto, Spain;Puerto De Sagunto, Spain
 Fukuyama, Japan;Fukuyama, Japan
+Fukuyama, Hiroshima (JP);Fukuyama, Japan
 Niihama, Japan;Niihama, Japan
 Oran, Algeria;Oran, Algeria
 Malabo, Equatorial Guinea;Malabo, Equatorial Guinea
@@ -866,6 +914,7 @@ Sousee, Tunisia;Sousee, Tunisia
 Mariveles, Philippines;Mariveles, Philippines
 Puerto Henecan, Honduras;Puerto Henecan, Honduras
 Brake, Germany;Brake, Germany
+Brake (DE);Brake, Germany
 Pasages, Spain;Pasages, Spain
 Alluth Kalimantan, Indonesia;Alluth Kalimantan, Indonesia
 Ilichevsk, Ukraine;Ilichevsk, Ukraine
@@ -943,7 +992,8 @@ Phuket, Thailand;Phuket, Thailand
 Matanzas, Venezuela;Matanzas, Venezuela
 Geraldton, Australia;Geraldton, Australia
 Bunbury, Australia;Bunbury, Australia
-Saffi, Morocco;Saffi, Morocco
+Saffi, Morocco;Safi, Morocco
+Safi (MA);Safi, Morocco
 Kamaishi, Japan;Kamaishi, Japan
 Muroran, Japan;Muroran, Japan
 Samsun, Turkey;Samsun, Turkey
@@ -953,6 +1003,7 @@ Clifton Pier, Bahamas;Clifton Pier, Bahamas
 Kaliningrad, Russia;Kaliningrad, Russia
 Owendo, Gabon;Owendo, Gabon
 Musayid, Qatar;Musayid, Qatar
+Mesaieed (QA);Musayid, Qatar
 Kastel Sucurac, Croatia;Kastel Sucurac, Croatia
 Nador, Morocco;Nador, Morocco
 Mo I Rana, Norway;Mo I Rana, Norway
@@ -1034,6 +1085,8 @@ Baj Baj, India;Baj Baj, India
 Howie Sound, Bc, Canada;Howie Sound, Bc, Canada
 Powell River, Bc, Canada;Powell River, Bc, Canada
 Newcastle On Tyne, United Kingdom;Newcastle On Tyne, United Kingdom
+Newcastle upon Tyne (GB);Newcastle On Tyne, United Kingdom
+Tyne (GB);Newcastle On Tyne, United Kingdom
 Gold River, Bc, Canada;Gold River, Bc, Canada
 Batumi, Georgia;Batumi, Georgia
 Cherbourg, France;Cherbourg, France
@@ -1072,6 +1125,7 @@ Saint Andrews, Nb, Canada;Saint Andrews, Nb, Canada
 Limhamn, Sweden;Limhamn, Sweden
 Kingsville, Ont, Canada;Kingsville, Ont, Canada
 Gabes, Tunisia;Gabes, Tunisia
+Gabès (TN);Gabes, Tunisia
 Ridham Dock, United Kingdom;Ridham Dock, United Kingdom
 Puntarenas, Costa Rica;Puntarenas, Costa Rica
 Cruz Bay, St. John I., Virgin Islands (U.S.);Cruz Bay, St. John I., Virgin Islands (U.S.)
@@ -1191,6 +1245,7 @@ Barletta, Italy;Barletta, Italy
 Corunna, Ont, Canada;Corunna, Ont, Canada
 Grand Haven, Michigan;Grand Haven, Michigan
 Port of South Louisiana, Destrehan, Louisiana;Port of South Louisiana, Destrehan, Louisiana
+Destrehan (US);Port of South Louisiana, Destrehan, Louisiana
 Battle Creek, Battle Creek, Michigan;Battle Creek, Battle Creek, Michigan
 Port Of Entry-Worcester, Worcester, Massachusetts;Port Of Entry-Worcester, Worcester, Massachusetts
 Newark, New Jersey;New York, New York
@@ -1212,6 +1267,7 @@ Misrata, Libya;Misrata, Libya
 Boma, Congo;Boma, Congo
 Sakata, Japan;Sakata, Japan
 Nacala, Mozambique;Nacala, Mozambique
+Nacala (MZ);Nacala, Mozambique
 Cannes, France;Cannes, France
 Hango, Finland;Hango, Finland
 La Goulette, Tunisia;La Goulette, Tunisia
@@ -1247,6 +1303,7 @@ Hobro, Denmark;Hobro, Denmark
 Port Vila, Vanuatu;Port Vila, Vanuatu
 Banjul, Gambia;Banjul, Gambia
 Annaba, Algeria;Annaba, Algeria
+Annaba (ex Bone) (DZ);Annaba, Algeria
 Port Of Entry-Aguadilla, Aguadilla, Puerto Rico;Port Of Entry-Aguadilla, Aguadilla, Puerto Rico
 Ghazaouet, Algeria;Ghazaouet, Algeria
 Moss, Norway;Moss, Norway
@@ -1420,3 +1477,222 @@ Takoradi (GH);Takoradi, Ghana
 Jorf Lasfar (MA);El Jorf Lasfar, Morocco
 La Pallice (FR);La Pallice, France
 Itajai (BR);Itajai, Brazil
+Las Palmas (AR);Las Palmas (AR)
+Fray Bentos (UY);Fray Bentos (UY)
+Melkøya (NO);Melkøya (NO)
+Bejaia (ex Bougie) (DZ);Bejaia (ex Bougie) (DZ)
+Necochea (AR);Necochea (AR)
+Icdas Jetty (TR);Icdas Jetty (TR)
+Gent (Ghent) (BE);Gent (Ghent) (BE)
+Chornomorsk (UA);Chornomorsk (UA)
+Teesport (GB);Teesport (GB)
+Håvik (NO);Havik (NO)
+Ust'-Luga (RU);Ust Luga (RU)
+Sitrah (BH);Sitrah (BH)
+Saint Petersburg (ex Leningrad) (RU);Saint Petersburg (ex Leningrad) (RU)
+Laayoune (El Aaiun) (MA);Laayoune (El Aaiun) (MA)
+Liepaja (LV);Liepaja (LV)
+Skagen (DK);Skagen (DK)
+Hopewell (US);Hopewell (US)
+Mylaki (GR);Mylaki (GR)
+Dock Sur (AR);Dock Sur (AR)
+Abu Kir (EG);Abu Kir (EG)
+Chalmette (US);Chalmette (US)
+Ras Al-Khair (SA);Ras Al-Khair (SA)
+Sipitang, Sabah (MY);Sipitang, Sabah (MY)
+Hay Point (AU);Hay Point (AU)
+Agbami (NG);Agbami (NG)
+Paradip Garh (IN);Paradip Garh (IN)
+Limetree Bay (VI);Limetree Bay (US)
+Swinoujscie (PL);Swinoujscie (PL)
+Del Guazu (AR);Del Guazu (AR)
+Panamá, Ciudad de (PA);Panamá, Ciudad de (PA)
+San Nicolás de los Arroyos (AR);San Nicolás de los Arroyos (AR)
+Sillamäe (EE);Sillamae (EE)
+Bandar Khomeini (IR);Bandar Khomeini (IR)
+San Lorenzo (AR);San Lorenzo (AR)
+Tubarão Pt./Vitória (BR);Vitoria, Brazil
+San Lorenzo (HN);San Lorenzo (HN)
+Norco (US);Norco (US)
+Good Hope (US);Good Hope (US)
+Ar Ruways (AE);Ar Ruways (AE)
+Geismar (US);Geismar (US)
+Sungai Udang Port (MY);Sungai Udang Port (MY)
+Pisco (PE);Pisco (PE)
+Phu My (VN);Phu My (VN)
+Meraux (US);Meraux (US)
+Fredrikstad (NO);Fredrikstad (NO)
+Mäntyluoto (FI);Mantyluoto, Finland
+Padang (ID);Padang, Indonesia
+Mina' al Ahmadi (KW);Mina' al Ahmadi, Kuwait
+Las Palmas de Gran Canaria (ES);Las Palmas de Gran Canaria, Spain
+Herøya (NO);Heroya, Norway
+Onne (NG);Onne, Nigeria
+Port Klang (Pelabuhan Klang) (MY);Port Klang, Malaysia
+Plaquemine (US);Plaquemine (US)
+Elat (Eilath) (IL);Elat (Eilath), Israel
+Norfolk (US);Norfolk (US)
+Vlissingen (NL);Vlissingen, Netherlands
+Nueva Palmira (UY);Nueva Palmira, Uruguay
+Westwego (US);Westwego (US)
+Deer Park (US);Deer Park (US)
+Portland (GB);Portland, United Kingdom
+Ilo (PE);Ilo, Peru
+Charleston (US);The Port of Charleston, Charleston, South Carolina
+Sabine (US);Sabine, Texas
+Lagos (NG);Lagos, Nigeria
+Longview (US);Port Of Longview, Longview, Washington
+Bremen (DE);Bremen, Germany
+Lake Charles (US);Port of Lake Charles, Lake Charles, Louisiana
+Houston (US);Houston, Houston, Texas
+Pascagoula (US);Port of Pascagoula, Pascagoula, Mississippi
+Sorel (CA);Sorel, Que, Canada
+Caucedo (DO);Caucedo, Dominican Republic
+Abidjan (CI);Abidjan, Cote d'Ivoire
+Gunsan (KR);Gunsan, South Korea
+Portland (US);Port of Portland, Portland, Oregon
+Busan (KR);Busan, South Korea
+Galveston (US);Port of Galveston, Galveston, Texas
+Dakar (SN);Dakar, Senegal
+Emden (DE);Emden, Germany
+Riga (LV);Riga, Latvia
+New Orleans (US);Port of New Orleans, New Orleans, Louisiana
+Patillos (CL);Caleta Patillos, Chile
+Varna (BG);Varna, Bulgaria
+London (GB);London, United Kingdom
+Kribi (CM);Kribi, Cameroon
+Freeport (US);Freeport, Freeport, Texas
+Montreal (CA);Montreal, Que, Canada
+San Martin (AR);Pto. General San Martin, Argentina
+Pohang (KR);Pohang, South Korea
+Acajutla (SV);Acajutla, El Salvador
+Newcastle (GB);Newcastle On Tyne, United Kingdom
+Durban (ZA);Durban, South Africa
+Guanta (VE);Bahia Guanta, Venezuela
+Port Everglades (US);Port Of Entry-Port Everglades/Fort Lauderdale, Port Everglades, Florida
+Savannah (US);Georgia Ports Authority, Savannah, Georgia
+Manta (EC);Manta, Ecuador
+Stockton (US);Port of Stockton, Stockton, California
+Mobile (US);Alabama State Port Authority, Mobile, Alabama
+Ferrol (ES);El Ferrol, Spain
+Vancouver (US);Port of Vancouver USA, Vancouver, Washington
+Sines (PT);Porto De Sines, Portugal
+Cape Town (ZA);Cape Town, South Africa
+Sfax (TN);Sfax, Tunisia
+Muuga (EE);Muuga, Estonia
+Poti (GE);Poti, Georgia
+Baltimore (US);Baltimore, Maryland
+Botlek (NL);Botlek, Netherlands
+Beaumont (US);Port of Beaumont, Beaumont, Texas
+New York (US);New York, New York
+Shekou Pt (CN);Shekou, China
+Vitória Pt (BR);Vitoria, Brazil
+Zhanjiang Potou Apt (CN);Zhanjiang, China
+Saint-John (CA);Saint John, Nb, Canada
+Arroyo Seco (AR);Arroyo Seco (AR)
+Zárate (AR);Zárate (AR)
+Belem (BR);Belem (BR)
+Dongjiangkou (CN);Dongjiangkou (CN)
+Riohacha (CO);Riohacha (CO)
+Xiuyu Pt (CN);Xiuyu Pt (CN)
+Qinhuangdao Pt (CN);Qinhuangdao Pt (CN)
+Saint Rose (US);Saint Rose (US)
+Koper (SI);Koper (SI)
+Vila do Conde (BR);Vila do Conde (BR)
+Nederland (US);Nederland (US)
+Burnside (US);Burnside (US)
+Vadinar (IN);Vadinar (IN)
+Lanshan Pt (CN);Lanshan Pt (CN)
+Quequén (AR);Quequén (AR)
+Itabuna (BR);Itabuna (BR)
+Maceió (BR);Maceió (BR)
+Ravenna (IT);Ravenna (IT)
+Portocel (BR);Portocel (BR)
+Fos-sur-Mer (FR);Fos-sur-Mer (FR)
+Punta Chungo (CL);Punta Chungo (CL)
+Quanzhou Pt (CN);Quanzhou Pt (CN)
+Santos (BR);Santos (BR)
+Lima (AR);Lima (AR)
+Changshu Pt (CN);Changshu Pt (CN)
+Abbot Point (AU);Abbot Point (AU)
+Puerto Madryn (AR);Puerto Madryn (AR)
+Alumar (BR);Alumar (BR)
+Jingjiang Pt (CN);Jingjiang Pt (CN)
+Yangzhong (CN);Yangzhong (CN)
+Bayonne (US);Bayonne (US)
+Sohar (OM);Sohar (OM)
+Convent (US);Convent (US)
+Puerto Angamos (CL);Puerto Angamos (CL)
+Sika (IN);Sika (IN)
+Gdansk (PL);Gdansk (PL)
+Santarem (BR);Santarem (BR)
+Bayovar (PE);Bayovar (PE)
+Tarahan (ID);Tarahan (ID)
+Stade (DE);Stade (DE)
+Galena Park (US);Galena Park (US)
+Málaga (ES);Málaga (ES)
+Ponta da Madeira (BR);Ponta da Madeira (BR)
+Venezia (IT);Venezia (IT)
+Punta Europa Terminal (GQ);Punta Europa Terminal (GQ)
+Davant (US);Davant (US)
+Port Dalrymple (AU);Port Dalrymple (AU)
+Gijón (ES);Gijón (ES)
+Douala (CM);Douala (CM)
+Tolú (CO);Tolú (CO)
+Asaluyeh (IR);Asaluyeh (IR)
+La Guaira (VE);La Guaira (VE)
+Valparaiso (CL);Valparaiso (CL)
+Fortaleza (BR);Fortaleza (BR)
+Yangzhou Pt (CN);Yangzhou Pt (CN)
+Aracaju (BR);Aracaju (BR)
+Rio Haina (DO);Rio Haina (DO)
+Kavkaz (RU);Kavkaz (RU)
+Garrucha (ES);Garrucha (ES)
+Donaldsonville (US);Donaldsonville (US)
+Jinjiang (CN);Jinjiang (CN)
+Chiwan Pt (CN);Chiwan Pt (CN)
+Fangcheng Pt (CN);Fangcheng Pt (CN)
+Mejillones (CL);Mejillones (CL)
+Puerto Patache (CL);Puerto Patache (CL)
+Lisboa (PT);Lisboa (PT)
+Port-of-Spain (TT);Port-of-Spain (TT)
+Point Comfort (US);Point Comfort (US)
+Paramonga (PE);Paramonga (PE)
+Garyville (US);Garyville (US)
+Dangjin (KR);Dangjin (KR)
+Matadi (CD);Matadi (CD)
+Qinzhou Pt (CN);Qinzhou Pt (CN)
+Tampico (MX);Tampico (MX)
+Itapoá (BR);Itapoá (BR)
+Saldanha Bay (ZA);Saldanha Bay (ZA)
+Tangier (MA);Tangier (MA)
+Longkou Pt (CN);Longkou Pt (CN)
+İzmir (TR);İzmir (TR)
+Santana (BR);Santana (BR)
+Antonina (BR);Antonina (BR)
+Baytown (US);Baytown (US)
+Baton Rouge (US);Baton Rouge (US)
+Santa Marta (CO);Santa Marta (CO)
+Nansha Pt (CN);Nansha Pt (CN)
+Ramallo (AR);Ramallo (AR)
+Cabo Negro (CL);Cabo Negro (CL)
+Beihai Fucheng Apt (CN);Beihai Fucheng Apt (CN)
+Paranaguá (BR);Paranaguá (BR)
+Pointe-à-Pitre (GP);Pointe-à-Pitre (GP)
+Police (PL);Police (PL)
+Bayuquan (CN);Bayuquan (CN)
+Pôrto Alegre (BR);Pôrto Alegre (BR)
+Ventanas (CL);Ventanas (CL)
+Iran (IR);Iran (IR)
+Punta Pereyra (UY);Punta Pereyra (UY)
+Odesa (UA);Odesa (UA)
+Chaguaramas (TT);Chaguaramas (TT)
+Iskenderun (TR);Iskenderun (TR)
+Aruba (AW);Aruba (AW)
+Ingleside (US);Ingleside (US)
+Tarjun (ID);Tarjun (ID)
+Punta Loyola (AR);Punta Loyola (AR)
+Cabedelo Pt (BR);Cabedelo Pt (BR)
+Puerto Padre (CU);Puerto Padre (CU)
+Lavéra (FR);Lavéra (FR)
+Xingang (CN);Xingang (CN)

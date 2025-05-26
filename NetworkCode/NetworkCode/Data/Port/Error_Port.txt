@@ -263,3 +263,15 @@ Baltimore-Washington International Airport, Baltimore, Maryland
 nan
 Port of Charleston, Charleston, West Virginia
 Houlton, Maine
+Bahrain International Airport (BH)
+Nigeria (NG)
+Nanjing Lukou International Apt (CN)
+United States (US)
+Ningbo Lishe International Apt (CN)
+Shanghai Hongqiao International Apt (CN)
+Dalian Zhoushuizi International Apt (CN)
+Yantai Laishan International Apt (CN)
+Tianjin Binhai International Apt (CN)
+Qingdao Liuting International Apt (CN)
+Chile (CL)
+Brazil (BR)

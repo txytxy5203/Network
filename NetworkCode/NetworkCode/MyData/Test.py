@@ -93,4 +93,8 @@ def draw_world_region_map(g):
 #         print(Port)
 
 Algorithm.ConstructNetwork.Save_Network_BRImport2019()
+G_BR = nx.read_graphml('../Data/BR2019/BRImport2019.graphml')
+G_US = nx.read_graphml('../Data/US2019/USImport2019.graphml')
+G_US.add_edges_from(G_BR)
+Algorithm.Basic_Topology.basic_topology_metrics(G_Graph)
 
