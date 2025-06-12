@@ -1,181 +1,1013 @@
+import re
+import json
+import sys
+sys.path.append('../Algorithm')
 import pandas as pd
+import numpy as np
 import networkx as nx
-from mpl_toolkits.basemap import Basemap
-import matplotlib.pyplot as plt
+import unicodedata
+from Read import Read
 
 
+# Port_Name = Algorithm.Read.read_port_name_info()
+# Remove_Port = Algorithm.Read.read_remove_port_info()
 
-def network_USImport2019_Improve():
-    '''
 
-    :return: 返回USImport2019 改进网络
-    '''
-    data_path = 'E:/panjivaUSImport2019vessels.csv'
+class ConstructNetwork:
 
-    df = pd.read_csv(data_path, header=None)
-    df.columns = ['arrivalDate', 'portOfUnlading', 'portOfLading', 'vessel']
-    # # 剔除重复数据
-    df = df.drop_duplicates()
 
-    unique_vessels = df['vessel'].unique().tolist()
+    @classmethod
+    def Read_Port_Data(cls):
+        '''
+        类方法 直接 cls. 出来用
+        :return: Port_Data 标准表
+        '''
+        data_path = "../Data/Port/Port_Info_Json.json"
+        # 一次性读取整个JSON文件
+        with open(data_path, "r", encoding="utf-8") as file:
+            port_data = json.load(file)
+        return port_data
 
-    g = nx.Graph()
+    @classmethod
+    def To_English_Spelling(cls, text: str) -> str:
+        """将带有变音符号的字符串转换为英语化的拼写"""
+        # 规范化为 NFKD 形式，分离变音符号
+        normalized = unicodedata.normalize('NFKD', text)
+        # 只保留 ASCII 字符（移除变音符号）
+        return ''.join([c for c in normalized if ord(c) < 128])
 
-    # Add edges
-    for vessel in unique_vessels:
-        test = df[df['vessel'] == vessel]
+    @classmethod
+    def Save_Network_USImport2019(cls):
 
-        previous_port = test['portOfUnlading'].iloc[-1]
-        # 直接遍历 portOfUnlading 列 和 portOfLading列
-        for port in test['portOfUnlading']:
-            if previous_port == port:
-                previous_port = port
+        US_data_path = 'D:/PortData/USImport2019.csv'
+        port_data = cls.Read_Port_Data()
+        HSCode = Read.read_USImpHSCode()
+
+
+        # 过滤数据，只保留美国的港口
+        us_data = {
+            port_code: info
+            for port_code, info in port_data.items()
+            if "United States of America" in info.get("country_english", "")
+        }
+        us_data_dict = {value["english_name"]: key for key, value in us_data.items()}
+
+
+        # nrows = 1000000
+        DataFrame = pd.read_csv(US_data_path, header=None)
+        DataFrame.columns = ['panjivaRecordId', 'billOfLadingNumber', 'arrivalDate', 'conCountry', 'shpCountry',
+                             'portOfUnlading', 'portOfLading',
+                             'portOfLadingCountry', 'portOfLadingRegion', 'transportMethod', 'vessel', 'volumeTEU',
+                             'weightKg',
+                             'valueOfGoodsUSD']
+        # 剔除重复数据
+        DataFrame = DataFrame.drop_duplicates()
+        # 将 相关列转换为字符串类型
+        DataFrame['portOfUnlading'] = DataFrame['portOfUnlading'].astype(str)
+        DataFrame['portOfLading'] = DataFrame['portOfLading'].astype(str)
+        DataFrame['panjivaRecordId'] = DataFrame['panjivaRecordId'].astype(str)
+
+        print("DataFrame加载完毕")
+
+        print(f"原始DataFrame大小:{len(DataFrame)}")
+        Origin_Len = len(DataFrame)
+        # # 剔除重复数据
+        # 删除 'panjivaRecordId' 列重复的行，只保留第一次出现的行
+        DataFrame = DataFrame.drop_duplicates(subset=['panjivaRecordId'], keep='first')
+        print(f"剔除重复数据后DataFrame大小:{len(DataFrame)}")
+
+        # 检查 volumeTEU、weightKg、valueOfGoodsUSD 字段中的空值数量
+        null_counts = DataFrame.isnull().sum()
+        print("每个字段的null值情况：")
+        print(null_counts / len(DataFrame))
+
+        # 1 使用均值填充 TEU
+        DataFrame.fillna({'volumeTEU': DataFrame['volumeTEU'].mean()}, inplace=True)
+        # 2 删除 某某 列为空的行
+        DataFrame = DataFrame.dropna(subset=['portOfUnlading', 'portOfLading'])
+
+        print(f"剔除不能使用的数据后DataFrame大小:{len(DataFrame)}({len(DataFrame) / Origin_Len * 100:.2f}%)")
+        print("DataFrame处理完毕")
+
+
+        error_port = set()
+        timer = 0
+        # 计数用 记录有多少数据能够在 标准表中找到
+        USIndex = 0
+        OriIndex = 0
+
+        G = nx.MultiDiGraph()
+
+        for index, row in DataFrame.iterrows():
+            timer += 1
+            if timer / len(DataFrame) > 0.01:
+                print('构建网络当前进度：{:.2%}'.format(index / len(DataFrame)))
+                timer = 0
+
+            # 声明港口唯一代码
+            UnLading_Code = str()
+            Lading_Code = str()
+
+            # 声明一个 是否匹配 的bool值
+            match = False
+
+            # 在美国的port里面去找即可  注意小写和按逗号分割
+            portOfUnlading = row['portOfUnlading'].lower()
+            for us_port in us_data_dict.keys():
+                us_port_deal = us_port.lower().split(',', 1)[0]
+                if us_port_deal in portOfUnlading:
+                    USIndex += 1
+                    match = True
+                    # 将港口代码赋值给UnLading_Code即可
+                    UnLading_Code = us_data_dict[us_port]
+                    break
+            # 如果没有找到匹配的港口 则 continue
+            if not match:
+                error_port.add(portOfUnlading)
                 continue
-            else:
-                g.add_edge(previous_port, port)
-                previous_port = port
 
-        previous_port = test['portOfLading'].iloc[-1]
-        for port in test['portOfLading']:
-            if previous_port == port:
-                previous_port = port
+            # 声明一个 是否匹配 的bool值
+            match = False
+
+            portOfLading = row['portOfLading'].lower()
+            portOfLading = re.sub(r'[^a-zA-Z]', '', portOfLading)
+            for port in port_data:
+                port_name = port_data[port]["english_name"].lower()
+                port_name = re.sub(r'[^a-zA-Z]', '', port_name)
+                if port_name in portOfLading:
+                    OriIndex += 1
+                    match = True
+                    Lading_Code = port
+                    break
+            if not match:
+                error_port.add(portOfLading)
                 continue
-            else:
-                g.add_edge(previous_port, port)
-                previous_port = port
 
-    for index, row in df.iterrows():
-        start, end = row['portOfLading'], row['portOfUnlading']
-        if g.has_edge(start, end):
-            continue
-        else:
-            g.add_edge(start, end)
+            # 注意这里的字符串是 str 类型
+            if row['panjivaRecordId'] not in HSCode.keys():
+                continue
+            if HSCode[row['panjivaRecordId']] is None:
+                continue
 
-    return g
+            # 为每条边生成一个唯一的键
+            edge_key = f"USImp2019_{row['panjivaRecordId']}"
+            # 创建一个字典来存储边的属性
+            edge_attrs = {
+                'volumeTEU': row['volumeTEU'],
+                'HSCode': HSCode[row['panjivaRecordId']]
+            }
+            # 给 edge 和 node 添加属性
+            G.add_edge(Lading_Code, UnLading_Code, key=edge_key, **edge_attrs)
+            G.nodes[Lading_Code]['Country'] = port_data[Lading_Code]["country_english"]
+            G.nodes[UnLading_Code]['Country'] = port_data[UnLading_Code]["country_english"]
 
-def network_USImport2019():
-    data_path = 'E:/panjivaUSImport2019vessels.csv'
+        # 使用 GraphML 保存图
+        nx.write_graphml(G, '../Data/US2019/USImport2019.graphml')
 
-    df = pd.read_csv(data_path, header=None)
-    df.columns = ['arrivalDate', 'portOfUnlading', 'portOfLading', 'vessel']
-    # # 剔除重复数据
-    df = df.drop_duplicates()
+        print(USIndex / len(DataFrame))
+        print(OriIndex / len(DataFrame))
+        print("数据的最终利用率", G.number_of_edges() / Origin_Len)
 
-    g = nx.Graph()
-    for index, row in df.iterrows():
-        start, end = row['portOfLading'], row['portOfUnlading']
-        if g.has_edge(start, end):
-            continue
-        else:
-            g.add_edge(start, end)
+    @classmethod
+    def Save_Network_USExport2019(cls):
 
-    return g
-# G.remove_node('Columbia Metropolitan Airport., Columbia, South Carolina')
-# G.remove_node('Will Rogers World Airport, Oklahoma City, Oklahoma')
-# G.remove_node('Portland International Airport, Portland, Washington')
-# G.remove_node('Gateway Freight Services Inc., Los Angeles, California')
+        US_data_path = 'D:/PortData/USExport2019.csv'
+        port_data = cls.Read_Port_Data()
+        HSCode = Read.read_USExpHSCode()
+
+        # 过滤数据，只保留美国的港口
+        us_data = {
+            port_code: info
+            for port_code, info in port_data.items()
+            if "United States of America" in info.get("country_english", "")
+        }
+        us_data_dict = {value["english_name"]: key for key, value in us_data.items()}
+
+        # nrows = 1000000
+        DataFrame = pd.read_csv(US_data_path, header=None)
+        DataFrame.columns = ['panjivaRecordId', 'billOfLadingNumber', 'shpmtDate', 'shpCountry', 'shpmtDestination',
+                            'portOfUnlading', 'portOfLading', 'portOfLadingCountry', 'portOfUnladingCountry',
+                            'vessel', 'volumeTEU', 'weightKg', 'valueOfGoodsUSD']
+        # 剔除重复数据
+        DataFrame = DataFrame.drop_duplicates()
+        # 将 相关列转换为字符串类型
+        DataFrame['portOfUnlading'] = DataFrame['portOfUnlading'].astype(str)
+        DataFrame['portOfLading'] = DataFrame['portOfLading'].astype(str)
+        DataFrame['panjivaRecordId'] = DataFrame['panjivaRecordId'].astype(str)
+
+        print("DataFrame加载完毕")
+
+        print(f"原始DataFrame大小:{len(DataFrame)}")
+        Origin_Len = len(DataFrame)
+        # # 剔除重复数据
+        # 删除 'panjivaRecordId' 列重复的行，只保留第一次出现的行
+        DataFrame = DataFrame.drop_duplicates(subset=['panjivaRecordId'], keep='first')
+        print(f"剔除重复数据后DataFrame大小:{len(DataFrame)}")
+
+        # 检查 volumeTEU、weightKg、valueOfGoodsUSD 字段中的空值数量
+        null_counts = DataFrame.isnull().sum()
+        print("每个字段的null值情况：")
+        print(null_counts / len(DataFrame))
+
+        # 1 使用均值填充 TEU
+        DataFrame.fillna({'volumeTEU': DataFrame['volumeTEU'].mean()}, inplace=True)
+        # 2 删除 某某 列为空的行
+        DataFrame = DataFrame.dropna(subset=['portOfUnlading', 'portOfLading'])
+
+        print(f"剔除不能使用的数据后DataFrame大小:{len(DataFrame)}({len(DataFrame) / Origin_Len * 100:.2f}%)")
+        print("DataFrame处理完毕")
+
+        error_port = set()
+        timer = 0
+        # 计数用 记录有多少数据能够在 标准表中找到
+        USIndex = 0
+        OriIndex = 0
+
+        G = nx.MultiDiGraph()
+
+        for index, row in DataFrame.iterrows():
+            timer += 1
+            if timer / len(DataFrame) > 0.01:
+                print('构建网络当前进度：{:.2%}'.format(index / len(DataFrame)))
+                timer = 0
+
+            # 声明港口唯一代码
+            UnLading_Code = str()
+            Lading_Code = str()
+
+            # 声明一个 是否匹配 的bool值
+            match = False
 
 
+            portOfLading = row['portOfLading'].lower()
+            for us_port in us_data_dict.keys():
+                us_port_deal = us_port.lower().split(',', 1)[0]
+                if us_port_deal in portOfLading:
+                    USIndex += 1
+                    match = True
+                    # 将港口代码赋值给Lading_Code即可
+                    Lading_Code = us_data_dict[us_port]
+                    break
+            # 如果没有找到匹配的港口 则 continue
+            if not match:
+                error_port.add(portOfLading)
+                continue
+
+            # 声明一个 是否匹配 的bool值
+            match = False
+
+            portOfUnlading = row['portOfUnlading'].lower()
+            portOfUnlading = re.sub(r'[^a-zA-Z]', '', portOfUnlading)
+            for port in port_data:
+                port_name = port_data[port]["english_name"].lower()
+                port_name = re.sub(r'[^a-zA-Z]', '', port_name)
+                if port_name in portOfUnlading:
+                    OriIndex += 1
+                    match = True
+                    UnLading_Code = port
+                    break
+            if not match:
+                error_port.add(portOfUnlading)
+                continue
+
+            # 注意这里的字符串是 str 类型
+            if row['panjivaRecordId'] not in HSCode.keys():
+                continue
+            if HSCode[row['panjivaRecordId']] is None:
+                continue
+
+            # 为每条边生成一个唯一的键
+            edge_key = f"USExp2019_{row['panjivaRecordId']}"
+            # 创建一个字典来存储边的属性
+            edge_attrs = {
+                'volumeTEU': row['volumeTEU'],
+                'HSCode': HSCode[row['panjivaRecordId']]
+            }
+            # 给 edge 和 node 添加属性
+            G.add_edge(Lading_Code, UnLading_Code, key=edge_key, **edge_attrs)
+            G.nodes[Lading_Code]['Country'] = port_data[Lading_Code]["country_english"]
+            G.nodes[UnLading_Code]['Country'] = port_data[UnLading_Code]["country_english"]
+
+        # 使用 GraphML 保存图
+        nx.write_graphml(G, '../Data/US2019/USExport2019.graphml')
+
+        print(USIndex / len(DataFrame))
+        print(OriIndex / len(DataFrame))
+        print("数据的最终利用率", G.number_of_edges() / Origin_Len)
+
+    @classmethod
+    def Save_Network_BRImport2019(cls):
+
+        BR_data_path = 'D:/PortData/BRImport2019.csv'
+        port_data = cls.Read_Port_Data()
 
 
+        # nrows = 1000000
+        DataFrame = pd.read_csv(BR_data_path, header=None)
+        DataFrame.columns =  ['panjivaRecordId', 'shpmtDate', 'conCountry', 'shpCountry', 'shpmtOrigin','shpmtOriginCountry','shpmtDestination',
+                            'shpmtDestinationCountry','portOfOriginCountry','portOfUnlading','portOfUnladingCountry','portOfLading', 'vesselName',
+                           'hsCode','volumeTEU', 'grossWeightKg', 'valueOfGoodsUSD']
+        # 剔除重复数据
+        DataFrame = DataFrame.drop_duplicates()
+        # 将 相关列转换为字符串类型
+        DataFrame['portOfUnlading'] = DataFrame['portOfUnlading'].astype(str)
+        DataFrame['portOfLading'] = DataFrame['portOfLading'].astype(str)
+        DataFrame['panjivaRecordId'] = DataFrame['panjivaRecordId'].astype(str)
 
-# Communities = nx.community.louvain_communities(G, seed=123, resolution=1.4)
-# print(nx.community.modularity(G, Communities))
+        print("DataFrame加载完毕")
+        print(f"原始DataFrame大小:{len(DataFrame)}")
+
+        Origin_Len = len(DataFrame)
+        # # 剔除重复数据
+        # 删除 'panjivaRecordId' 列重复的行，只保留第一次出现的行
+        DataFrame = DataFrame.drop_duplicates(subset=['panjivaRecordId'], keep='first')
+        print(f"剔除重复数据后DataFrame大小:{len(DataFrame)}")
+
+        # 检查 volumeTEU、weightKg、valueOfGoodsUSD 字段中的空值数量
+        null_counts = DataFrame.isnull().sum()
+        print("每个字段的null值情况：")
+        print(null_counts / len(DataFrame))
+
+        # 1 使用均值填充 TEU
+        DataFrame.fillna({'volumeTEU': DataFrame['volumeTEU'].mean()}, inplace=True)
+        # 2 删除 某某 列为空的行
+        DataFrame = DataFrame.dropna(subset=['portOfUnlading', 'portOfLading'])
+
+        print(f"剔除不能使用的数据后DataFrame大小:{len(DataFrame)}({len(DataFrame) / Origin_Len * 100:.2f}%)")
+        print("DataFrame处理完毕")
+
+
+        error_port = set()
+        timer = 0
+        # 计数用 记录有多少数据能够在 标准表中找到
+        LadingIndex = 0
+        UnLadingIndex = 0
+
+        G = nx.MultiDiGraph()
+
+        for index, row in DataFrame.iterrows():
+            timer += 1
+            if timer / len(DataFrame) > 0.01:
+                print('构建网络当前进度：{:.2%}'.format(index / len(DataFrame)))
+                timer = 0
+
+            # 声明港口唯一代码
+            Lading_Code = str()
+            UnLading_Code = str()
+            # 声明一个 是否 匹配 的bool值
+            UnLading_Match = False
+            Lading_Match = False
+
+
+            portOfUnlading = row['portOfUnlading'].lower()
+            # 先去掉括号里的内容  例如：Manaus (BR) --> Manaus
+            portOfUnlading = re.sub(r'\([^)]*\)', '', portOfUnlading).strip()
+            # 处理特殊字符 例如：Paranaguá (BR)
+            portOfUnlading = cls.To_English_Spelling(portOfUnlading)
+            # 再去掉空格
+            portOfUnlading = re.sub(r'[^a-zA-Z]', '', portOfUnlading)
+
+
+            portOfLading = row['portOfLading'].lower()
+            # 先去掉括号里的内容  例如：Manaus (BR) --> Manaus
+            portOfLading = re.sub(r'\([^)]*\)', '', portOfLading).strip()
+            # 处理特殊字符 例如：Paranaguá (BR)
+            portOfLading = cls.To_English_Spelling(portOfLading)
+            # 再去掉空格
+            portOfLading = re.sub(r'[^a-zA-Z]', '', portOfLading)
+
+            for port in port_data:
+                port_name = port_data[port]["english_name"].lower()
+                port_name = re.sub(r'[^a-zA-Z]', '', port_name)
+                if  (portOfUnlading in port_name or port_name in portOfUnlading) and UnLading_Match is False:
+                    UnLadingIndex += 1
+                    UnLading_Match = True
+                    UnLading_Code = port
+
+                if  (portOfLading in port_name or port_name in portOfLading) and Lading_Match is False:
+                    LadingIndex += 1
+                    Lading_Match = True
+                    Lading_Code = port
+
+            # 如果没有找到匹配的港口 则 continue
+            if not UnLading_Match:
+                error_port.add(portOfUnlading)
+                continue
+
+            if not Lading_Match:
+                error_port.add(portOfLading)
+                continue
+
+            # 这里判断 hsCode 是不是 None 即可
+            if row['hsCode'] is None:
+                continue
+
+            # 为每条边生成一个唯一的键
+            edge_key = f"BRImp2019_{row['panjivaRecordId']}"
+            # 创建一个字典来存储边的属性
+            edge_attrs = {
+                'volumeTEU': row['volumeTEU'],
+                'HSCode': row['hsCode']
+            }
+            # 给 edge 和 node 添加属性
+            G.add_edge(Lading_Code, UnLading_Code, key=edge_key, **edge_attrs)
+            G.nodes[Lading_Code]['Country'] = port_data[Lading_Code]["country_english"]
+            G.nodes[UnLading_Code]['Country'] = port_data[UnLading_Code]["country_english"]
+
+        # 使用 GraphML 保存图
+        nx.write_graphml(G, '../Data/BR2019/BRImport2019.graphml')
+
+        print(UnLadingIndex / len(DataFrame))
+        print(LadingIndex / len(DataFrame))
+        print("数据的最终利用率", G.number_of_edges() / Origin_Len)
+        for item in error_port:
+            print(item)
+
+    @classmethod
+    def Save_Network_BRExport2019(cls):
+
+        BR_data_path = 'D:/PortData/BRExport2019.csv'
+        port_data = cls.Read_Port_Data()
+
+        # nrows = 1000000
+        DataFrame = pd.read_csv(BR_data_path, header=None)
+        DataFrame.columns = ['panjivaRecordId', 'billOfLadingNumber', 'shpmtDate', 'conCountry', 'shpCountry', 'shpmtOrigin',
+                             'shpmtOriginCountry', 'shpmtDestination', 'shpmtDestinationCountry','portOfUnlading',
+                             'portOfUnladingCountry','portOfLading','portOfLadingCountry','vesselName',
+                             'hsCode','volumeTEU', 'grossWeightKg', 'valueOfGoodsUSD']
+
+        # 剔除重复数据
+        DataFrame = DataFrame.drop_duplicates()
+        # 将 相关列转换为字符串类型
+        DataFrame['portOfUnlading'] = DataFrame['portOfUnlading'].astype(str)
+        DataFrame['portOfLading'] = DataFrame['portOfLading'].astype(str)
+        DataFrame['panjivaRecordId'] = DataFrame['panjivaRecordId'].astype(str)
+
+        print("DataFrame加载完毕")
+        print(f"原始DataFrame大小:{len(DataFrame)}")
+
+        Origin_Len = len(DataFrame)
+        # # 剔除重复数据
+        # 删除 'panjivaRecordId' 列重复的行，只保留第一次出现的行
+        DataFrame = DataFrame.drop_duplicates(subset=['panjivaRecordId'], keep='first')
+        print(f"剔除重复数据后DataFrame大小:{len(DataFrame)}")
+
+        # 检查 volumeTEU、weightKg、valueOfGoodsUSD 字段中的空值数量
+        null_counts = DataFrame.isnull().sum()
+        print("每个字段的null值情况：")
+        print(null_counts / len(DataFrame))
+
+        # 1 使用均值填充 TEU
+        DataFrame.fillna({'volumeTEU': DataFrame['volumeTEU'].mean()}, inplace=True)
+        # 2 删除 某某 列为空的行
+        DataFrame = DataFrame.dropna(subset=['portOfUnlading', 'portOfLading'])
+
+        print(f"剔除不能使用的数据后DataFrame大小:{len(DataFrame)}({len(DataFrame) / Origin_Len * 100:.2f}%)")
+        print("DataFrame处理完毕")
+
+        error_port = set()
+        timer = 0
+        # 计数用 记录有多少数据能够在 标准表中找到
+        LadingIndex = 0
+        UnLadingIndex = 0
+
+        G = nx.MultiDiGraph()
+
+        for index, row in DataFrame.iterrows():
+            timer += 1
+            if timer / len(DataFrame) > 0.01:
+                print('构建网络当前进度：{:.2%}'.format(index / len(DataFrame)))
+                timer = 0
+
+            # 声明港口唯一代码
+            Lading_Code = str()
+            UnLading_Code = str()
+            # 声明一个 是否 匹配 的bool值
+            UnLading_Match = False
+            Lading_Match = False
+
+            portOfUnlading = row['portOfUnlading'].lower()
+            # 先去掉括号里的内容  例如：Manaus (BR) --> Manaus
+            portOfUnlading = re.sub(r'\([^)]*\)', '', portOfUnlading).strip()
+            # 处理特殊字符 例如：Paranaguá (BR)
+            portOfUnlading = cls.To_English_Spelling(portOfUnlading)
+            # 再去掉空格
+            portOfUnlading = re.sub(r'[^a-zA-Z]', '', portOfUnlading)
+
+
+            portOfLading = row['portOfLading'].lower()
+            # 先去掉括号里的内容  例如：Manaus (BR) --> Manaus
+            portOfLading = re.sub(r'\([^)]*\)', '', portOfLading).strip()
+            # 处理特殊字符 例如：Paranaguá (BR)
+            portOfLading = cls.To_English_Spelling(portOfLading)
+            # 再去掉空格
+            portOfLading = re.sub(r'[^a-zA-Z]', '', portOfLading)
+
+            for port in port_data:
+                port_name = port_data[port]["english_name"].lower()
+                port_name = re.sub(r'[^a-zA-Z]', '', port_name)
+                # 交叉匹配 无敌！！
+                if (portOfUnlading in port_name or port_name in portOfUnlading) and UnLading_Match is False:
+                    UnLadingIndex += 1
+                    UnLading_Match = True
+                    UnLading_Code = port
+
+                if (portOfLading in port_name or port_name in portOfLading) and Lading_Match is False:
+                    LadingIndex += 1
+                    Lading_Match = True
+                    Lading_Code = port
+
+            # 如果没有找到匹配的港口 则 continue
+            if not UnLading_Match:
+                error_port.add(portOfUnlading)
+                continue
+
+            if not Lading_Match:
+                error_port.add(portOfLading)
+                continue
+
+            # 这里判断 hsCode 是不是 None 即可
+            if row['hsCode'] is None:
+                continue
+
+            # 为每条边生成一个唯一的键
+            edge_key = f"BRExp2019_{row['panjivaRecordId']}"
+            # 创建一个字典来存储边的属性
+            edge_attrs = {
+                'volumeTEU': row['volumeTEU'],
+                'HSCode': row['hsCode']
+            }
+            # 给 edge 和 node 添加属性
+            G.add_edge(Lading_Code, UnLading_Code, key=edge_key, **edge_attrs)
+            G.nodes[Lading_Code]['Country'] = port_data[Lading_Code]["country_english"]
+            G.nodes[UnLading_Code]['Country'] = port_data[UnLading_Code]["country_english"]
+
+        # 使用 GraphML 保存图
+        nx.write_graphml(G, '../Data/BR2019/BRExport2019.graphml')
+
+        print(UnLadingIndex / len(DataFrame))
+        print(LadingIndex / len(DataFrame))
+        print("数据的最终利用率", G.number_of_edges() / Origin_Len)
+        for item in error_port:
+            print(item)
+
+    @classmethod
+    def Save_Network_CLImport2019(cls):
+
+        CL_data_path = 'D:/PortData/CLImport2019.csv'
+        port_data = cls.Read_Port_Data()
+
+        # nrows = 1000000
+        DataFrame = pd.read_csv(CL_data_path, header=None)
+        DataFrame.columns = ['panjivaRecordId', 'receiptDate', 'conCountry', 'shpmtOrigin' ,
+                            'portOfUnlading', 'portOfUnladingCountry', 'portOfLading', 'portOfLadingCountry',
+                            'countryOfSale', 'transportMethod',	'volumeTEU', 'grossWeightKg',
+                            'valueOfGoodsFOBUSD', 'valueOfGoodsItemFOBUSD', 'hsCode']
+        # 剔除重复数据
+        DataFrame = DataFrame.drop_duplicates()
+        # 将 相关列转换为字符串类型
+        DataFrame['portOfUnlading'] = DataFrame['portOfUnlading'].astype(str)
+        DataFrame['portOfLading'] = DataFrame['portOfLading'].astype(str)
+        DataFrame['panjivaRecordId'] = DataFrame['panjivaRecordId'].astype(str)
+
+        print("DataFrame加载完毕")
+        print(f"原始DataFrame大小:{len(DataFrame)}")
+
+        Origin_Len = len(DataFrame)
+        # # 剔除重复数据
+        # 删除 'panjivaRecordId' 列重复的行，只保留第一次出现的行
+        DataFrame = DataFrame.drop_duplicates(subset=['panjivaRecordId'], keep='first')
+        print(f"剔除重复数据后DataFrame大小:{len(DataFrame)}")
+
+        # 检查 volumeTEU、weightKg、valueOfGoodsUSD 字段中的空值数量
+        null_counts = DataFrame.isnull().sum()
+        print("每个字段的null值情况：")
+        print(null_counts / len(DataFrame))
+
+        # 1 使用均值填充 TEU
+        DataFrame.fillna({'volumeTEU': DataFrame['volumeTEU'].mean()}, inplace=True)
+        # 2 删除 某某 列为空的行
+        DataFrame = DataFrame.dropna(subset=['portOfUnlading', 'portOfLading'])
+
+        print(f"剔除不能使用的数据后DataFrame大小:{len(DataFrame)}({len(DataFrame) / Origin_Len * 100:.2f}%)")
+        print("DataFrame处理完毕")
+
+        error_port = set()
+        timer = 0
+        # 计数用 记录有多少数据能够在 标准表中找到
+        LadingIndex = 0
+        UnLadingIndex = 0
+
+        G = nx.MultiDiGraph()
+
+        for index, row in DataFrame.iterrows():
+            timer += 1
+            if timer / len(DataFrame) > 0.01:
+                print('构建网络当前进度：{:.2%}'.format(index / len(DataFrame)))
+                timer = 0
+
+            # 声明港口唯一代码
+            Lading_Code = str()
+            UnLading_Code = str()
+            # 声明一个 是否 匹配 的bool值
+            UnLading_Match = False
+            Lading_Match = False
+
+            portOfUnlading = row['portOfUnlading'].lower()
+            # 先去掉括号里的内容  例如：Manaus (BR) --> Manaus
+            portOfUnlading = re.sub(r'\([^)]*\)', '', portOfUnlading).strip()
+            # 处理特殊字符 例如：Paranaguá (BR)
+            portOfUnlading = cls.To_English_Spelling(portOfUnlading)
+            # 再去掉空格
+            portOfUnlading = re.sub(r'[^a-zA-Z]', '', portOfUnlading)
+
+            portOfLading = row['portOfLading'].lower()
+            # 先去掉括号里的内容  例如：Manaus (BR) --> Manaus
+            portOfLading = re.sub(r'\([^)]*\)', '', portOfLading).strip()
+            # 处理特殊字符 例如：Paranaguá (BR)
+            portOfLading = cls.To_English_Spelling(portOfLading)
+            # 再去掉空格
+            portOfLading = re.sub(r'[^a-zA-Z]', '', portOfLading)
+
+            for port in port_data:
+                port_name = port_data[port]["english_name"].lower()
+                port_name = re.sub(r'[^a-zA-Z]', '', port_name)
+                if (portOfUnlading in port_name or port_name in portOfUnlading) and UnLading_Match is False:
+                    UnLadingIndex += 1
+                    UnLading_Match = True
+                    UnLading_Code = port
+
+                if (portOfLading in port_name or port_name in portOfLading) and Lading_Match is False:
+                    LadingIndex += 1
+                    Lading_Match = True
+                    Lading_Code = port
+
+            # 如果没有找到匹配的港口 则 continue
+            if not UnLading_Match:
+                error_port.add(portOfUnlading)
+                continue
+
+            if not Lading_Match:
+                error_port.add(portOfLading)
+                continue
+
+            # 这里判断 hsCode 是不是 None 即可
+            if row['hsCode'] is None:
+                continue
+
+            # 为每条边生成一个唯一的键
+            edge_key = f"CLImp2019_{row['panjivaRecordId']}"
+            # 创建一个字典来存储边的属性
+            edge_attrs = {
+                'volumeTEU': row['volumeTEU'],
+                'HSCode': row['hsCode']
+            }
+            # 给 edge 和 node 添加属性
+            G.add_edge(Lading_Code, UnLading_Code, key=edge_key, **edge_attrs)
+            G.nodes[Lading_Code]['Country'] = port_data[Lading_Code]["country_english"]
+            G.nodes[UnLading_Code]['Country'] = port_data[UnLading_Code]["country_english"]
+
+        # 使用 GraphML 保存图
+        nx.write_graphml(G, '../Data/CL2019/CLImport2019.graphml')
+
+        print(UnLadingIndex / len(DataFrame))
+        print(LadingIndex / len(DataFrame))
+        print("数据的最终利用率", G.number_of_edges() / Origin_Len)
+        for item in error_port:
+            print(item)
+
+    @classmethod
+    def Save_Network_COExport2019(cls):
+
+        CO_data_path = 'D:/PortData/COExport2019.csv'
+        port_data = cls.Read_Port_Data()
+
+        # nrows = 1000000
+        DataFrame = pd.read_csv(CO_data_path, header=None)
+        DataFrame.columns = ['panjivaRecordId', 'shpmtDate', 'conCountry','shpCountry', 'shpmtOrigin',
+		                     'shpmtDestination', 'shpmtDestinationCountry', 'portOfLading', 'portOfLadingCountry',
+		                     'transportMethod', 'hsCode', 'volumeTEU', 'itemQuantity', 'itemUnit',
+		                     'grossWeightKg', 'netWeightKg', 'valueOfGoodsFOBUSD', 'valueOfGoodsFOBCOP']
+
+        print("DataFrame加载完毕")
+        print(f"原始DataFrame大小:{len(DataFrame)}")
+        Origin_Len = len(DataFrame)
+
+        # 剔除重复数据
+        DataFrame = DataFrame.drop_duplicates()
+        # 删除 某某 列为空的行  这个一定得放在前面  后面再转字符串
+        DataFrame = DataFrame.dropna(subset=['shpmtDestination', 'portOfLading'])
+        print(f"剔除重复数据、NULL值后DataFrame大小:{len(DataFrame)}")
+
+        # 将 相关列转换为字符串类型
+        DataFrame['shpmtDestination'] = DataFrame['shpmtDestination'].astype(str)
+        DataFrame['portOfLading'] = DataFrame['portOfLading'].astype(str)
+        DataFrame['panjivaRecordId'] = DataFrame['panjivaRecordId'].astype(str)
+
+        # # 剔除重复数据
+        # 删除 'panjivaRecordId' 列重复的行，只保留第一次出现的行
+        DataFrame = DataFrame.drop_duplicates(subset=['panjivaRecordId'], keep='first')
+
+
+        # 检查 volumeTEU、weightKg、valueOfGoodsUSD 字段中的空值数量
+        null_counts = DataFrame.isnull().sum()
+        print("每个字段的null值情况：")
+        print(null_counts / len(DataFrame))
+
+        # 1 使用均值填充 TEU
+        DataFrame.fillna({'volumeTEU': DataFrame['volumeTEU'].mean()}, inplace=True)
+
+
+        print(f"剔除不能使用的数据后DataFrame大小:{len(DataFrame)}({len(DataFrame) / Origin_Len * 100:.2f}%)")
+        print("DataFrame处理完毕")
+
+        error_port = set()
+        timer = 0
+        # 计数用 记录有多少数据能够在 标准表中找到
+        LadingIndex = 0
+        UnLadingIndex = 0
+
+        G = nx.MultiDiGraph()
+
+        for index, row in DataFrame.iterrows():
+            timer += 1
+            if timer / len(DataFrame) > 0.01:
+                print('构建网络当前进度：{:.2%}'.format(index / len(DataFrame)))
+                timer = 0
+
+            # 声明港口唯一代码
+            Lading_Code = str()
+            UnLading_Code = str()
+            # 声明一个 是否 匹配 的bool值
+            UnLading_Match = False
+            Lading_Match = False
+
+
+            # COExport的数据没有 portofUnlading 使用 shpmtDestination
+            portOfUnlading = row['shpmtDestination'].lower()
+            # 先去掉括号里的内容  例如：Manaus (BR) --> Manaus
+            portOfUnlading = re.sub(r'\([^)]*\)', '', portOfUnlading).strip()
+            # 处理特殊字符 例如：Paranaguá (BR)
+            portOfUnlading = cls.To_English_Spelling(portOfUnlading)
+            # 再去掉空格
+            portOfUnlading = re.sub(r'[^a-zA-Z]', '', portOfUnlading)
+
+            portOfLading = row['portOfLading'].lower()
+            # 先去掉括号里的内容  例如：Manaus (BR) --> Manaus
+            portOfLading = re.sub(r'\([^)]*\)', '', portOfLading).strip()
+            # 处理特殊字符 例如：Paranaguá (BR)
+            portOfLading = cls.To_English_Spelling(portOfLading)
+            # 再去掉空格
+            portOfLading = re.sub(r'[^a-zA-Z]', '', portOfLading)
+
+            # 增加国家验证
+            UnLadingCountry = row['shpmtDestinationCountry']
+            LadingCountry = row['portOfLadingCountry']
+
+
+            for port in port_data:
+                port_name = port_data[port]["english_name"].lower()
+                port_name = re.sub(r'[^a-zA-Z]', '', port_name)
+
+                port_country = port_data[port]["country_english"]
+                # 交叉匹配 无敌！！  要增加国家验证  因为有一写港口名称很短 容易误判断
+                if (portOfUnlading in port_name or port_name in portOfUnlading) and UnLading_Match is False and port_country == UnLadingCountry:
+                    #
+                    UnLadingIndex += 1
+                    UnLading_Match = True
+                    UnLading_Code = port
+
+                if (portOfLading in port_name or port_name in portOfLading) and Lading_Match is False and port_country == LadingCountry:
+                    #
+                    LadingIndex += 1
+                    Lading_Match = True
+                    Lading_Code = port
+
+            # 如果没有找到匹配的港口 则 continue
+            if not UnLading_Match:
+                error_port.add(portOfUnlading)
+                continue
+
+            if not Lading_Match:
+                error_port.add(portOfLading)
+                continue
+
+            # 这里判断 hsCode 是不是 None 即可
+            if row['hsCode'] is None:
+                continue
+
+            # 为每条边生成一个唯一的键
+            edge_key = f"COExp2019_{row['panjivaRecordId']}"
+            # 创建一个字典来存储边的属性
+            edge_attrs = {
+                'volumeTEU': row['volumeTEU'],
+                'HSCode': row['hsCode']
+            }
+            # 给 edge 和 node 添加属性
+            G.add_edge(Lading_Code, UnLading_Code, key=edge_key, **edge_attrs)
+            G.nodes[Lading_Code]['Country'] = port_data[Lading_Code]["country_english"]
+            G.nodes[UnLading_Code]['Country'] = port_data[UnLading_Code]["country_english"]
+
+        # 使用 GraphML 保存图
+        nx.write_graphml(G, '../Data/CO2019/COExport2019.graphml')
+
+        print(UnLadingIndex / len(DataFrame))
+        print(LadingIndex / len(DataFrame))
+        print("数据的最终利用率", G.number_of_edges() / Origin_Len)
+        for item in error_port:
+            print(item)
+
+    @classmethod
+    def Save_Network_INImport2019(cls):
+
+        IN_data_path = 'D:/PortData/INExport2019.csv'
+        port_data = cls.Read_Port_Data()
+
+        # nrows = 1000000
+        DataFrame = pd.read_csv(IN_data_path, header=None)
+        DataFrame.columns = ['panjivaRecordId' ,'departureDate' ,'conCity','conCountry','shpCity','shpCountry',
+                             'portOfUnlading','portOfUnladingCountry','portOfUnladingUNLOCODE',
+		                     'portOfLading', 'portOfLadingCountry', 'portOfLadingUNLOCODE',
+                             'transportMethod', 'hsCode', 'volumeTEU']
+        # # 剔除重复数据
+        # DataFrame = DataFrame.drop_duplicates()
+        # # 将 相关列转换为字符串类型
+        # DataFrame['portOfUnlading'] = DataFrame['portOfUnlading'].astype(str)
+        # DataFrame['portOfLading'] = DataFrame['portOfLading'].astype(str)
+        # DataFrame['panjivaRecordId'] = DataFrame['panjivaRecordId'].astype(str)
+
+        print("DataFrame加载完毕")
+        print(f"原始DataFrame大小:{len(DataFrame)}")
+
+        Origin_Len = len(DataFrame)
+        # # 剔除重复数据
+        # 删除 'panjivaRecordId' 列重复的行，只保留第一次出现的行
+        DataFrame = DataFrame.drop_duplicates(subset=['panjivaRecordId'], keep='first')
+        print(f"剔除重复数据后DataFrame大小:{len(DataFrame)}")
+
+        # 检查 volumeTEU、weightKg、valueOfGoodsUSD 字段中的空值数量
+        null_counts = DataFrame.isnull().sum()
+        print("每个字段的null值情况：")
+        # print(null_counts / len(DataFrame))
+        # 3. 将小数比例转换为百分比，并格式化为带百分号的字符串
+        percent_ratio = (null_counts / len(DataFrame) * 100).apply(lambda x: f"{x:.2f}%")
+        print(percent_ratio)
+
+        # # 1 使用均值填充 TEU
+        # DataFrame.fillna({'volumeTEU': DataFrame['volumeTEU'].mean()}, inplace=True)
+        # # 2 删除 某某 列为空的行
+        # DataFrame = DataFrame.dropna(subset=['portOfUnlading', 'portOfLading'])
+        #
+        # print(f"剔除不能使用的数据后DataFrame大小:{len(DataFrame)}({len(DataFrame) / Origin_Len * 100:.2f}%)")
+        # print("DataFrame处理完毕")
+        #
+        # error_port = set()
+        # timer = 0
+        # # 计数用 记录有多少数据能够在 标准表中找到
+        # LadingIndex = 0
+        # UnLadingIndex = 0
+        #
+        # G = nx.MultiDiGraph()
+        #
+        # for index, row in DataFrame.iterrows():
+        #     timer += 1
+        #     if timer / len(DataFrame) > 0.01:
+        #         print('构建网络当前进度：{:.2%}'.format(index / len(DataFrame)))
+        #         timer = 0
+        #
+        #     # 声明港口唯一代码
+        #     Lading_Code = str()
+        #     UnLading_Code = str()
+        #     # 声明一个 是否 匹配 的bool值
+        #     UnLading_Match = False
+        #     Lading_Match = False
+        #
+        #     portOfUnlading = row['portOfUnlading'].lower()
+        #     # 先去掉括号里的内容  例如：Manaus (BR) --> Manaus
+        #     portOfUnlading = re.sub(r'\([^)]*\)', '', portOfUnlading).strip()
+        #     # 处理特殊字符 例如：Paranaguá (BR)
+        #     portOfUnlading = cls.To_English_Spelling(portOfUnlading)
+        #     # 再去掉空格
+        #     portOfUnlading = re.sub(r'[^a-zA-Z]', '', portOfUnlading)
+        #
+        #     portOfLading = row['portOfLading'].lower()
+        #     # 先去掉括号里的内容  例如：Manaus (BR) --> Manaus
+        #     portOfLading = re.sub(r'\([^)]*\)', '', portOfLading).strip()
+        #     # 处理特殊字符 例如：Paranaguá (BR)
+        #     portOfLading = cls.To_English_Spelling(portOfLading)
+        #     # 再去掉空格
+        #     portOfLading = re.sub(r'[^a-zA-Z]', '', portOfLading)
+        #
+        #     for port in port_data:
+        #         port_name = port_data[port]["english_name"].lower()
+        #         port_name = re.sub(r'[^a-zA-Z]', '', port_name)
+        #         if (portOfUnlading in port_name or port_name in portOfUnlading) and UnLading_Match is False:
+        #             UnLadingIndex += 1
+        #             UnLading_Match = True
+        #             UnLading_Code = port
+        #
+        #         if (portOfLading in port_name or port_name in portOfLading) and Lading_Match is False:
+        #             LadingIndex += 1
+        #             Lading_Match = True
+        #             Lading_Code = port
+        #
+        #     # 如果没有找到匹配的港口 则 continue
+        #     if not UnLading_Match:
+        #         error_port.add(portOfUnlading)
+        #         continue
+        #
+        #     if not Lading_Match:
+        #         error_port.add(portOfLading)
+        #         continue
+        #
+        #     # 这里判断 hsCode 是不是 None 即可
+        #     if row['hsCode'] is None:
+        #         continue
+        #
+        #     # 为每条边生成一个唯一的键
+        #     edge_key = f"CLImp2019_{row['panjivaRecordId']}"
+        #     # 创建一个字典来存储边的属性
+        #     edge_attrs = {
+        #         'volumeTEU': row['volumeTEU'],
+        #         'HSCode': row['hsCode']
+        #     }
+        #     # 给 edge 和 node 添加属性
+        #     G.add_edge(Lading_Code, UnLading_Code, key=edge_key, **edge_attrs)
+        #     G.nodes[Lading_Code]['Country'] = port_data[Lading_Code]["country_english"]
+        #     G.nodes[UnLading_Code]['Country'] = port_data[UnLading_Code]["country_english"]
+        #
+        # # 使用 GraphML 保存图
+        # nx.write_graphml(G, '../Data/CL2019/CLImport2019.graphml')
+        #
+        # print(UnLadingIndex / len(DataFrame))
+        # print(LadingIndex / len(DataFrame))
+        # print("数据的最终利用率", G.number_of_edges() / Origin_Len)
+        # for item in error_port:
+        #     print(item)
+# def Check_Error_Port(error_port):
+#     # for item in error_port:
+#     #     print(f"{item};{item}")
+#     # 方法一 利用difflib库检查有没有相似的port
+#     for item in error_port:
+#         matches = difflib.get_close_matches(item, Port_Name.keys(), n=1, cutoff=0.5)
+#         if matches:
+#             for matched_port in matches:
+#                 # 直接一步到位
+#                 # pass
+#                 print(f"{item};{Port_Name[matched_port]}")
+#         else:
+#             print(item)
 #
-# print(len(Communities))
-# # for com in Communities:
-# #     print(len(com))
-# # G_1 = nx.double_edge_swap(G.copy(), nswap=30000, max_tries=100000, seed=1)
-# # G_2 = nx.double_edge_swap(G.copy(), nswap=30000, max_tries=100000, seed=2)
-# #
-# #
-# #
-# Latitude = {}
-# Longitude = {}
+#     # # 方法二  去掉后面的（国家）
+#     # for item in error_port:
+#     #     item_Cut =item[:-5]
+#     #     for port in Port_Name.keys():
+#     #         if item_Cut in port:
+#     #             print(f"{item};{Port_Name[port]}")
 #
-# # 逐行读取txt文档 记录经纬度 有一些点有问题就不读取了
-# with open('../Data/PortCoordinateInfo.txt', 'r', encoding='utf-8') as file:
-#     lines = file.readlines()
-# for line in lines:
-#     try:
-#         # 去掉行尾的换行符号
-#         line = line.strip()
-#         # 切分
-#         parts = line.split(":")
+#     # # 方法三
+#     # for item in error_port:
+#     #     # 将 PortName 提取到第一个逗号前
+#     #     Port_Name_Cut = []
+#     #     for key in Port_Name.keys():
+#     #         # 查找第一个逗号的位置
+#     #         comma_index = key.find(',')
+#     #         if comma_index != -1:
+#     #             # 如果找到逗号，提取到第一个逗号之前的部分
+#     #             Port_Name_Cut.append(key[:comma_index].strip())
+#     #         else:
+#     #             # 如果没有逗号，使用整个键
+#     #             Port_Name_Cut.append(key.strip())
+#     #
+#     #     matches = difflib.get_close_matches(item, Port_Name_Cut, n=2, cutoff=0.5)
+#     #     if matches:
+#     #         for matched_port in matches:
+#     #             # 直接一步到位
+#     #             # pass
+#     #             print(f"{item};{Port_Name[matched_port]}")
+#     #     else:
+#     #         print(item)
 #
-#         # 切分后第一段是港口 第二段是经纬度信息
-#         Port = parts[0].strip()
-#         coordinates = parts[1].strip()
-#
-#         # 因为有一些是泛指 没有经纬度坐标
-#         if len(coordinates.split(",")) != 2:
-#             raise ValueError("没有具体经纬度坐标")
-#
-#         latitude = coordinates.split(",")[0].strip()
-#         longitude = coordinates.split(",")[1].strip()
-#
-#         Port = Port[2:]
-#
-#         sign = latitude[-1]     # 记录latitude最后一个字符是 N还是S
-#
-#         latitude = latitude[:-2]
-#         longitude = longitude[:-2]
-#
-#         # 如果是 N 则为 ＋  是 S 则为 -
-#         latitude = float(latitude) if sign == 'N' else -float(latitude)
-#         longitude = float(longitude)
-#
-#         Latitude[Port] = latitude
-#         Longitude[Port] = longitude
-#         # print(f"Port: {Port}")
-#         # print(f"Latitude: {latitude}")
-#         # print(f"Longitude: {longitude}")
-#     except ValueError as e:
-#         pass    # 异常后什么都不执行
-#
-#
-#
-# Port_Colors = {}    # 存放每个港口的颜色
-# Colors = ['red','blue' ,'green' , 'yellow', 'purple', 'orange', 'black', 'cyan', 'white']
-#
-#
-# for i,com in enumerate(Communities):
-#     print(Colors[i])
-#     print(len(com))
-#     for port in com:
-#         Port_Colors[port] = Colors[i]
-# # print("Port_Colors",Port_Colors)
-# # print(len(Port_Colors))
-#
-#
-# # 按照画图时港口的顺序 生成一个 Draw_Color list
-# Draw_Color = []
-# for port in G.nodes():
-#     Draw_Color.append(Port_Colors[port])
-#
-# # print(G.nodes())
-# # print(G.number_of_nodes())
-# # 要画的节点的经纬度坐标
-#
-# Latitude_nodes = [Latitude.get(port,None) for port in G.nodes()]
-# Longitude_nodes = [Longitude.get(port,None) for port in G.nodes()]
-#
-#
-# # print(Latitude_nodes)
-# # print(len(Latitude_nodes))
-# # print(Longitude_nodes)
-# # print(len(Longitude_nodes))
-#
-#
-#
-# world_map = Basemap()
-# # 绘制地图边界，并设置背景颜色为灰色（海洋颜色）
-# world_map.drawmapboundary(fill_color='#D0CFD4')
-# world_map.fillcontinents(color='#EFEFEF', lake_color='#D0CFD4')
-# world_map.drawcoastlines()
-#
-#
-#
-# x,y = world_map(Longitude_nodes,Latitude_nodes)
-# world_map.scatter(x, y, marker='o', color=Draw_Color, s=10, zorder=10)
-# plt.show()
+#     # # 方法四
+#     # # 先预处理 Port_Name，生成截断后的键到原始值的映射
+#     # truncated_to_full = {}
+#     # for key in Port_Name.keys():
+#     #     comma_index = key.find(',')
+#     #     truncated_key = key[:comma_index].strip() if comma_index != -1 else key.strip()
+#     #     # 处理可能的键冲突（多个原始键截断后相同）
+#     #     if truncated_key not in truncated_to_full:
+#     #         truncated_to_full[truncated_key] = Port_Name[key]
+#     #
+#     # # 提取所有截断后的键用于匹配
+#     # Port_Name_Cut = list(truncated_to_full.keys())
+#     #
+#     # # 执行匹配
+#     # for item in error_port:
+#     #     item_Cut = item[:-5]
+#     #     matches = difflib.get_close_matches(item_Cut, Port_Name_Cut, n=2, cutoff=0.5)
+#     #     if matches:
+#     #         for matched_port in matches:
+#     #             # 使用预处理的映射获取原始值，避免 KeyError
+#     #             print(f"{item};{truncated_to_full[matched_port]}")
+#     #     else:
+#     #         print(item)

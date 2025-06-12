@@ -343,13 +343,13 @@ def basic_topology_metrics(g):
     N = g.number_of_nodes()
     M = g.number_of_edges()
     R = nx.degree_assortativity_coefficient(g)
-    C = nx.average_clustering(g)
+    # C = nx.average_clustering(g)
     # L = nx.average_shortest_path_length(g)
     L = average_shortest_path_length_largest_component(g)  # 最大连通分支的平均最短路径
     print("N:", N)
     print("M:", M)
     print("<Knn>:", R)
-    print("<C>:", C)
+    # print("<C>:", C)
     print("<L>", L)
 def average_shortest_path_length_largest_component(g):
     '''

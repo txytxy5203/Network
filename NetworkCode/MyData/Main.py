@@ -65,9 +65,7 @@ def output_nodes():
 # G = nx.read_weighted_edgelist("../Data/US2019/USImport2019.edgelist", nodetype=str, delimiter=':')
 # Algorithm.Basic_Topology.basic_topology_metrics(G)
 
-G = Algorithm.ConstructNetwork.network_USImport2019_Improve()
-N = G.number_of_nodes()
-Algorithm.Basic_Topology.draw_degree_frequency_distribution(G)
+
 
 
 
