@@ -1,12 +1,13 @@
 import csv
+import powerlaw
 import numpy as np
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 from mpl_toolkits.basemap import Basemap
 from Algorithm.ConstructNetwork import ConstructNetwork
-from Algorithm.Basic_Topology import *
-from Algorithm.Map import *
+# from Algorithm.Basic_Topology import *
+# from Algorithm.Map import *
 
 def generate_graph():
     # # # 读取 GraphML 文件
@@ -104,79 +105,65 @@ def generate_graph():
 # world_map.scatter(a, b, marker='o', color='b', s=10, zorder=10)
 # plt.show()
 # MultiDiG_2019 = nx.read_graphml('../Data/FinalGraph/MultiDiGraph2019.graphml')
-def draw_world_ports_communities_map():
-    Colors = ['#670096', '#d78306', '#f205c1', '#3ba91e', '#0068d7', '#e64a03', '#020202', '#CCCCCC']
-    Port_Data = ConstructNetwork.Read_Port_Data()
-    G_2019 = nx.read_graphml('../Data/FinalGraph/Graph2019.graphml')
 
-    communities = nx.community.louvain_communities(G_2019)
-    Port_Colors = {}
+def draw_degree_bc_cc(g, value:str) -> None:
+    '''
+    查看三种中心性指标之间的关系
+    :param g: 传入要计算的 Graph
+    :param value: 有 Degree——BC，Degree——CC，BC--CC三种模式
+    :return:
+    '''
+    bc = nx.betweenness_centrality(g)
+    degree = nx.degree_centrality(g)
+    cc = nx.closeness_centrality(g)
+    degree_bc_cc = [(degree[node], bc[node], cc[node], node) for node in g.nodes()]
 
-    for i, com in enumerate(communities):
-        print(len(com))
-        for port in com:
-            Port_Colors[port] = Colors[i]
-
-    coord = [(float(Port_Data[node]["longitude"]), float(Port_Data[node]["latitude"]), Port_Colors[node])
-             for node in G_2019.nodes() if "latitude" in Port_Data[node].keys() and "longitude" in Port_Data[node].keys()]
-
-    world_map = Basemap()
-    # 绘制地图边界，并设置背景颜色为灰色（海洋颜色）
-    world_map.drawmapboundary(fill_color='#D0CFD4')
-    world_map.fillcontinents(color='#EFEFEF', lake_color='#D0CFD4')
-    world_map.drawcoastlines()
-
-    x, y = world_map([data[0] for data in coord], [data[1] for data in coord])
-    world_map.scatter(x, y, marker='o', color=[data[2] for data in coord], s=10, zorder=10)
-    plt.show()
-def draw_world_ports_degree_heat_map(g, centrality):
-
-    Port_Data = ConstructNetwork.Read_Port_Data()
-
-
-    coord = [(float(Port_Data[node]["longitude"]), float(Port_Data[node]["latitude"]), centrality[node])
-             for node in g.nodes() if "latitude" in Port_Data[node].keys() and "longitude" in Port_Data[node].keys()]
-    value = [data[2] for data in coord]
-
-    # 计算散点大小 - 使用度值的线性映射，并添加最小尺寸
-    min_size = 10
-    max_size = 100
-    min_value = min(value)
-    max_value = max(value)
-
-    # 线性映射函数：将度值映射到散点大小
-    sizes = [min_size + (d - min_value) * (max_size - min_size) / (max_value - min_value) for d in value]
-    # 计算与度值相关的透明度（0.3-1.0）
-    alphas = [0.1 + (d - min_value) * (1.0 - 0.3) / (max_value - min_value) for d in value]
-
-    world_map = Basemap()
-    # 绘制地图边界，并设置背景颜色为灰色（海洋颜色）
-    world_map.drawmapboundary(fill_color='#D0CFD4')
-    world_map.fillcontinents(color='#EFEFEF', lake_color='#D0CFD4')
-    world_map.drawcoastlines()
-
-    x, y = world_map([data[0] for data in coord], [data[1] for data in coord])
-    world_map.scatter(x, y, marker='o', color='b', s=sizes, zorder=10, alpha=alphas)
-    plt.show()
-
-G_2019 = nx.read_graphml('../Data/FinalGraph/Graph2019.graphml')
-bc = nx.betweenness_centrality(G_2019)
-degree = nx.degree_centrality(G_2019)
-cc = nx.closeness_centrality(G_2019)
+    if value == "DB":
+        plt.scatter([data[0] for data in degree_bc_cc], [data[1] for data in degree_bc_cc], marker='s', c='red')
+        plt.xlabel("degree")
+        plt.ylabel("BC")
+        plt.title("degree--BC")
+        plt.savefig('../Figure/节点度值与BC的关系.svg')
+        plt.show()
+    elif value == "DC":
+        plt.scatter([data[0] for data in degree_bc_cc], [data[2] for data in degree_bc_cc], marker='s', c='red')
+        plt.xlabel("degree")
+        plt.ylabel("CC")
+        plt.title("degree--CC")
+        plt.savefig('../Figure/节点度值与CC的关系.svg')
+        plt.show()
+    elif value == "BC":
+        plt.scatter([data[1] for data in degree_bc_cc], [data[2] for data in degree_bc_cc], marker='s', c='red')
+        plt.xlabel("BC")
+        plt.ylabel("CC")
+        plt.title("BC--CC")
+        plt.savefig('../Figure/节点BC与CC的关系.svg')
+        plt.show()
 
 
-sorted_degree = sorted(degree.items(), key=lambda item : item[1], reverse=True)
-print(sorted_degree)
-bc_degree = [(degree[node], bc[node], cc[node] , node) for node in G_2019.nodes()]
 
-plt.scatter([data[0] for data in bc_degree], [data[1] for data in bc_degree], marker='s', c='red')
-plt.xlabel("degree")
-plt.ylabel("BC")
-plt.title("degree--BC")
+
+# # 读取GraphML文件并只保留边的HScode属性
+MultiDiGraph_2019 = nx.read_graphml('../Data/FinalGraph/MultiDiGraph2019.graphml')
+Graph_2019 = nx.read_graphml('../Data/FinalGraph/Graph2019.graphml')
+
+degree_strength = [(Graph_2019.degree(node), MultiDiGraph_2019.degree(node)) for node in Graph_2019.nodes()]
+
+degree_list = [data[0] for data in degree_strength]
+strength_list = [data[1] for data in degree_strength]
+
+correlation = np.corrcoef([degree_list, strength_list])
+
+# 获取两个列表之间的相关系数
+correlation_value = correlation[0, 1]
+
+plt.plot(list(range(1,len(degree_list))), list(range(1,len(strength_list))), color='red', linestyle='--')
+plt.scatter(degree_list, strength_list, s=2, color='darkblue', label=f'correlation={correlation_value:.3f}')
+plt.xlabel('Degree')
+plt.ylabel('Strength')
+plt.yscale('log')
+plt.xscale('log')
+plt.legend()
 plt.show()
 
-plt.scatter([data[0] for data in bc_degree], [data[2] for data in bc_degree], marker='s', c='red')
-plt.xlabel("degree")
-plt.ylabel("CC")
-plt.title("degree--CC")
-plt.show()
+

@@ -429,6 +429,11 @@ def draw_degree_strength(g):
     plt.legend()
     plt.show()
 def draw_strength_frequency_distribution(g):
+    '''
+    以前的版本 使用 Graph 中的weight属性计算
+    :param g:
+    :return:
+    '''
     N = g.number_of_nodes()
     # 计算每个节点的强度
     port_strengths = {node: val for (node, val) in g.degree(weight='weight')}
@@ -444,4 +449,42 @@ def draw_strength_frequency_distribution(g):
     plt.yscale("log")
     plt.xlabel("strength")
     plt.ylabel("P(K=k)")
+    plt.show()
+def draw_strength_distribution(g):
+    '''
+    画强度分布图
+    :param g:
+    :return:
+    '''
+    degree_frequency_numbers = nx.degree_histogram(g)  # 度的频数
+
+    N = g.number_of_nodes()
+    # [0, 675, 789, 676, 428, 258, 205, 153, 140, 99, 92, 65, 45, 57, 38, 48, 25, 44, 20, 18, 28, 16, 12, ...]
+    # print(len(nx.degree_histogram(G)))  # 82
+    x_degree = list(range(len(degree_frequency_numbers)))  # 所有的度数 作为下面画图的x坐标
+
+    # 删去 度为0的元素
+    for i in sorted(x_degree, reverse=True):  # 注意这里要反向遍历 不然索引会出问题
+        if degree_frequency_numbers[i] == 0:
+            del degree_frequency_numbers[i]
+            del x_degree[i]
+
+    degree_frequency = [x / N for x in degree_frequency_numbers]  # 度的频率
+
+    # 绘制原始数据点
+    plt.scatter(x_degree, degree_frequency, color='blue', label='Ports')
+
+    # 设置对数坐标轴
+    plt.xscale("log")
+    plt.yscale("log")
+
+    # 设置坐标轴范围
+    plt.xlim([min(x_degree) * 0.6, max(x_degree) * 1.7])  # 设置x轴范围为数据的最小值到最大值的1.1倍
+    plt.ylim([min(degree_frequency) * 0.6, max(degree_frequency) * 1.7])  # 设置y轴范围为数据的最小值到最大值的1.1倍
+
+    # 添加图例和标题
+    plt.legend()
+    plt.title("Strength Distribution")
+    plt.xlabel("Strength")
+    plt.ylabel("Strength Frequency")
     plt.show()
