@@ -106,64 +106,13 @@ def generate_graph():
 # plt.show()
 # MultiDiG_2019 = nx.read_graphml('../Data/FinalGraph/MultiDiGraph2019.graphml')
 
-def draw_degree_bc_cc(g, value:str) -> None:
-    '''
-    查看三种中心性指标之间的关系
-    :param g: 传入要计算的 Graph
-    :param value: 有 Degree——BC，Degree——CC，BC--CC三种模式
-    :return:
-    '''
-    bc = nx.betweenness_centrality(g)
-    degree = nx.degree_centrality(g)
-    cc = nx.closeness_centrality(g)
-    degree_bc_cc = [(degree[node], bc[node], cc[node], node) for node in g.nodes()]
-
-    if value == "DB":
-        plt.scatter([data[0] for data in degree_bc_cc], [data[1] for data in degree_bc_cc], marker='s', c='red')
-        plt.xlabel("degree")
-        plt.ylabel("BC")
-        plt.title("degree--BC")
-        plt.savefig('../Figure/节点度值与BC的关系.svg')
-        plt.show()
-    elif value == "DC":
-        plt.scatter([data[0] for data in degree_bc_cc], [data[2] for data in degree_bc_cc], marker='s', c='red')
-        plt.xlabel("degree")
-        plt.ylabel("CC")
-        plt.title("degree--CC")
-        plt.savefig('../Figure/节点度值与CC的关系.svg')
-        plt.show()
-    elif value == "BC":
-        plt.scatter([data[1] for data in degree_bc_cc], [data[2] for data in degree_bc_cc], marker='s', c='red')
-        plt.xlabel("BC")
-        plt.ylabel("CC")
-        plt.title("BC--CC")
-        plt.savefig('../Figure/节点BC与CC的关系.svg')
-        plt.show()
-
-
-
-
-# # 读取GraphML文件并只保留边的HScode属性
-MultiDiGraph_2019 = nx.read_graphml('../Data/FinalGraph/MultiDiGraph2019.graphml')
-Graph_2019 = nx.read_graphml('../Data/FinalGraph/Graph2019.graphml')
-
-degree_strength = [(Graph_2019.degree(node), MultiDiGraph_2019.degree(node)) for node in Graph_2019.nodes()]
-
-degree_list = [data[0] for data in degree_strength]
-strength_list = [data[1] for data in degree_strength]
-
-correlation = np.corrcoef([degree_list, strength_list])
-
-# 获取两个列表之间的相关系数
-correlation_value = correlation[0, 1]
-
-plt.plot(list(range(1,len(degree_list))), list(range(1,len(strength_list))), color='red', linestyle='--')
-plt.scatter(degree_list, strength_list, s=2, color='darkblue', label=f'correlation={correlation_value:.3f}')
-plt.xlabel('Degree')
-plt.ylabel('Strength')
-plt.yscale('log')
-plt.xscale('log')
-plt.legend()
-plt.show()
-
-
+animal_plant = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+grease = [15,16,17,18,19,20,21,22,23,24]
+minerals = [25,26,27,28,29,30,31,32,33,34,35,36,37,38]
+rubber_plastics = [39,40,41,42,43]
+pulpwood = [44,45,46,47,48,49]
+textile = [50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67]
+metal = [71,72,73,74,75,76,77,78,79,80,81,82,83]
+machinery = [84,85,86,87,88,89]
+precision_instrument = [90,91,92,94,95,96]
+special_other = [68,69,70,93,97,98,99]

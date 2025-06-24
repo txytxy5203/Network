@@ -14,13 +14,20 @@ from ConstructNetwork import *
 
 
 # 假设有一个MultiDiGraph对象G
-G_multi = nx.MultiDiGraph()
-G_multi.add_edge(1, 2)  # 添加多条边
-G_multi.add_edge(1, 2)
-G_multi.add_edge(2, 1)  # 反向边
-G_multi.add_edge(1, 3)  # 反向边
+G = nx.MultiDiGraph()
+G.add_edge(1, 2, hs=1)
+G.add_edge(1, 2, hs=2)
+G.add_edge(2, 1, hs=1)
+G.add_edge(1, 3, hs=2)
 
-print(list(range(1,4)))
+
+# for node in G.nodes():
+#     out_degree = G.out_degree(node)
+#     in_degree = G.in_degree(node)
+for node in G.nodes():
+    for edge in G.edges(node):
+        print(edge)
+
 
 # # 转换为无向图（忽略多重边和方向）
 # G_1 = nx.Graph(G_multi)  # 或使用G_multi.to_undirected(as_view=False)
@@ -44,3 +51,4 @@ print(list(range(1,4)))
 # # # 验证结果
 # print(G_combined.edges())
 
+print("tan","xue")

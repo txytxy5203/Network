@@ -328,6 +328,7 @@ def draw_inside_outside_degree(g,communities):
     '''
     画出 inside outside degree 的分布图
     标准化之后的
+    :param communities:
     :param g:
     :return:
     '''
@@ -401,29 +402,30 @@ def average_shortest_path_length_largest_component(g):
     largest_component = max(nx.connected_components(g), key=len)  # 提取最大连通分量
     largest_subgraph = g.subgraph(largest_component)
     return nx.average_shortest_path_length(largest_subgraph)
-def draw_degree_strength(g):
+def draw_degree_strength(g1:nx.Graph, g2:nx.MultiDiGraph) -> None:
     '''
-    注意传入的图一定得是 加权的图 !!!
+    注意传入的两个图的 节点 一定是一样的
     得到度值和强度的关系图
-    :param g: 传入一个有权图
+    :param g1: 无向无多边的简单图
+    :param g2: 有向有多边的图
     :return:
     '''
-    degree = dict(g.degree())
-    strength = dict(g.degree(weight='weight'))
 
-    degree_list = np.array(list(degree.values()))
-    strength_list = np.array(list(strength.values()))
+    degree_strength = [(g1.degree(node), g2.degree(node)) for node in g1.nodes()]
+
+    degree_list = [data[0] for data in degree_strength]
+    strength_list = [data[1] for data in degree_strength]
 
     correlation = np.corrcoef([degree_list, strength_list])
 
     # 获取两个列表之间的相关系数
     correlation_value = correlation[0, 1]
-    # 打印相关系数
-    print(f"degree 和 strength 之间的相关系数：{correlation_value}")
 
-    plt.scatter(list(degree.values()), list(strength.values()), s=2, color='darkblue', label=f'correlation={correlation_value:.3f}')
+    # plt.plot(list(range(1,len(degree_list))), list(range(1,len(strength_list))), color='red', linestyle='--')
+    plt.scatter(degree_list, strength_list, s=2, color='darkblue', label=f'correlation={correlation_value:.3f}')
     plt.xlabel('Degree')
     plt.ylabel('Strength')
+    plt.title('Degree--Strength')
     plt.yscale('log')
     plt.xscale('log')
     plt.legend()
@@ -488,3 +490,36 @@ def draw_strength_distribution(g):
     plt.xlabel("Strength")
     plt.ylabel("Strength Frequency")
     plt.show()
+def draw_degree_bc_cc(g, value:str) -> None:
+    '''
+    查看三种中心性指标之间的关系
+    :param g: 传入要计算的 Graph
+    :param value: 有 Degree——BC，Degree——CC，BC--CC三种模式
+    :return:
+    '''
+    bc = nx.betweenness_centrality(g)
+    degree = nx.degree_centrality(g)
+    cc = nx.closeness_centrality(g)
+    degree_bc_cc = [(degree[node], bc[node], cc[node], node) for node in g.nodes()]
+
+    if value == "DB":
+        plt.scatter([data[0] for data in degree_bc_cc], [data[1] for data in degree_bc_cc], marker='s', c='red')
+        plt.xlabel("degree")
+        plt.ylabel("BC")
+        plt.title("degree--BC")
+        plt.savefig('../Figure/节点度值与BC的关系.svg')
+        plt.show()
+    elif value == "DC":
+        plt.scatter([data[0] for data in degree_bc_cc], [data[2] for data in degree_bc_cc], marker='s', c='red')
+        plt.xlabel("degree")
+        plt.ylabel("CC")
+        plt.title("degree--CC")
+        plt.savefig('../Figure/节点度值与CC的关系.svg')
+        plt.show()
+    elif value == "BC":
+        plt.scatter([data[1] for data in degree_bc_cc], [data[2] for data in degree_bc_cc], marker='s', c='red')
+        plt.xlabel("BC")
+        plt.ylabel("CC")
+        plt.title("BC--CC")
+        plt.savefig('../Figure/节点BC与CC的关系.svg')
+        plt.show()
